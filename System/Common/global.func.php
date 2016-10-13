@@ -685,6 +685,6 @@ function getip()
 function checkIp(){
     $url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=';
     $result = json_decode(Post('', $url . getip()), true);
-    return $result['province'].' '.$result['city'];
+    return $result;
 }
 
