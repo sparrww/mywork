@@ -659,7 +659,7 @@ function CnToInt($var, $start = 0) {
  * 获取客户ip
  * @return string
  */
-function getip()
+function getIp()
 {
     $ip = $_SERVER['REMOTE_ADDR'];
     if (isset($_SERVER['HTTP_CDN_SRC_IP'])) {
