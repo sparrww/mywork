@@ -1,6 +1,4 @@
 <?php
-echo 123;die;
-
 define("TPL_INCLUDE",1);
 define('ROOT_PATH',dirname(__FILE__));
 // 引入口文件
