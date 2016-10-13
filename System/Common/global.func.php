@@ -661,7 +661,6 @@ function CnToInt($var, $start = 0) {
  */
 function getip()
 {
-    static $ip = '';
     $ip = $_SERVER['REMOTE_ADDR'];
     if (isset($_SERVER['HTTP_CDN_SRC_IP'])) {
         $ip = $_SERVER['HTTP_CDN_SRC_IP'];
