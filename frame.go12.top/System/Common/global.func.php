@@ -571,7 +571,7 @@ function matchPic($content){
 }
 
 
-function iCurl($url)
+function iCurl($url,$curlPost='')
 {
 
     $timeout = 3;
@@ -596,6 +596,7 @@ function iCurl($url)
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt ($ch, CURLOPT_USERAGENT, $u);
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
     $contents = curl_exec($ch);
     curl_close($ch);
     return $contents ;
@@ -683,7 +684,7 @@ function getIp()
  */
 function checkIp(){
     $url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=';
-    $result = json_decode(Post('', $url . getip()), true);
+    $result = json_decode(iCurl($url . getip()), true);
     return $result;
 }
 
