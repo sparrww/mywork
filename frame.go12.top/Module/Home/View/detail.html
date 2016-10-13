@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{$list['list']['name']}- 第{$list['arr']['zid']}章 {$list['arr']['name']}-书go</title>
+
+    <meta name="keywords"
+          content="{$list['list']['name']},{$list['list']['author']}, 第{$list['arr']['zid']}章 {$list['arr']['name']},在线阅读">
+    <meta name="description"
+          content="书go整理{$list['list']['name']}全集无弹窗在线阅读,当前章节： 第{$list['arr']['zid']}章 {$list['arr']['name']}">
+    <link rel="stylesheet" href="{$_W['mobile_cdn']}css/style.css" type="text/css">
+    <script type="text/javascript" src="{$_W['mobile_cdn']}js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="{$_W['mobile_cdn']}js/xiaoshuo.js"></script>
+    <script type="text/javascript">
+        function jumpPage(event) {
+            var evt = event ? event : window.event;
+            if (evt.keyCode == 37) location = preview_page;
+            if (evt.keyCode == 39) location = next_page;
+            if (evt.keyCode == 13) location = index_page;
+        }
+        document.onkeydown = jumpPage;</script>
+</head>
+<body style="background: rgb(255, 255, 255);">
+<div id="a_head">
+    <ul>
+        <li class="m_ml"></li>
+        <li><a href="{$_W['host']}/">首页</a>{loop $list['tags'] $v}
+        <li><a href="{$_W['host']}/{$tagUrl}&id={$v['id']}">{$v['name']}</a></li>
+        {/loop}
+        <li><a href="{$_W['host']}/{$tagUrl}&id=1">其他</a></li>
+        <li><a href="{$_W['host']}/{$tagUrl}">全本</a>
+    </ul>
+</div>
+<div id="a_main">
+    <div class="bdtop"></div>
+    <div class="bdsub" id="amain" style="background: rgb(255, 255, 255);">
+        <dl>
+            <dt>
+            <p class="fr">
+            <!--<a rel="nofollow"-->
+                             <!--href="/modules/article/addbookcase.php?bid=332&amp;cid=38865"-->
+                             <!--target="_blank">加入书签</a> | <a rel="nofollow"-->
+                                                           <!--href="/modules/article/uservote.php?id=332"-->
+                                                           <!--target="_blank">推荐本书</a> | <a-->
+                    <!--href="/book/332">返回书页</a> | <a rel="nofollow"-->
+                                                                      <!--href="/modules/article/bookcase.php">我的书架</a>-->
+                <!--| <a href="/html/0/332/38865.html" style="color:red" onmouseover="show_wap()"-->
+                     <!--onmouseout="show_wap()">手机阅读</a></p>-->
+            <!--<div id="show_w" class="show_index"><img src=""></div>-->
+            <p></p><a href="/">书go</a> -&gt; <a href="{$tagUrl}&id={$list['list']['tid']}">{$tagsArr['name']}</a>
+            -&gt; <a href="javascript:;">{$list['list']['name']}</a></dt>
+            <dd><h1 style="font-size: 3rem;margin-top: 0.5rem"> 第{$list['arr']['zid']}章 {$list['arr']['name']}</h1></dd>
+            <div class="adhtml">
+                <!--<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><iframe src="http://img.88rpg.net/html/click/14466_2540.html" width="300" height="300" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe></td>
+<td><iframe src="http://img.88rpg.net/html/click/14466_2541.html" width="300" height="300" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe>
+<td><iframe src="http://img.88rpg.net/html/click/14466_2542.html" width="300" height="300" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe></td>
+</tr>
+</table>-->
+            </div>
+            <!--<div class="read_share">-->
+                <!--<script>show_share();</script>-->
+            <!--</div>-->
+            <dd id="contents" style="color: rgb(0, 0, 0);">
+                {$list['arr']['content']}
+
+            </dd>
+            <div class="adhtml">
+                <!--<iframe src="http://img.88rpg.net/html/click/14466_2548.html" width="950" height="90" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe>
+<div align="center" style="padding:3px;"><script type="text/javascript" charset="utf-8" src="http://code.37cs.com/click/txtlink.php?uid=14466"></script></div>-->
+                <!--<script language="javascript" src="/scripts/style_tan.js"></script>-->
+            </div>
+            <!--<dd id="contfoot"><a href="Javascript:void(0);"-->
+                                 <!--onclick="window.external.addFavorite(&#39;/book/332&#39;,&#39;{$list['list']['name']}-书go&#39;);"-->
+                                 <!--class="keep">没看完？将本书加入收藏</a><a rel="nofollow"-->
+                                                                <!--href="/modules/article/addbookcase.php?bid=332&amp;cid=38865"-->
+                                                                <!--class="case" target="_blank">我是会员，将本章节放入书签</a><a-->
+                    <!--href="Javascript:void(0);"-->
+                    <!--onclick="window.clipboardData.setData(&#39;Text&#39;,&#39;推荐一本书哈 《{$list['list']['name']}》 \r\n /book/332&#39;);alert(&#39;复制成功！&#39;);"-->
+                    <!--class="copy">复制本书地址，推荐给好友获取积分</a><a rel="nofollow"-->
+                                                        <!--href="/newmessage.php?tosys=1&amp;title=%B9%E2%B0%B5%C0%D7%D7%F0%20-%20%20%B5%DA%B6%FE%CA%AE%C1%F9%D5%C2%20%BA%CD%D7%D4%BC%BA%D5%BD%B6%B7%20-%20%D5%C2%BD%DA%B4%ED%CE%F3&amp;content=%B6%D4%B1%C8%CD%F8%D6%B7%CA%C7%A3%BA"-->
+                                                        <!--class="report" target="_blank">章节错误？点此举报</a></dd>-->
+            <dd id="tipscent"></dd>
+            <dd id="footlink" style="font-size: 2.5rem;"><a href="{if $last}{php echo create_url('detail')}&bid={$last['bid']}&id={$last['id']}{/if}">上一章</a><a
+                    href="{$arUrl}&id={$list['list']['id']}">返回目录</a><a href="{if $next}{php echo create_url('detail')}&bid={$next['bid']}&id={$next['id']}{/if}">下一章</a>
+            </dd>
+            <dd id="tipsfoot"></dd>
+        </dl>
+        <div class="cl"></div>
+    </div>
+</div>
+<div class="cl" style="height:8px;"></div>
+<div id="a_footer">&#169; 2016 <a href="/">书go</a>(book.go12.top)</div>
+</body>
+</html>

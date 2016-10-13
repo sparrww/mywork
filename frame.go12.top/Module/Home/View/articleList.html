@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020){$_W['host']}/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <title>书go  {$list['list']['name']}</title>
+    <meta name="keywords" content="{$list['list']['name']} {$list['list']['author']} {$list['list']['name']}全文阅读 {$list['list']['name']}TXT下载">
+    <meta name="description" content="无广告无弹窗的在线小说阅读网站，提供小说在线阅读，小说TXT下载，网站没有弹窗广告页面简洁。">
+    <link rel="stylesheet" href="{$_W['mobile_cdn']}css/style.css" type="text/css">
+    <script type="text/javascript" src="{$_W['mobile_cdn']}js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="{$_W['mobile_cdn']}js/xiaoshuo.js"></script>
+</head>
+<!---->
+<body>
+
+<div class="main m_head">
+    <div class="h_logo fl"><a href="{$_W['host']}/"><img src="{$_W['mobile_cdn']}images//logo.jpg" ></a></div>
+    <div class="h_body fl">
+        <div>
+            <p class="fr"><a id="translatelink" rel="nofollow" href="javascript:translatePage();" title="点击[繁/简]切换">繁体版</a> | <a rel="nofollow" onclick="this.style.behavior=&#39;url(#default#homepage)&#39;;this.setHomePage(&#39;{$_W['host']}&#39;);" href="{$_W['host']}/#">设为首页</a> | <a rel="nofollow" href="mailto:{$_W['config']['setting']['email']}">联系我们</a> | <a href="{$_W['host']}/" style="color:red">手机版</a></p>
+            书go：拒绝弹窗 免费阅读
+        </div>
+        <div>
+            <form target="_blank" action="{$_W['host']}/modules/article/search.php" method="post" name="articlesearch" id="articlesearch">
+                <input type="hidden" id="searchtype" name="searchtype" value="articlename">
+                <dl class="fl searchbox">
+                    <dt><i></i><input type="text" name="searchkey"></dt>
+                    <dd><a href="javascript:void(0);" class="so_book" onclick="$(&#39;articlesearch&#39;).submit();"></a><a href="javascript:void(0);" class="so_author" onclick="$(&#39;searchtype&#39;).value=&#39;author&#39;;$(&#39;articlesearch&#39;).submit();"></a></dd>
+                </dl>
+            </form>
+            <!--<dl class="fr loginbox">-->
+            <!--<script language="javascript" type="text/javascript" src="./首页_files/denglu.js"></script><dd>欢迎您，[<a href="javascript:;" onclick="openDialog(&#39;/login.php?jumpurl=&amp;ajax_gets=jieqi_contents&#39;, false);">登录</a>]或[<a href="javascript:;" onclick="openDialog(&#39;/register.php?ajax_gets=jieqi_contents&#39;, false);">注册</a>]</dd>-->
+            <!--</dl>-->
+        </div>
+    </div>
+</div>
+<div class="main m_menu"><ul><li class="m_ml"></li><li><a href="{$_W['host']}/">首页</a>{loop $list['tags'] $v}<li><a href="{$_W['host']}/{$tagUrl}&id={$v['id']}">{$v['name']}</a></li>{/loop}<li><a href="{$_W['host']}/{$tagUrl}&id=1">其他</a></li><li><a href="{$_W['host']}/{$tagUrl}">全本</a></ul></div>
+<div id="a_main">
+    <div class="bdtop"></div>
+    <div class="bdsub">
+        <dl>
+            <dt>
+            <!--<p class="fr"><a rel="nofollow" href=""-->
+                             <!--target="_blank">加入书架</a> | <a rel="nofollow"-->
+                                                           <!--href=""-->
+                                                           <!--target="_blank">推荐本书</a> | <a-->
+                    <!--href="http://book.go12.top/book/332">返回书页</a> |<a rel="nofollow"-->
+                                                                     <!--href="http://book.go12.top/modules/article/bookcase.php">我的书架</a>-->
+                <!--| <a href="" style="color:red" onmouseover="show_wap()"-->
+                     <!--onmouseout="show_wap()">手机阅读</a>-->
+            <!--</p>-->
+
+            <p></p><a href="http://book.go12.top/">书go</a>-&gt; <a href="{$tagUrl}&id={$list['list']['tid']}">{$tagsArr['name']}</a> -&gt;<a
+                href="javascript:;">{$list['list']['name']}</a></dt>
+            <dd><h1>{$list['list']['name']} 最新章节更新列表</h1></dd>
+            <div class="adlist">
+                <script>show_list();</script><!--<iframe src="http://img.88rpg.net/html/click/14466_2547.html" width="950" height="90" marginheight="0" marginwidth="0" scrolling="no" frameborder="0"></iframe>
+<div align="center" style="padding:3px;"><script type="text/javascript" charset="utf-8" src="http://code.37cs.com/click/txtlink.php?uid=14466"></script></div>-->
+            </div>
+            <dd><h3>作者：{$list['list']['author']}</h3></dd>
+            <div class="read_share">
+                <script>show_share();</script>
+            </div>
+            <dd>
+                <table cellspacing="1" cellpadding="0" bgcolor="#E4E4E4" id="at">
+                    <tbody>
+                    <tr>
+                        <th colspan="4">&nbsp; </th>
+                    </tr>
+                    {loop $list['aList'] $k $v}
+                    {if $k%4==0}
+                    {php $a=$k}
+                    <tr>
+                    {/if}
+                        <td class="L"><a href="{php echo create_url('detail',['id'=>$v['id'],'bid'=>$_GPC['bid']])}">第{$v['zid']}章 {$v['name']}</a></td>
+                    {if $a+4 == $k}
+                    </tr>
+                    {/if}
+                    {/loop}
+                    </tbody>
+                </table>
+            </dd>
+            <div class="adlist">
+                <script>show_list2();</script>
+            </div>
+
+            <dd id="foottips"></dd>
+            <dd class="tags"><b>Tags：</b><a
+                    href="http://www.baidu.com/s?ct=2097152&amp;cl=3&amp;wd={php echo urlencode($list['list']['name'].'最新章节 书go')}"
+                    target="_blank">{$list['list']['name']}最新章节</a> <a
+                    href="http://www.soso.com/q?pid=s.idx&amp;w={php echo urlencode($list['list']['name'].'更新列表 书go')}"
+                    target="_blank">{$list['list']['name']}更新列表</a> <a
+                    href="http://www.baidu.com/s?ct=2097152&amp;cl=3&amp;wd={php echo urlencode($list['list']['name'].'全文阅读 书go')}"
+                    target="_blank">{$list['list']['name']}全文阅读</a></dd>
+            <!--<dd class="reports">-->
+                <!--<script>document.write('<a href="http://book.go12.top/newmessage.php?tosys=1&title=-章节错误&amp;content=错误章节：  举报原因如下： " target="_blank" rel="nofollow">章节错误/重复/缺少/欠更/内容违规/点此举报</a>');</script>-->
+                <!--<a href="http://book.go12.top/newmessage.php?tosys=1&amp;title=%B9%E2%B0%B5%C0%D7%D7%F0-%D5%C2%BD%DA%B4%ED%CE%F3&amp;content=%B4%ED%CE%F3%D5%C2%BD%DA%A3%BA%20%20%BE%D9%B1%A8%D4%AD%D2%F2%C8%E7%CF%C2%A3%BA"-->
+                   <!--target="_blank" rel="nofollow">章节错误/重复/缺少/欠更/内容违规/点此举报</a>-->
+            <!--</dd>-->
+            <dd class="tips"><b>书go提示：</b><br> &nbsp;&nbsp;① 文章阅读页面，方向键左右(← →)前后翻页，回车键返回书目录。<br> &nbsp;&nbsp;②
+                如果您发现本书内容有与法律抵触之处，请马上向本站举报，赖以生存的书go需要您们的建议和更多的参与！<br> &nbsp;&nbsp;
+                <!--③ 如果您发现本书最新章节，而本站又没有更新，请<a-->
+                        <!--rel="nofollow"-->
+                        <!--href="http://book.go12.top/newmessage.php?tosys=1&amp;title=+%B8%FC%D0%C2%C2%FD%C1%CB%B9%FE&amp;content=%B7%A2%CF%D6%D5%E2%B8%F6%CD%F8%D5%BE%B8%FC%D0%C2%BF%EC%B5%E3%A3%AC%CD%F8%D6%B7%CA%C7%A3%BA"-->
+                        <!--target="_blank">发短信</a>通知我们，我们会立即处理，您的热心是对网站最大的支持！-->
+            </dd>
+        </dl>
+    </div>
+</div>
+<div class="cl" style="height:8px;"></div>
+<div id="a_footer">&#169; 2016 <a href="http://book.go12.top/">书go</a>(book.go12.top)</div>
+<div style="display:none;width:0px">
+
+</div>
+
+</body>
+</html>
