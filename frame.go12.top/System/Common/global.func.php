@@ -602,7 +602,7 @@ function iCurl($url)
 
 }
 
-function set_log($val){
+function setLog($val){
     if(is_array($val) || is_object($val)){
         $str = var_export($val, true);
     }else{
