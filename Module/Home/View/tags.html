@@ -1,0 +1,96 @@
+{php include $this->display('header.html')}
+
+<!--中心区域-->
+<div class="main">
+
+	<div id="left">
+
+		<div class="block">
+			<div class="blocktitle wsd"><i></i>本月推荐</div>
+			<div class="blockcontent"><ul class="ultop">
+              {loop $list['tj2'] $v}
+              <li><p>{php echo date('m-d',$v['utime'])}</p><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank">{$v['name']}</a></li>
+              {/loop}
+
+              <li style=" list-style:none; text-align:right; border:none;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">更多...</a></li></ul>
+
+			</div>
+		</div>
+		
+			<div class="block">
+				<div class="blocktitle wld"><i></i>排 行 榜</div>
+				<div class="blockcontent wld"><ul class="ulcenter">
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=a_tj">总排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=a_tj">总推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">月排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">月推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=z_tj">周排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=z_tj">周推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=gx">最新入库</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=gx">最近更新</a></li>
+</ul>
+<div class="cl" style="margin-top:10px;"></div></div>
+			</div>
+		
+		
+		
+		  
+	</div>
+	<div id="centerm">
+ 
+ 
+
+ 
+<!--BOOKcat-->
+
+<div class="cl" style="height:8px;"></div>
+<div class="bdtop"></div>
+<div class="bdsub">
+	<dl id="content">
+	
+<dt><h2>{$list['title']} - 文章列表</h2><span><script>class_share();</script></span></dt>
+
+<dd>
+<script>show_class();</script>
+
+<table style="width:736px;" cellpadding="0" cellspacing="1" bgcolor="#E4E4E4">
+  <tbody><tr bgcolor="#F2F2F2">
+    <th width="18%">文章名称</th>
+    <th width="46%">最新章节</th>
+    <th width="13%">作者</th>
+	<th width="8%">字数</th>
+    <th width="9%">更新</th>
+    <th width="6%">状态</th>
+  </tr>
+
+  {loop $list['list'] $v}
+  <tr bgcolor="#FFFFFF">
+    <td class="L"><a href="{$_W['host']}/{$arUrl}&id={$v['bid']}">{$v['b_name']}</a></td>
+    <td class="L"><a href="{$_W['host']}/{php echo create_url('detail',['bid'=>$v['bid'],'id'=>$v['aid']])}" target="_blank"> 第{$v['zid']}章：{$v['a_name']}</a></td>
+    <td class="C">{$v['author']}</td>
+    <td class="C">{$v['utime']}</td>
+    <td class="C">{if $v['status']==0}连载中{/if}{if $v['status']==1}已完结{/if}</td>
+  </tr>
+    {/loop}
+</tbody></table>
+</dd>
+<dd class="pages"><div class="pagelink" id="pagelink">{$list['pagelist']}</div></dd>
+
+
+
+
+	</dl>
+	<div class="cl" style="padding-top:10px;"></div>
+</div>
+
+<!--BOOKcat-->
+ 
+
+</div><!--中间部分DIV结束-->
+ 
+
+</div>
+<!--中心区域结束-->
+
+
+{php include $this->display('footer.html')}

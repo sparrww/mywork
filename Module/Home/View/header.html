@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020){$_W['host']}/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <title>书go</title>
+    <meta name="keywords" content="书go 免费小说 无弹窗小说">
+    <meta name="description" content="无广告无弹窗的在线小说阅读网站，提供小说在线阅读，小说TXT下载，网站没有弹窗广告页面简洁。">
+    <link rel="stylesheet" href="{$_W['mobile_cdn']}css/style.css" type="text/css">
+    <script type="text/javascript" src="{$_W['mobile_cdn']}js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="{$_W['mobile_cdn']}js/xiaoshuo.js"></script>
+</head>
+<!---->
+<body>
+<div style="display: none">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id=\'cnzz_stat_icon_1260142404\'%3E%3C/span%3E%3Cscript src=\'" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1260142404\' type=\'text/javascript\'%3E%3C/script%3E"));</script>
+</div>
+
+<div class="main m_head">
+    <div class="h_logo fl"><a href="{$_W['host']}/"><img src="{$_W['mobile_cdn']}images//logo.jpg" ></a></div>
+    <div class="h_body fl">
+        <div>
+            <p class="fr"><a id="translatelink" rel="nofollow" href="javascript:translatePage();" title="点击[繁/简]切换">繁体版</a> | <a rel="nofollow" onclick="this.style.behavior=&#39;url(#default#homepage)&#39;;this.setHomePage(&#39;{$_W['host']}&#39;);" href="{$_W['host']}/#">设为首页</a> | <a rel="nofollow" href="mailto:{$_W['config']['setting']['email']}">联系我们</a> | <a href="{$_W['host']}/" style="color:red">手机版</a></p>
+            书go：拒绝弹窗 免费阅读
+        </div>
+        <div>
+            <form target="_blank" action="{$_W['host']}/modules/article/search.php" method="post" name="articlesearch" id="articlesearch">
+                <input type="hidden" id="searchtype" name="searchtype" value="articlename">
+                <dl class="fl searchbox">
+                    <dt><i></i><input type="text" name="searchkey"></dt>
+                    <dd><a href="javascript:void(0);" class="so_book" onclick="$(&#39;articlesearch&#39;).submit();"></a><a href="javascript:void(0);" class="so_author" onclick="$(&#39;searchtype&#39;).value=&#39;author&#39;;$(&#39;articlesearch&#39;).submit();"></a></dd>
+                </dl>
+            </form>
+            <!--<dl class="fr loginbox">-->
+            <!--<script language="javascript" type="text/javascript" src="./首页_files/denglu.js"></script><dd>欢迎您，[<a href="javascript:;" onclick="openDialog(&#39;/login.php?jumpurl=&amp;ajax_gets=jieqi_contents&#39;, false);">登录</a>]或[<a href="javascript:;" onclick="openDialog(&#39;/register.php?ajax_gets=jieqi_contents&#39;, false);">注册</a>]</dd>-->
+            <!--</dl>-->
+        </div>
+    </div>
+</div>
+<div class="main m_menu"><ul><li class="m_ml"></li><li><a href="{$_W['host']}/">首页</a>{loop $list['tags'] $v}<li><a href="{$_W['host']}/{$tagUrl}&id={$v['id']}">{$v['name']}</a></li>{/loop}<li><a href="{$_W['host']}/{$tagUrl}&id=1">其他</a></li><li><a href="{$_W['host']}/{$tagUrl}">全本</a></ul></div>
+<!--top_bar_set-->
+
+<!--top_tongkuai-->
+<style>
+    #mbtips{width:960px;margin:0 auto;margin-top:10px;margin-bottom:10px;color:red;font-family:"微软雅黑",Tahoma,Geneva,sans-serif;font-size:13px;font-weight:bold;border:1px solid #FFA467;background-color:#FFE1D2; padding:10px;text-align:center;}
+    #mbtips a{color:#333}
+</style>
+
+<!--<div id="mbtips">-->
+<!--</div>-->
+
+
+
+<div class="adindex"><div id="msg" style="border: 1px solid #E4E4E4;color:red;width:960px;line-height:25px;margin:5px auto;padding:0px;text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>
+<div class="main board">
+    <div class="bdtop"></div>
+    <div class="bdsub">
+        <dl id="s_dl">
+            <dt><h2>小说风云榜</h2><p id="s_dt"><a href="javascript:void(0);" onclick="wamccshow(0)"></a><a href="javascript:void(0);" onclick="wamccshow(1)"></a><a href="javascript:void(0);" onclick="wamccshow(2)"></a><a href="javascript:void(0);" onclick="wamccshow(3)" class="current"></a><a href="javascript:void(0);" onclick="wamccshow(4)"></a><a href="javascript:void(0);" onclick="wamccshow(5)"></a><a href="javascript:void(0);" onclick="wamccshow(6)"></a></p><span><script>bd_index_panel()</script></span></dt>
+            <abbr><bdo id="s_dd">
+
+                {loop $list['tj'] $v}
+                <dd style="display: none;"><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank"><img src="{$v['img']}" alt="{$v['name']}"></a><br><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank">{$v['name']}</a></dd>
+                {/loop}
+
+            </bdo></abbr>
+        </dl>
+    </div>
+</div>

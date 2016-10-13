@@ -1,0 +1,46 @@
+<!--友情链接模块-->
+<div class="cl" style="height:8px;"></div>
+
+<div class="main links">
+    <div class="block">
+        <div class="blocktitle">友情链接</div>
+        <div class="blockcontent"><ul class="ulrow">
+        </ul>
+            <ul class="ulrow">
+                <li><a href="http://www.baidu.com/" target="_blank">百度</a></li>
+
+                <li><a href="{$_W['host']}" target="_blank">书go</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="cl" style="height:8px;"></div>
+<div class="main footer">
+    <div class="bdtop"><i></i><span title="0.039817"></span></div>
+    <div class="ftc">书go网所有小说由网友上传，如有侵犯版权，请来信告知，本站立即予以处理。<br>Copyright &#169; 2016 <a href="{$_W['host']}/">书go</a> All Rights Reserved. </div>
+</div>
+
+<div style="display:none;width:0px"><script>show_runme();</script></div>
+
+<script src="{$_W['mobile_cdn']}js/big5.js" type="text/javascript"></script>
+
+
+<script>
+    (function($){
+        $.ajax({
+            type: 'post',
+            url: "{php echo create_url('ajaxHistory')}",
+            dataType: 'json',
+            data: {},
+            async: true,
+            success: function (data) {
+                $('#msg').append(data.data)
+            }
+        })
+    })(jQuery)
+</script>
+
+</body></html>

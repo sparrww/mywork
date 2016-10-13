@@ -1,0 +1,112 @@
+{php include $this->display('header2.html')}
+
+<!--中心区域-->
+<div class="main">
+
+	<div id="left">
+
+		<div class="block">
+			<div class="blocktitle wsd"><i></i>本月推荐</div>
+			<div class="blockcontent"><ul class="ultop">
+              {loop $list['tj2'] $v}
+              <li><p>{php echo date('m-d',$v['utime'])}</p><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank">{$v['name']}</a></li>
+              {/loop}
+
+              <li style=" list-style:none; text-align:right; border:none;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">更多...</a></li></ul>
+
+			</div>
+		</div>
+		
+			<div class="block">
+				<div class="blocktitle wld"><i></i>排 行 榜</div>
+				<div class="blockcontent wld"><ul class="ulcenter">
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=a_tj">总排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=a_tj">总推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">月排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">月推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=z_tj">周排行榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=z_tj">周推荐榜</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=gx">最新入库</a></li>
+<li style="width:50%;float:left;"><a href="{$_W['host']}/{$tagUrl}&flag=gx">最近更新</a></li>
+</ul>
+<div class="cl" style="margin-top:10px;"></div></div>
+			</div>
+		
+		
+		
+		  
+	</div>
+	<div id="centerm">
+ 
+ 
+
+ 
+<!--BOOKcat-->
+
+<div class="cl" style="height:8px;"></div>
+<div class="bdtop"></div>
+<div class="bdsub">
+	<dl id="content">
+
+        <div class="adhtml"><script>show_book();</script>
+        </div>
+        <dd><h1>{$list['list']['name']} 全文阅读</h1></dd>
+        <dd><div class="fl"><a class="hst" href="{php echo create_url('articleList',['id'=>$_GPC['id']])}"><img style="padding:7px; border:1px solid #E4E4E4; width:120px; height:150px; margin:0 25px 0 15px;" alt="{$list['list']['name']}最新章节列表,{$list['list']['name']}全文阅读" src="{$list['list']['img']}"></a></div>
+            <div class="fl" style="width:550px;"><style>.pl{background:#F2F2F2; padding-left:10px;}</style>
+                <p></p><table cellspacing="1" cellpadding="0" bgcolor="#E4E4E4" id="at">
+                    <tbody><tr><th>文章类别</th><td>&nbsp;<a href="{$tagUrl}&id={$tagsArr['id']}">{$tagsArr['name']}</a></td><th>文章作者</th><td>&nbsp;{$list['list']['author']}</td><th>文章状态</th><td>&nbsp;连载中</td></tr>
+                    <tr><th>收 藏 数</th><td>&nbsp;0</td><th>全文长度</th><td>&nbsp;324515字</td><th>最后更新</th><td>&nbsp;2014-11-25</td></tr>
+                    <tr><th>总点击数</th><td>&nbsp;{$list['list']['tip']}</td><th>本月点击</th><td>&nbsp;{$list['list']['m_tip']}</td><th>本周点击</th><td>&nbsp;{$list['list']['w_tip']}</td></tr>
+                    </tbody></table><p></p><p class="btnlinks"><a class="read" style="width:20%;" href="{php echo create_url('detail',['id'=>$list['last']['id'],'bid'=>$_GPC['id']])}" title="{$list['last']['name']}最新章节更新列表">最新章节</a>
+                    <!--<a href="Javascript:void(0);" onclick="javascript:Ajax.Request(&#39;http://38.ku180.com/modules/article/addbookcase.php?bid=19&#39;,{onComplete:function(){alert(this.response.replace(/&lt;br[^&lt;&gt;]*&gt;/g,&#39;\n&#39;));}});">加入书架</a>-->
+                    <!--<a href="Javascript:void(0);" onclick="javascript:Ajax.Request(&#39;http://38.ku180.com/modules/article/uservote.php?id=19&#39;,{onComplete:function(){alert(this.response.replace(/&lt;br[^&lt;&gt;]*&gt;/g,&#39;\n&#39;));}});">推荐本书</a>-->
+                    <!--<a href="" rel="nofollow" title="{$list['list']['name']}TXT下载">TXT下载</a>-->
+                    <!--<a class="ji" href="">获取积分</a>-->
+                </p>
+
+            </div></dd><div class="cl"></div>
+        <!--<dd style="padding-top:10px;">-->
+            <!--&lt;!&ndash; Baidu Button BEGIN &ndash;&gt;<div class="jia fl"><script>info_share();</script></div>-->
+            <!--<div class="mobile fl">-->
+                <!--<div id="show_w" class="show_info"><img src='http://qr.liantu.com/api.php?text={$_W['host']}'></div>-->
+                <!--<font style="color:#0066FF"><a href="http://38.ku180.com/book/19" target="_blank" onmouseover="show_wap()" onmouseout="show_wap()">手机阅读{$list['list']['name']}</a></font></div></dd>-->
+        <!-- Baidu Button END -->
+
+        <div class="cl"></div><dd style="padding:10px 30px 0 25px;">
+        <p class="pl"><b>{$list['list']['name']}内容简介：</b></p>
+
+        <table width="740px" border="0" cellspacing="0" cellpadding="0" style="padding:5px 5px 5px 5px;">
+            <tbody><tr>
+                <td align="right" style="padding:5px 5px 5px 5px;"><script>show_book2();</script>
+                </td>
+                <td align="left" style="padding:5px 5px 5px 5px;"><script>show_book2();</script>
+                </td>
+            </tr>
+            </tbody></table>
+
+
+        <p>{$list['list']['info']}
+        </p><p style="display:none" id="sidename">分享书籍《{$list['list']['name']}》作者：{$list['list']['author']}</p>
+
+
+        <p style="height:10px;"></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;　　关键字：<u>{$list['list']['name']} {$list['list']['author']}</u> <u>{$list['list']['name']}全文阅读</u> <u>{$list['list']['name']}TXT下载</u></p>
+        <p style="font-weight:bold; font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;　　{$list['list']['name']}最新章节：<a href="{php echo create_url('detail',['id'=>$list['last']['id'],'bid'=>$_GPC['id']])}">第{$list['last']['zid']}章 {$list['last']['name']}</a></p>
+        <p style="height:10px;"></p>
+    </dd>
+    </dl>
+    <div class="cl" style="padding-top:10px;"></div>
+</div>
+
+
+<!--BOOKcat-->
+ 
+
+</div><!--中间部分DIV结束-->
+ 
+
+</div>
+<!--中心区域结束-->
+
+
+{php include $this->display('footer.html')}
