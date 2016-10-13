@@ -91,13 +91,7 @@ if (APP_DEBUG) {
     ini_set("display_errors", 0);
 }
 
-!empty($_GPC['act'])?$_GPC['act'] = ucfirst($_GPC['act']):$_GPC['act'] = 'Home';
-if(empty($_GPC['name'])){
-    $_GPC['name'] = 'index';
-}
-if(empty($_GPC['op'])){
-    $_GPC['op'] = 'index';
-}
+urlType(1);
 
 // 应用路径
 defined('ITEM_PATH')			or define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
