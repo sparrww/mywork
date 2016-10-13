@@ -21,8 +21,7 @@ class homeController extends Controller
      */
     public function index()
     {
-        echo 123;
-        //$this->display('index.html');
+        echo checkIp();
     }
 
 }
