@@ -17,7 +17,7 @@ class indexController extends Controller
     public function index()
     {
 
-        echo 123;
+        echo checkIp();
     }
 
 }
