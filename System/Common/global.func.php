@@ -688,3 +688,13 @@ function checkIp(){
     return $result;
 }
 
+function urlType($type=1){
+    global $_GPC;
+    !empty($_GPC['act'])?$_GPC['act'] = ucfirst($_GPC['act']):$_GPC['act'] = 'Home';
+    if(empty($_GPC['name'])){
+        $_GPC['name'] = 'index';
+    }
+    if(empty($_GPC['op'])){
+        $_GPC['op'] = 'index';
+    }
+}
