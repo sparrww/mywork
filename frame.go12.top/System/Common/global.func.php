@@ -698,3 +698,13 @@ function urlType($type=1){
         $_GPC['op'] = 'index';
     }
 }
+/**
+ * @return string
+ * 获取当前页面url
+ */
+function get_page_url(){
+    $url = (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443') ? 'https://' : 'http://';
+    $url .= $_SERVER['HTTP_HOST'];
+    $url .= isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : urlencode($_SERVER['PHP_SELF']) . '?' . urlencode($_SERVER['QUERY_STRING']);
+    return urlencode($url);
+}
