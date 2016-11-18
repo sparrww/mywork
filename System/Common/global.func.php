@@ -708,3 +708,35 @@ function get_page_url(){
     $url .= isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : urlencode($_SERVER['PHP_SELF']) . '?' . urlencode($_SERVER['QUERY_STRING']);
     return urlencode($url);
 }
+
+/**
+ * @return string
+ * 获取手机类型型号详细信息
+ */
+function getMobileType(){
+    $HTTP_USER_AGENT=$_SERVER['HTTP_USER_AGENT'];
+    $iOS=array("iPhone","iPad","iPod","iTouch");
+    preg_match_all('/(?<=\()([^\]]*?)(?=\))/',$HTTP_USER_AGENT, $arr);
+    $tmp = str_replace("Linux; ","",$arr[0][0]);
+    $tmp = str_replace("_",".",$tmp);
+    $tmp = str_replace(" CPU iPhone OS ","",$tmp);
+    $tmp = str_replace(" like Mac OS X","",$tmp);
+    $tmp = str_replace(" Build","",$tmp);
+    $osarr=explode(";",$tmp);
+    if(in_array($osarr[0],$iOS)){
+        $mobile=explode("Mobile/",$HTTP_USER_AGENT);
+        $mobile=explode(" ",$mobile[1]);
+        $mobiletype="手机：".$osarr[0]."　版本：".$mobile[0]."　系统：iOS".$osarr[1];
+    }else{
+        $mobile=explode("/",$osarr[1]);
+        $mobiletype="手机：".$mobile[0]."　版本：".$mobile[1]."　系统：".$osarr[0];
+        #其他系统
+        if(str_replace(" ","",$osarr[0])=="U"){
+            $tmp = str_replace("Linux; U; ","",$arr[0][0]);
+            $tmp = explode(" Build/",$tmp);
+            $tmp = explode("; zh-cn; ",$tmp[0]);
+            $mobiletype="手机：".$tmp[1]."　系统：".$tmp[0];
+        }
+    }
+    return $mobiletype;
+}
