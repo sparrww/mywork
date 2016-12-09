@@ -742,11 +742,14 @@ function getMobileType(){
 }
 
 /**
- * 将excel转换为数组 by aibhsc
- * */
-function format_excel2array($filePath='',$sheet=0){
-    if(empty($filePath) or !file_exists($filePath)){die('file not exists');}
-    require_once '../source/library/phpexcel/PHPExcel.php';
+ * 将excel转换为数组
+ * @param string $filePath
+ * @param int $sheet
+ * @return array|void
+ */
+function formatExcelArray($filePath='',$sheet=0){
+    if(empty($filePath) || !file_exists($filePath)) return 'file not exists';
+    require_once './source/library/phpexcel/PHPExcel.php';
     $PHPReader = new \PHPExcel_Reader_Excel2007();        //建立reader对象
     if(!$PHPReader->canRead($filePath)){
         $PHPReader = new \PHPExcel_Reader_Excel5();
