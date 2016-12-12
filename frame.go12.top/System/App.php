@@ -100,4 +100,9 @@ define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
 define('VIEW_PATH',ITEM_PATH.'/View');
 
 
+//定义全局变量
+$_W['mobile_cdn'] = $_W['config']['setting']['cdn'].'/Public/'.ucfirst($_GPC['act']).'/';
+$_W['host'] = $_W['config']['setting']['host'];
+
+
 Lib\Lib::getinstance()->run();
