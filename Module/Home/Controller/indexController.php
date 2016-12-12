@@ -16,7 +16,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        include $this->display('index');
+        include $this->display('index.html');
     }
 
 }
