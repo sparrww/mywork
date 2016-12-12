@@ -16,8 +16,8 @@ class indexController extends Controller
      */
     public function index()
     {
-        pdo_insert('123');
-        include $this->display('index.html');
+        pdo_insert('users',['first_name'=>'sww']);
+        echo pdo_insertid();
     }
 
 }
