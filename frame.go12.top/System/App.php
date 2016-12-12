@@ -92,8 +92,6 @@ urlType(1);
 // 应用路径
 defined('ITEM_PATH')			or define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
 defined('CONTROLLER_PATH') 		or define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
-defined('MODEL_PATH')			or define('MODEL_PATH',ITEM_PATH.'/Model');
-defined('EXPAND_PATH')			or define('EXPAND_PATH',ITEM_PATH.'/Expand');
 defined('VIEW_PATH')			or define('VIEW_PATH',ITEM_PATH.'/View');
 defined('DATA_PATH')			or define('DATA_PATH',ITEM_PATH.'/Data');
 defined('CACHE_DATA_PATH')		or define('CACHE_DATA_PATH',DATA_PATH.'/Data');
