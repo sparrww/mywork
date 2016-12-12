@@ -108,7 +108,7 @@ class Exceptions extends \Exception{
 
 		$path=ERROR_PATH;
 
-		if($_W['config']['setting']['DEBUGS']){
+		if($_W['config']['setting']['debug']){
 
         $trace = $e->getTrace();
         krsort($trace);
