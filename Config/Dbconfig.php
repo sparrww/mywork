@@ -2,13 +2,13 @@
  defined('TPL_INCLUDE') or die();
 
  return [
-     "tablepre" => "sww_",
+     "tablepre" => "",
      "master" => [
          "host" =>  "127.0.0.1",
          "username" => "root",
          "password" => "s87161762",
          "port" => "3306",
-         "database" => "book",
+         "database" => "db_go12",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ],
@@ -17,7 +17,7 @@
          "username" => "root",
          "password" => "s87161762",
          "port" => "3306",
-         "database" => "book",
+         "database" => "db_go12",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ]
