@@ -16,6 +16,7 @@ class indexController extends Controller
      */
     public function index()
     {
+        pdo_insert('123');
         include $this->display('index.html');
     }
 
