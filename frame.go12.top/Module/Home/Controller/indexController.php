@@ -16,9 +16,7 @@ class indexController extends Controller
      */
     public function index()
     {
-
-        echo 123;
-        dump(checkIp());
+        include $this->display('index');
     }
 
 }
