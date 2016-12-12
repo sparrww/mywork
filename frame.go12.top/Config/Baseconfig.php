@@ -2,7 +2,7 @@
  defined('TPL_INCLUDE') or die( 'Restricted access');
 
  return array (
-     'debug'=>false,
+     'debug'=>true,
      'ADMIN_CODE' => '8888',
      'cdn' => '',
      'host' => 'http://book.go12.top',
