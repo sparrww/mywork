@@ -49,6 +49,10 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	define('CONFIG_PATH',ROOT_PATH.'/Config');
 	define('MODULE_PATH',ROOT_PATH.'/Module');
 
+
+    //url处理
+    urlType(1);
+
 	// 定义公用路径
 	define('PUBLIC_PATH',ROOT_PATH.'/Public');
 	define('PCOMMON_PATH',PUBLIC_PATH.'/Common');
@@ -91,8 +95,6 @@ if (APP_DEBUG) {
     error_reporting(0);
     ini_set("display_errors", 0);
 }
-
-urlType(1);
 
 // 应用路径
 define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
