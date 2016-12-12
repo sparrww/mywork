@@ -45,6 +45,7 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	define('SYSTEM_LIB_PATH',SYSTEM_PATH.'/Lib');
 	define('SYSTEM_COMMON_PATH',SYSTEM_PATH.'/Common');
 	define('SYSTEM_DRIVER_PATH',SYSTEM_PATH.'/Driver');
+    define('SYSTEM_CLASS_PATH',SYSTEM_PATH.'/Class');
 	define('CONFIG_PATH',ROOT_PATH.'/Config');
 	define('MODULE_PATH',ROOT_PATH.'/Module');
 
