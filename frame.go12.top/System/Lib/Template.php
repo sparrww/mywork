@@ -28,6 +28,7 @@ class Template extends Lib{
         self::$cplFilePostfix = "php";    // 默认后缀
 
         $tpl_path = self::getTplDir().$tpl_file;
+        dump($tpl_path);die;
         if(!file_exists($tpl_path)){
             throwexce(sprintf('Can not find the template file:'.$tpl_path.' Make sure the template file has been created.'));
         }
