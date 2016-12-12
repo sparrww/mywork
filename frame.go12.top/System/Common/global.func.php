@@ -689,7 +689,7 @@ function checkIp(){
 }
 
 function urlType($type=1){
-    global $_GPC;
+    global $_W,$_GPC;
     !empty($_GPC['act'])?$_GPC['act'] = ucfirst($_GPC['act']):$_GPC['act'] = 'Home';
     if(empty($_GPC['name'])){
         $_GPC['name'] = 'index';
@@ -697,6 +697,10 @@ function urlType($type=1){
     if(empty($_GPC['op'])){
         $_GPC['op'] = 'index';
     }
+
+    //定义全局变量
+    $_W['mobile_cdn'] = $_W['config']['setting']['cdn'].'/Public/'.ucfirst($_GPC['act']).'/';
+    $_W['host'] = $_W['config']['setting']['host'];
 }
 /**
  * @return string
