@@ -50,19 +50,6 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	define('MODULE_PATH',ROOT_PATH.'/Module');
 
 
-    //url处理
-    urlType(1);
-
-	// 定义公用路径
-	define('PUBLIC_PATH',ROOT_PATH.'/Public');
-	define('PCOMMON_PATH',PUBLIC_PATH.'/Common');
-    define('UPLOAD_PATH',PUBLIC_PATH.'/Upload');
-
-    define('DATA_PATH',PUBLIC_PATH.'/Data');
-    define('CACHE_VIEW_PATH',DATA_PATH.'/Compile/'.$_GPC['act']);
-    define('ERROR_PATH',DATA_PATH.'/Error');
-    define('LOG_PATH',ERROR_PATH.'/logs');
-	
 /*------------------ 加载库 ------------------*/
 
 
@@ -82,6 +69,25 @@ $_GPC = array_merge($_GET, $_POST, $_GPC);
 $_GPC = ihtmlspecialchars($_GPC);
 
 
+
+
+//url处理
+urlType(1);
+
+// 定义公用路径
+define('PUBLIC_PATH',ROOT_PATH.'/Public');
+define('PCOMMON_PATH',PUBLIC_PATH.'/Common');
+define('UPLOAD_PATH',PUBLIC_PATH.'/Upload');
+define('DATA_PATH',PUBLIC_PATH.'/Data');
+define('CACHE_VIEW_PATH',DATA_PATH.'/Compile/'.$_GPC['act']);
+define('ERROR_PATH',DATA_PATH.'/Error');
+define('LOG_PATH',ERROR_PATH.'/logs');
+
+// 应用路径
+define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
+define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
+define('VIEW_PATH',ITEM_PATH.'/View');
+
 $_W['config']['db'] =  getconfig('Dbconfig.php');
 $_W['config']['setting'] = getconfig('Baseconfig.php');
 
@@ -95,13 +101,6 @@ if (APP_DEBUG) {
     error_reporting(0);
     ini_set("display_errors", 0);
 }
-
-// 应用路径
-define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
-define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
-define('VIEW_PATH',ITEM_PATH.'/View');
-
-
 
 
 Lib\Lib::getinstance()->run();
