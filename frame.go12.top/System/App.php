@@ -50,10 +50,14 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	define('MODULE_PATH',ROOT_PATH.'/Module');
 
 	// 定义公用路径
-	define('PUBLIC_PATH','/Public/');
-	define('PCOMMON_PATH',PUBLIC_PATH.'Common/');
-    define('UPLOAD_PATH',PUBLIC_PATH.'Upload/');
+	define('PUBLIC_PATH','/Public');
+	define('PCOMMON_PATH',PUBLIC_PATH.'/Common');
+    define('UPLOAD_PATH',PUBLIC_PATH.'/Upload');
 
+    define('DATA_PATH',PUBLIC_PATH.'/Data');
+    define('CACHE_VIEW_PATH',DATA_PATH.'/Compile');
+    define('ERROR_PATH',DATA_PATH.'/Error');
+    define('LOG_PATH',ERROR_PATH.'/logs');
 	
 /*------------------ 加载库 ------------------*/
 
@@ -91,13 +95,9 @@ if (APP_DEBUG) {
 urlType(1);
 
 // 应用路径
-defined('ITEM_PATH')			or define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
-defined('CONTROLLER_PATH') 		or define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
-defined('VIEW_PATH')			or define('VIEW_PATH',ITEM_PATH.'/View');
-defined('DATA_PATH')			or define('DATA_PATH',ITEM_PATH.'/Data');
-defined('CACHE_DATA_PATH')		or define('CACHE_DATA_PATH',DATA_PATH.'/Data');
-defined('CACHE_VIEW_PATH')		or define('CACHE_VIEW_PATH',DATA_PATH.'/Compile');
-defined('ERROR_PATH')			or define('ERROR_PATH',DATA_PATH.'/Error');
-defined('LOG_PATH')				or define('LOG_PATH',ERROR_PATH.'/logs');
+define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
+define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
+define('VIEW_PATH',ITEM_PATH.'/View');
+
 
 Lib\Lib::getinstance()->run();
