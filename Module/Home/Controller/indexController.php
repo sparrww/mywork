@@ -16,7 +16,6 @@ class indexController extends Controller
      */
     public function index()
     {
-        echo 123;die;
         include $this->display('index.html');
         include_once SYSTEM_CLASS_PATH.'/pinyin.class.php';
         $pinyin = new \Pinyin();
