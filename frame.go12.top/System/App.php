@@ -41,18 +41,17 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 /*------------------ 路径定义 ------------------*/
 
 	// 系统路径定义
-	defined('SYSTEM_PATH')			or define('SYSTEM_PATH',__DIR__);
-	defined('SYSTEM_LIB_PATH')		or define('SYSTEM_LIB_PATH',SYSTEM_PATH.'/Lib');
-	defined('SYSTEM_COMMON_PATH')	or define('SYSTEM_COMMON_PATH',SYSTEM_PATH.'/Common');
-    defined('UPLOAD_PATH')	        or define('UPLOAD_PATH',SYSTEM_PATH.'/Upload');
-	defined('SYSTEM_DRIVER_PATH')	or define('SYSTEM_DRIVER_PATH',SYSTEM_PATH.'/Driver');
-	defined('CONFIG_PATH')			or define('CONFIG_PATH',ROOT_PATH.'/Config');
-	defined('MODULE_PATH')			or define('MODULE_PATH',ROOT_PATH.'/Module');
+	define('SYSTEM_PATH',__DIR__);
+	define('SYSTEM_LIB_PATH',SYSTEM_PATH.'/Lib');
+	define('SYSTEM_COMMON_PATH',SYSTEM_PATH.'/Common');
+	define('SYSTEM_DRIVER_PATH',SYSTEM_PATH.'/Driver');
+	define('CONFIG_PATH',ROOT_PATH.'/Config');
+	define('MODULE_PATH',ROOT_PATH.'/Module');
 
 	// 定义公用路径
 	define('PUBLIC_PATH','/Public/');
-
 	define('PCOMMON_PATH',PUBLIC_PATH.'Common/');
+    define('UPLOAD_PATH',SYSTEM_PATH.'/Upload');
 
 	
 /*------------------ 加载库 ------------------*/
