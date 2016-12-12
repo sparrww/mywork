@@ -162,5 +162,3 @@ class Exceptions extends \Exception{
 	function throwexce($error, $errno = 500){
 		throw new Exceptions($error, $errno);
 	}
-
-?>
