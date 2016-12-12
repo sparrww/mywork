@@ -55,7 +55,7 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
     define('UPLOAD_PATH',PUBLIC_PATH.'/Upload');
 
     define('DATA_PATH',PUBLIC_PATH.'/Data');
-    define('CACHE_VIEW_PATH',DATA_PATH.'/Compile');
+    define('CACHE_VIEW_PATH',DATA_PATH.'/Compile/'.$_GPC['act']);
     define('ERROR_PATH',DATA_PATH.'/Error');
     define('LOG_PATH',ERROR_PATH.'/logs');
 	
