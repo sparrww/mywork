@@ -18,7 +18,6 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 
 	// 系统定义
 	const CONTROLLER 			=   'Controller';	//控制器名称
-	const MODEL					=   'Model';		//模型名称
 
 
 	// 设置程序运行时间
@@ -31,9 +30,7 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	date_default_timezone_set("PRC");
 	// 设置编码
 	header("Content-Type:text/html;charset=UTF-8");
-	// 脚本开始时间
-	define('__BEGIN__', microtime(true));
-
+	// 脚本运行时间
     define('TIMESTAMP', time());
 
     $_W = $_GPC = array();
@@ -47,10 +44,10 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	defined('SYSTEM_PATH')			or define('SYSTEM_PATH',__DIR__);
 	defined('SYSTEM_LIB_PATH')		or define('SYSTEM_LIB_PATH',SYSTEM_PATH.'/Lib');
 	defined('SYSTEM_COMMON_PATH')	or define('SYSTEM_COMMON_PATH',SYSTEM_PATH.'/Common');
+    defined('UPLOAD_PATH')	        or define('UPLOAD_PATH',SYSTEM_PATH.'/Upload');
 	defined('SYSTEM_DRIVER_PATH')	or define('SYSTEM_DRIVER_PATH',SYSTEM_PATH.'/Driver');
 	defined('CONFIG_PATH')			or define('CONFIG_PATH',ROOT_PATH.'/Config');
 	defined('MODULE_PATH')			or define('MODULE_PATH',ROOT_PATH.'/Module');
-    defined('UPLOAD_PATH')			or define('UPLOAD_PATH',ROOT_PATH.'/Upload');
 
 	// 定义公用路径
 	define('PUBLIC_PATH','/Public/');
