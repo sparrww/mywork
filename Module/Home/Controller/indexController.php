@@ -16,8 +16,9 @@ class indexController extends Controller
      */
     public function index()
     {
-        pdo_insert('users',['first_name'=>'sww']);
-        echo pdo_insertid();
+        include_once SYSTEM_CLASS_PATH.'/pinyin.class.php';
+        $pinyin = new \Pinyin();
+        echo $pinyin->getPinyin('大苏打');
     }
 
 }
