@@ -51,7 +51,7 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	// 定义公用路径
 	define('PUBLIC_PATH','/Public/');
 	define('PCOMMON_PATH',PUBLIC_PATH.'Common/');
-    define('UPLOAD_PATH',SYSTEM_PATH.'/Upload');
+    define('UPLOAD_PATH',PUBLIC_PATH.'Upload/');
 
 	
 /*------------------ 加载库 ------------------*/
