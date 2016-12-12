@@ -1,5 +1,5 @@
 <?php
- defined('TPL_INCLUDE') or die( 'Restricted access');
+ defined('TPL_INCLUDE') or die();
 
  return [
      "tablepre" => "sww_",
