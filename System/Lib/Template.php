@@ -173,7 +173,7 @@ class Template extends Lib{
             $cpl_file = $cpl_file_dir."/".$file_pure_name.".".$cplFilePostfix;
             // 判断文件是否存在，不存在或过期就创建一个
             $parsed_str = self::parse($tpl_path);
-            dump(self::wFile($cpl_file, $parsed_str, 'w'));
+            self::wFile($cpl_file, $parsed_str, 'w');
         }
         return $cpl_file;
     }
