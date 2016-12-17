@@ -137,7 +137,6 @@ class Template extends Lib{
             @fwrite($fp,$str);
             @fclose($fp);
             @umask($oldmask);
-            dump($str);
             return true;
         }
     }
