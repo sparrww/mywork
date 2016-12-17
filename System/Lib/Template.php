@@ -128,7 +128,6 @@ class Template extends Lib{
      * 写文件
      */
     private static function wFile($file_path, $str, $mode='w'){
-        dump($str);die;
         $oldmask = @umask(0);
         $fp = @fopen($file_path, $mode);
         @flock($fp, 3);
@@ -176,6 +175,8 @@ class Template extends Lib{
             $parsed_str = self::parse($tpl_path);
             self::wFile($cpl_file, $parsed_str, 'w');
         }
+
+        dump($cpl_file);
         return $cpl_file;
     }
 
