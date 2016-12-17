@@ -16,10 +16,21 @@ class indexController extends Controller
      */
     public function index()
     {
-        include $this->display('index.html');
-        include_once SYSTEM_CLASS_PATH.'/pinyin.class.php';
-        $pinyin = new \Pinyin();
-        echo $pinyin->getPinyin('大苏打');
+
+        //路由 实例
+
+        pdo_fetch('sql');  //查询一条数据,返回一维数组
+        pdo_fetchall('sql');  //查询多条数据,返回二维数组
+        pdo_fetchcolumn('sql'); //查询字段值,返回字符串
+
+        pdo_insert('table',['数组']); //插入
+        pdo_insertid(); //获取插入后的自增id
+        pdo_update('table',['数组'],['where条件数组']); //更新 返回影响行数
+        pdo_delete('table',['where条件数组']); //删除返回影响行数
+
+
+
+        $this->display('index.html');  //调取模版
     }
 
 }
