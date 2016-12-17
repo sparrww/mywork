@@ -1,3 +1,73 @@
-<html>
-asdasdsa
-</html>
+{php include $this->display('header.html')}
+
+
+<!--中心区域-->
+<div class="main">
+
+	<div id="centeri">
+
+		<div class="block">
+			<div class="blocktitle"><i></i><h2>最近更新</h2></div>
+			<div class="blockcontent">
+				<ul class="update">
+					<div class="adindex2"><script>show_index2();</script>
+					</div>
+
+
+					{loop $list['zx2'] $v}
+					<li><p class="ul1"><a href="{$_W['host']}/{$tagUrl}id={$v['tid']}">[{$v['t_name']}]</a>《<a class="poptext" href="{$_W['host']}/{$arUrl}&id={$v['bid']}" title="{$v['b_name']}" target="_blank">{$v['b_name']}</a>》</p><p class="ul2"><a href="{$_W['host']}/{php echo create_url('detail',['bid'=>$v['bid'],'id'=>$v['id']])}" target="_blank">第{$v['zid']}章 {$v['name']}</a></p><p>{$v['author']}</p>{php echo date('m-d',$v['utime'])}</li>
+					{/loop}
+
+
+					<li class="more"><a href="{$_W['host']}/{$tagUrl}&flag=gx">更多...</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--BOOKcat-->
+
+		<!--BOOKcat-->
+
+	</div><!--中间部分DIV结束-->
+
+	<div id="right">
+		<div class="adindex"><script>show_index3();</script>
+		</div>
+
+		<div class="block">
+			<div class="blocktitle"><span><h2>推荐小说</h2></span></div>
+			<div class="blockcontent">
+				<ul class="ultop">
+
+					{loop $list['tj2'] $v}
+					<li><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank">{$v['name']}</a></li>
+					{/loop}
+
+
+					<li style=" list-style:none; text-align:right; border:none;"><a href="{$_W['host']}/{$tagUrl}&flag=tj">更多...</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="block">
+			<div class="blocktitle"><span><h2>最新小说</h2></span></div>
+			<div class="blockcontent">
+				<ul class="ultop">
+
+					{loop $list['zx'] $v}
+					<li><p>{php echo date('m-d',$v['utime'])}</p><a href="{$_W['host']}/{$arUrl}&id={$v['id']}" target="_blank">{$v['name']}</a></li>
+					{/loop}
+
+
+					<li style=" list-style:none; text-align:right; border:none;"><a href="{$_W['host']}/{$tagUrl}&flag=gx">更多...</a></li>
+				</ul>
+
+
+			</div>
+		</div>
+
+	</div>
+
+</div>
+<!--中心区域结束-->
+
+{php include $this->display('footer.html')}
