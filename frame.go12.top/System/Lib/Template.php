@@ -206,8 +206,6 @@ class Template extends Lib{
         $str = preg_replace('/{([A-Z_\x7f-\xff][A-Z0-9_\x7f-\xff]*)}/s', '<?php echo $1;?>', $str);
         $str = str_replace('{##', '{', $str);
         $str = str_replace('##}', '}', $str);
-
-        dump($str);die;
         return $str;
     }
 
