@@ -16,6 +16,8 @@ class indexController extends Controller
      */
     public function index()
     {
+
+        echo 123;
         $this->display('index.html');  //调取模版
     }
 
