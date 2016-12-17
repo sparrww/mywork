@@ -207,6 +207,7 @@ class Template extends Lib{
         $str = str_replace('{##', '{', $str);
         $str = str_replace('##}', '}', $str);
 
+        dump($str);die;
         return $str;
     }
 
