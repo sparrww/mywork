@@ -128,13 +128,13 @@ class Template extends Lib{
      * 写文件
      */
     private static function wFile($file_path, $str, $mode='w'){
+        dump($str);die;
         $oldmask = @umask(0);
         $fp = @fopen($file_path, $mode);
         @flock($fp, 3);
         if(!$fp){
             return false;
         }else{
-            dump($str);die;
             @fwrite($fp,$str);
             @fclose($fp);
             @umask($oldmask);
