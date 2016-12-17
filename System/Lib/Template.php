@@ -134,9 +134,9 @@ class Template extends Lib{
         if(!$fp){
             return false;
         }else{
-            @fwrite($fp,$str);
-            @fclose($fp);
-            @umask($oldmask);
+            fwrite($fp,$str);
+            fclose($fp);
+            umask($oldmask);
             return true;
         }
     }
