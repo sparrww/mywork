@@ -175,8 +175,6 @@ class Template extends Lib{
             $parsed_str = self::parse($tpl_path);
             self::wFile($cpl_file, $parsed_str, 'w');
         }
-
-        dump($cpl_file);
         return $cpl_file;
     }
 
