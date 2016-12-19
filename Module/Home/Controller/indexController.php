@@ -16,7 +16,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        setLog(1,false);
+        setLog(1);
         include $this->display('index.html');
     }
 
