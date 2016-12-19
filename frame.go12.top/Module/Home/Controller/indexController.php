@@ -17,6 +17,7 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
+        echo "<script type='text/javascript'>alert('我的名字是');</script>";
         echo '<script>window.location.href='.$_W['host'].create_url('index2').'</script>';
         //include $this->display('index.html');
     }
