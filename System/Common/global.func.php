@@ -590,6 +590,20 @@ function iCurl($url,$curlPost='')
 
 }
 
+function Post($url,$curlPost){
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
+    curl_setopt($curl, CURLOPT_HEADER, false);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_NOBODY, true);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);
+    $return_str = curl_exec($curl);
+    curl_close($curl);
+    return $return_str;
+}
+
 function setLog($val,$flag=true){
     if(is_array($val) || is_object($val)){
         $str = var_export($val, true);
