@@ -17,7 +17,7 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
-        dump($_W['host'].create_url('index2'));
+        dump($_W['http_host'].create_url('index2'));
         echo '<script>window.location.href='.create_url('index2').'</script>';
         //include $this->display('index.html');
     }
