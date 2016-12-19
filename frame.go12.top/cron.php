@@ -5,4 +5,4 @@ define('ROOT_PATH',dirname(__FILE__));
 require ROOT_PATH.'/System/cgi.php';
 
 
-dump(iCurl('http://frame.go12.top/'));
+dump(Post('http://frame.go12.top/'));
