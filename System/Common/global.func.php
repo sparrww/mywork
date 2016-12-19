@@ -610,7 +610,7 @@ function setLog($val,$flag=true){
         $str = $val;
     }
     if(!$flag){
-        unlink(IA_ROOT.'/mylog.txt');
+        unlink(ROOT_PATH.'/mylog.txt');
     }
     file_put_contents(ROOT_PATH.'/mylog.txt', $str."\r\n======================================\r\n", FILE_APPEND);
 }
