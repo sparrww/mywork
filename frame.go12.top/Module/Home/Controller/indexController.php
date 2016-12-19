@@ -16,8 +16,14 @@ class indexController extends Controller
      */
     public function index()
     {
+        create_url('index2');
+        //include $this->display('index.html');
+    }
+
+    public function index2()
+    {
         setLog(1);
-        include $this->display('index.html');
+
     }
 
 }
