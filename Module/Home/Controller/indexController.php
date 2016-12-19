@@ -16,7 +16,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        create_url('index2');
+        echo '<script>window.location.href='.create_url('index2').'</script>';
         //include $this->display('index.html');
     }
 
