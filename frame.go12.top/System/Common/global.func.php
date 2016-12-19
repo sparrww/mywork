@@ -603,13 +603,15 @@ function iCurl($url,$curlPost='')
 
 }
 
-function setLog($val){
+function setLog($val,$flag=true){
     if(is_array($val) || is_object($val)){
         $str = var_export($val, true);
     }else{
         $str = $val;
     }
-    //unlink(IA_ROOT.'/mylog.txt');
+    if(!$flag){
+        unlink(IA_ROOT.'/mylog.txt');
+    }
     file_put_contents(ROOT_PATH.'/mylog.txt', $str."\r\n======================================\r\n", FILE_APPEND);
 }
 
