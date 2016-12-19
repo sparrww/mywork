@@ -17,12 +17,14 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
+        echo 1;
         echo '<script>window.location.href="'.$_W['host'].create_url('index2').'"</script>';
         //include $this->display('index.html');
     }
 
     public function index2()
     {
+        echo 2;
         setLog(1);
 
     }
