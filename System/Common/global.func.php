@@ -486,19 +486,6 @@ function message($msg,$type='error'){
     }
 }
 
-
-/**
- * @param string $msg
- * @param string $data
- */
-function json_dump($msg='',$data=''){
-    if(!empty($msg)){
-        echo json_encode(['error'=>1,'msg'=>$msg,'data'=>$data],JSON_UNESCAPED_UNICODE);die;
-    }else{
-        echo json_encode(['error'=>0,'data'=>$data],JSON_UNESCAPED_UNICODE);die;
-    }
-}
-
 /**
  * php 接收流文件
  *
