@@ -69,7 +69,8 @@ $_GPC = array_merge($_GET, $_POST, $_GPC);
 $_GPC = ihtmlspecialchars($_GPC);
 
 
-
+$_W['config']['db'] =  getconfig('Dbconfig.php');
+$_W['config']['setting'] = getconfig('Baseconfig.php');
 
 //url处理
 urlType(1);
@@ -87,9 +88,6 @@ define('LOG_PATH',ERROR_PATH.'/logs');
 define('ITEM_PATH',MODULE_PATH.'/'.$_GPC['act']);
 define('CONTROLLER_PATH',ITEM_PATH.'/Controller');
 define('VIEW_PATH',ITEM_PATH.'/View');
-
-$_W['config']['db'] =  getconfig('Dbconfig.php');
-$_W['config']['setting'] = getconfig('Baseconfig.php');
 
 
 define('APP_DEBUG', $_W['config']['setting']['debug']);
