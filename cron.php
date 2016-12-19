@@ -8,6 +8,6 @@ define('ROOT_PATH',dirname(__FILE__));
 require ROOT_PATH.'/System/cgi.php';
 
 
-
+echo 1;
 
 dump(iCurl('http://frame.go12.top/'));
