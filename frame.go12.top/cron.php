@@ -1,5 +1,5 @@
 <?php
-dump(php_sapi_name());die;
+dump(123);die;
 if(php_sapi_name() != 'cli');die;
 
 define("TPL_INCLUDE",1);
