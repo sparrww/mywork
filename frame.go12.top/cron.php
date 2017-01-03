@@ -1,6 +1,6 @@
 <?php
 dump(123);die;
-if(php_sapi_name() != 'cli');die;
+//if(php_sapi_name() != 'cli');die;
 
 define("TPL_INCLUDE",1);
 define('ROOT_PATH',dirname(__FILE__));
