@@ -590,19 +590,42 @@ function iCurl($url,$curlPost='')
 
 }
 
-function Post($url,$curlPost=[]){
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION,true);
-    curl_setopt($curl, CURLOPT_HEADER, false);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_NOBODY, true);
-    curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);
-    $return_str = curl_exec($curl);
-    curl_close($curl);
-    return $return_str;
+
+/**
+ * 请求接口返回内容
+ * @param  string $url [请求的URL地址]
+ * @param  string $params [请求的参数]
+ * @param  int $ipost [是否采用POST形式]
+ * @return  string
+ */
+function juhecurl($url,$params=false,$ispost=0){
+    $httpInfo = array();
+    $ch = curl_init();
+
+    curl_setopt( $ch, CURLOPT_HTTP_VERSION , CURL_HTTP_VERSION_1_1 );
+    curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT , 5 );
+    curl_setopt( $ch, CURLOPT_TIMEOUT , 5);
+    curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true );
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    if( $ispost )
+    {
+        curl_setopt( $ch , CURLOPT_POST , true );
+        curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
+        curl_setopt( $ch , CURLOPT_URL , $url );
+    }
+    else
+    {
+        if($params){
+            curl_setopt( $ch , CURLOPT_URL , $url.'?'.$params );
+        }else{
+            curl_setopt( $ch , CURLOPT_URL , $url);
+        }
+    }
+    $response = curl_exec( $ch );
+    curl_close( $ch );
+    return $response;
 }
+
 
 function setLog($val,$flag=true){
     if(is_array($val) || is_object($val)){
