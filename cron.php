@@ -4,6 +4,4 @@ define('ROOT_PATH',dirname(__FILE__));
 // 引入口文件
 require ROOT_PATH.'/System/cgi.php';
 
-dump(php_sapi_name());die;
-
-dump(Post('http://frame.go12.top/'));
+if(php_sapi_name() != 'cli');die;
