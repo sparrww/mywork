@@ -23,6 +23,21 @@ class Api
     }
 
 
+    /**
+     * @param $phone
+     * @return mixed
+     * ["resultcode"] => string(3) "200"
+        ["reason"] => string(16) "Return Successd!"
+        ["result"] => array(6) {
+            ["province"] => string(6) "河北"
+            ["city"] => string(9) "石家庄"
+            ["areacode"] => string(4) "0311"
+            ["zip"] => string(6) "050000"
+            ["company"] => string(6) "联通"
+            ["card"] => string(0) ""
+        }
+        ["error_code"] => int(0)
+     */
     public function getPhone($phone){
         $result = Post($this->phoneUrl,$phone);
         return json_decode($result,true);
