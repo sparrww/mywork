@@ -19,7 +19,7 @@ class indexController extends Controller
         global $_W;
         require_once SYSTEM_CLASS_PATH.'/api.class.php';
         $api = new \Api();
-        dump($api->getPhone('15614388385'));
+        dump($api->getPhone('156143883854'));
     }
 
     public function index2()
