@@ -43,6 +43,21 @@ class Api
         return json_decode($result,true);
     }
 
+
+    /**
+     * @param $card
+     * @return mixed
+     *  ["resultcode"] => string(3) "200"
+        ["reason"] => string(15) "成功的返回"
+        ["result"] => array(4) {
+            ["area"] => string(27) "河北省石家庄市郊区"
+            ["sex"] => string(3) "男"
+            ["birthday"] => string(17) "1992年09月17日"
+            ["verify"] => string(0) ""
+        }
+        ["error_code"] => int(0)
+     */
+
     public function getCard($card){
         $result = Post($this->cardUrl,$card);
         return json_decode($result,true);
