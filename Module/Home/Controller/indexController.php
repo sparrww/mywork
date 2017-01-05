@@ -17,9 +17,9 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
-        header('Location:'.$_W['host'].create_url('index2'));
-        //echo '<script>window.location.href="'.$_W['host'].create_url('index2').'"</script>';
-        //include $this->display('index.html');
+        require_once SYSTEM_CLASS_PATH.'/api.class.php';
+        $api = new \Api();
+        dump($api->getIp('117.136.25.231'));
     }
 
     public function index2()
