@@ -43,4 +43,9 @@ class Api
         return json_decode($result,true);
     }
 
+    public function getCard($card){
+        $result = Post($this->cardUrl,$card);
+        return json_decode($result,true);
+    }
+
 }
