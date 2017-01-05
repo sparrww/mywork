@@ -595,7 +595,6 @@ function iCurl($url,$curlPost='')
  * 请求接口返回内容
  * @param  string $url [请求的URL地址]
  * @param  string $params [请求的参数]
- * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
 function juhecurl($url,$params=false){
