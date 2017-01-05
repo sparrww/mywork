@@ -8,7 +8,7 @@ class Api
 
     public function getIp($ip){
         $result = iCurl($this->ipUrl,$ip);
-        return $result;
+        return json_decode($result,true);
     }
 
 }
