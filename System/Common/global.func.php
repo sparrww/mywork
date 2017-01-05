@@ -595,9 +595,10 @@ function iCurl($url,$curlPost='')
  * 请求接口返回内容
  * @param  string $url [请求的URL地址]
  * @param  string $params [请求的参数]
+ * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
-function juhecurl($url,$params=false){
+function juhecurl($url,$params=false,$ispost=0){
     $httpInfo = array();
     $ch = curl_init();
 
@@ -606,12 +607,20 @@ function juhecurl($url,$params=false){
     curl_setopt( $ch, CURLOPT_TIMEOUT , 5);
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true );
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-
-    curl_setopt( $ch , CURLOPT_POST , true );
-    curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
-    curl_setopt( $ch , CURLOPT_URL , $url );
-
-
+    if( $ispost )
+    {
+        curl_setopt( $ch , CURLOPT_POST , true );
+        curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
+        curl_setopt( $ch , CURLOPT_URL , $url );
+    }
+    else
+    {
+        if($params){
+            curl_setopt( $ch , CURLOPT_URL , $url.$params );
+        }else{
+            curl_setopt( $ch , CURLOPT_URL , $url);
+        }
+    }
     $response = curl_exec( $ch );
     curl_close( $ch );
     return $response;
