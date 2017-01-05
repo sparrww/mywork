@@ -22,4 +22,10 @@ class Api
         return json_decode($result,true);
     }
 
+
+    public function getPhone($phone){
+        $result = Post($this->phoneUrl,$phone);
+        return json_decode($result,true);
+    }
+
 }
