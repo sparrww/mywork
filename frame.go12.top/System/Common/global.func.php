@@ -598,7 +598,7 @@ function iCurl($url,$curlPost='')
  * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
-function juhecurl($url,$params=false,$ispost=0){
+function juhecurl($url,$params=false){
     $httpInfo = array();
     $ch = curl_init();
 
@@ -607,20 +607,12 @@ function juhecurl($url,$params=false,$ispost=0){
     curl_setopt( $ch, CURLOPT_TIMEOUT , 5);
     curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true );
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    if( $ispost )
-    {
-        curl_setopt( $ch , CURLOPT_POST , true );
-        curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
-        curl_setopt( $ch , CURLOPT_URL , $url );
-    }
-    else
-    {
-        if($params){
-            curl_setopt( $ch , CURLOPT_URL , $url.'?'.$params );
-        }else{
-            curl_setopt( $ch , CURLOPT_URL , $url);
-        }
-    }
+
+    curl_setopt( $ch , CURLOPT_POST , true );
+    curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
+    curl_setopt( $ch , CURLOPT_URL , $url );
+
+
     $response = curl_exec( $ch );
     curl_close( $ch );
     return $response;
