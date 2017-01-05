@@ -6,9 +6,9 @@ class Api
     public $cardUrl = 'http://apis.juhe.cn/idcard/index?key=f8f5f750cd8749da005e738087c159ab&cardno=';
 
 
-    public function getIp(){
-        $result = iCurl($this->ipUrl,'117.136.25.231');
-        dump($result);
+    public function getIp($ip){
+        $result = iCurl($this->ipUrl,$ip);
+        return $result;
     }
 
 }
