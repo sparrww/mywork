@@ -472,7 +472,7 @@ function pagination($tcount, $pindex, $psize = 15, $url = '', $context = array('
 function message($msg,$type='error'){
     global $_W;
     $type = in_array($type, array('success', 'error')) ? $type : 'error';
-    if($_W['isajax']){
+    if($_W['isajax'] || $type == 'ajax'){
         $vars['type'] = $type;
         $vars['message'] = '';
         if (is_array($msg)) {
