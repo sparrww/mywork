@@ -8,7 +8,8 @@ use Lib\Controller as Controller;
 
 class indexController extends Controller
 {
-
+    const appId = 'wx6dc27ecef35b9ceb';
+    const secret = '69eb5a53cdfc62d0b9507a6718c320eb';
     /**
      * 首页
      *
@@ -17,13 +18,16 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
-        require_once SYSTEM_CLASS_PATH.'/xiaochengxu/demo.php';
+
 
     }
 
-    public function index2()
+    public function onLogin()
     {
-        setLog(1);
+        global $_GPC;
+        if($_GPC['code']){
+            $url = "https://api.weixin.qq.com/sns/jscode2session?appid=".self::appId."&secret=".self::secret."&js_code={$_GPC['code']}&grant_type=authorization_code";
+        }
 
     }
 
