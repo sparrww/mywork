@@ -17,9 +17,8 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
-        require_once SYSTEM_CLASS_PATH.'/api.class.php';
-        $api = new \Api();
-        dump($api->getCard('130106199209172431'));
+        require_once SYSTEM_CLASS_PATH.'/xiaochengxu/demo';
+
     }
 
     public function index2()
