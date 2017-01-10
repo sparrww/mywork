@@ -14,6 +14,8 @@ class indexController extends Controller
     public function __construct()
     {
         global $_W;
+
+        $_W['config']['db']['tablepre'] = '';
         $_W['config']['db']['master'] = [
             "host" =>  "qdm207196369.my3w.com",
             "username" => "qdm207196369",
@@ -74,6 +76,40 @@ class indexController extends Controller
             ]);
 
            message(['list'=>$list,'type'=>'success'],'ajax');
+        }
+    }
+
+
+    /**
+     * 日记列表
+     *
+     * @return html
+     */
+    public function diaryAdd()
+    {
+        global $_W,$_GPC;
+        if(!empty($_GPC['openid']) && !empty($_GPC['title'])){
+            if(empty($_GPC['id'])){
+                pdo_insert('yzlr_diary',[
+                    'title'=> $_GPC['title'],
+                    'content'=>$_GPC['content'],
+                    'ctime'=>TIMESTAMP,
+                    'utime'=>TIMESTAMP
+                ]);
+                if(pdo_insertid()){
+                    message(['id'=>pdo_insertid(),'type'=>'success'],'ajax');
+                }
+            }else{
+                $result = pdo_update('yzlr_diary',[
+                    'title'=> $_GPC['title'],
+                    'content'=>$_GPC['content'],
+                    'ctime'=>TIMESTAMP,
+                    'utime'=>TIMESTAMP
+                ],['id'=>$_GPC['id'],'openid'=>$_GPC['openid']]);
+                if($result){
+                    message(['type'=>'success'],'ajax');
+                }
+            }
         }
     }
 
