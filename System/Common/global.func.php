@@ -475,9 +475,9 @@ function message($msg,$type='error'){
     if($_W['isajax'] || $type == 'ajax'){
         $vars['type'] = $type;
         $vars['message'] = '';
+        dump($msg);die;
         if (is_array($msg)) {
             $vars = array_merge($vars, $msg);
-            dump(123);die;
         } else {
             $vars['message'] = $msg;
         }
