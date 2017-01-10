@@ -471,6 +471,7 @@ function pagination($tcount, $pindex, $psize = 15, $url = '', $context = array('
 
 function message($msg,$type='error'){
     global $_W;
+    dump(123);die;
     $type = in_array($type, array('success', 'error')) ? $type : 'error';
     if($_W['isajax'] || $type == 'ajax'){
         $vars['type'] = $type;
@@ -480,6 +481,7 @@ function message($msg,$type='error'){
         } else {
             $vars['message'] = $msg;
         }
+        dump($vars);die;
         exit(json_encode($vars));
     }else{
         exit($msg);
