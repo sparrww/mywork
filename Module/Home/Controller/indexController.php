@@ -98,6 +98,8 @@ class indexController extends Controller
                 ]);
                 if(pdo_insertid()){
                     message(['id'=>pdo_insertid(),'type'=>'success'],'ajax');
+                }else{
+                    message(['message'=>'添加失败','type'=>'success'],'ajax');
                 }
             }else{
                 $result = pdo_update('yzlr_diary',[
@@ -108,6 +110,8 @@ class indexController extends Controller
                 ],['id'=>$_GPC['id'],'openid'=>$_GPC['openid']]);
                 if($result){
                     message(['type'=>'success'],'ajax');
+                }else{
+                    message(['message'=>'更新失败','type'=>'success'],'ajax');
                 }
             }
         }
