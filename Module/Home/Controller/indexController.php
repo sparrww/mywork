@@ -73,7 +73,7 @@ class indexController extends Controller
                 ':openid'=>$_GPC['openid']
             ]);
 
-            dump($list);
+           message(['list'=>$list,'type'=>'success'],'ajax');
         }
     }
 
