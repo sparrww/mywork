@@ -3,8 +3,8 @@
 include_once "wxBizDataCrypt.php";
 
 
-$appid = 'wx6dc27ecef35b9ceb';
-$sessionKey = '69eb5a53cdfc62d0b9507a6718c320eb';
+$appid = 'wx4f4bc4dec97d474b';
+$sessionKey = 'tiihtNczf5v6AKRyjwEUhQ==';
 
 $encryptedData="CiyLU1Aw2KjvrjMdj8YKliAjtP4gsMZM
                 QmRzooG2xrDcvSnxIMXFufNstNGTyaGS
