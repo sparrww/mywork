@@ -17,7 +17,7 @@ class indexController extends Controller
     public function index()
     {
         global $_W;
-        require_once SYSTEM_CLASS_PATH.'/xiaochengxu/demo';
+        require_once SYSTEM_CLASS_PATH.'/xiaochengxu/demo.php';
 
     }
 
