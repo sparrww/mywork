@@ -15,21 +15,21 @@ class indexController extends Controller
     {
         global $_W;
         $_W['config']['db']['master'] = [
-            "host" =>  "127.0.0.1",
-            "username" => "root",
-            "password" => "s87161762",
+            "host" =>  "qdm207196369.my3w.com",
+            "username" => "qdm207196369",
+            "password" => "197205169",
             "port" => "3306",
-            "database" => "db_go12",
+            "database" => "qdm207196369_db",
             'pconnect' => 0,
             "charset" => "utf8mb4",
         ];
 
         $_W['config']['db']['slave1'] = [
-            "host" =>  "127.0.0.1",
-            "username" => "root",
-            "password" => "s87161762",
+            "host" =>  "qdm207196369.my3w.com",
+            "username" => "qdm207196369",
+            "password" => "197205169",
             "port" => "3306",
-            "database" => "db_go12",
+            "database" => "qdm207196369_db",
             'pconnect' => 0,
             "charset" => "utf8mb4",
         ];
@@ -68,8 +68,11 @@ class indexController extends Controller
     public function diaryList()
     {
         global $_W,$_GPC;
-        pdo_fetchall()
+        $list = pdo_fetchall('select ctime,utime,title,content from yzlr_diary where openid=:openid order by id desc',[
+           ':openid'=>$_GPC['openid']
+        ]);
 
+        message($list);
     }
 
 }
