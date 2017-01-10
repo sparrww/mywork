@@ -25,6 +25,7 @@ class indexController extends Controller
     public function onLogin()
     {
         global $_GPC;
+        echo 123;
         if($_GPC['code']){
             $url = "https://api.weixin.qq.com/sns/jscode2session?appid=".self::appId."&secret=".self::secret."&js_code={$_GPC['code']}&grant_type=authorization_code";
            message(Post($url,false,1),'ajax') ;
