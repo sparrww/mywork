@@ -68,11 +68,13 @@ class indexController extends Controller
     public function diaryList()
     {
         global $_W,$_GPC;
-        $list = pdo_fetchall('select ctime,utime,title,content from yzlr_diary where openid=:openid order by id desc',[
-           ':openid'=>$_GPC['openid']
-        ]);
+        if(!empty($_GPC['openid'])){
+            $list = pdo_fetchall('select ctime,utime,title,content from yzlr_diary where openid=:openid order by id desc',[
+                ':openid'=>$_GPC['openid']
+            ]);
 
-        dump($list);
+            dump($list);
+        }
     }
 
 }
