@@ -471,17 +471,15 @@ function pagination($tcount, $pindex, $psize = 15, $url = '', $context = array('
 
 function message($msg,$type='error'){
     global $_W;
-    $type = in_array($type, array('success', 'error')) ? $type : 'error';
     if($_W['isajax'] || $type == 'ajax'){
+        $type = in_array($type, array('success', 'error')) ? $type : 'error';
         $vars['type'] = $type;
         $vars['message'] = '';
-        dump($msg);die;
         if (is_array($msg)) {
             $vars = array_merge($vars, $msg);
         } else {
             $vars['message'] = $msg;
         }
-        dump($vars);die;
         exit(json_encode($vars));
     }else{
         exit($msg);
