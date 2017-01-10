@@ -72,7 +72,7 @@ class indexController extends Controller
            ':openid'=>$_GPC['openid']
         ]);
 
-        message($list);
+        dump($list);
     }
 
 }
