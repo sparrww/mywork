@@ -480,7 +480,7 @@ function message($msg,$type='error'){
         } else {
             $vars['message'] = $msg;
         }
-        exit(json_encode($vars));
+        exit(json_encode($vars,JSON_UNESCAPED_UNICODE));
     }else{
         exit($msg);
     }
