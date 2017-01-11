@@ -94,6 +94,7 @@ class indexController extends Controller
             if(empty($_GPC['id'])){
                 pdo_insert('yzlr_diary',[
                     'title'=> $_GPC['title'],
+                    'nickname'=>$_GPC['nickname'],
                     'openid'=>$_GPC['openid'],
                     'content'=>$_GPC['content'],
                     'ctime'=>TIMESTAMP,
