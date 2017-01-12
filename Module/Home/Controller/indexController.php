@@ -73,7 +73,7 @@ class indexController extends Controller
     {
         global $_W,$_GPC;
         if(!empty($_GPC['openid'])){
-            $list = pdo_fetchall('select ctime,utime,title,content from yzlr_diary where openid=:openid order by id desc',[
+            $list = pdo_fetchall('select ctime,utime,title,content,label from yzlr_diary where openid=:openid order by id desc',[
                 ':openid'=>$_GPC['openid']
             ]);
 
