@@ -98,7 +98,8 @@ class indexController extends Controller
                     'openid'=>$_GPC['openid'],
                     'content'=>$_GPC['content'],
                     'ctime'=>TIMESTAMP,
-                    'utime'=>TIMESTAMP
+                    'utime'=>TIMESTAMP,
+                    'label'=>$_GPC['label'],
                 ]);
                 if(pdo_insertid()){
                     message(['id'=>pdo_insertid(),'type'=>'success'],'ajax');
@@ -109,6 +110,7 @@ class indexController extends Controller
                 $result = pdo_update('yzlr_diary',[
                     'title'=> $_GPC['title'],
                     'content'=>$_GPC['content'],
+                    'label'=>$_GPC['label'],
                     'ctime'=>TIMESTAMP,
                     'utime'=>TIMESTAMP
                 ],['id'=>$_GPC['id'],'openid'=>$_GPC['openid']]);
