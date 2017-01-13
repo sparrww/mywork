@@ -83,7 +83,7 @@ class indexController extends Controller
 
 
     /**
-     * 日记列表
+     * 日记添加/修改
      *
      * @return html
      */
