@@ -81,6 +81,24 @@ class indexController extends Controller
         }
     }
 
+    /**
+     * 日记列表
+     *
+     * @return html
+     */
+    public function diaryDetail()
+    {
+        global $_W,$_GPC;
+        if(!empty($_GPC['openid'])){
+            $list = pdo_fetch('select * from yzlr_diary where openid=:openid and id=:id',[
+                ':openid'=>$_GPC['openid'],
+                ':id'=>$_GPC['id']
+            ]);
+
+            message(['list'=>$list,'type'=>'success'],'ajax');
+        }
+    }
+
 
     /**
      * 日记添加/修改
