@@ -13,6 +13,7 @@ class Controller{
 
         global $_W;
 
+        echo Template::tpl($path);die;
         return Template::tpl($path);
 	}
 
