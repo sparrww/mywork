@@ -4,20 +4,20 @@
  return [
      "tablepre" => "",
      "master" => [
-         "host" =>  "qdm207196369.my3w.com",
-         "username" => "qdm207196369",
-         "password" => "197205169",
+         "host" =>  "127.0.0.1",
+         "username" => "root",
+         "password" => "s87161762",
          "port" => "3306",
-         "database" => "qdm207196369_db",
+         "database" => "db_go12",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ],
      "slave1" => [
-         "host" =>  "qdm207196369.my3w.com",
-         "username" => "qdm207196369",
-         "password" => "197205169",
+         "host" =>  "127.0.0.1",
+         "username" => "root",
+         "password" => "s87161762",
          "port" => "3306",
-         "database" => "qdm207196369_db",
+         "database" => "db_go12",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ]
