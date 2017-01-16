@@ -12,8 +12,6 @@ class Controller{
     public function display($path,$array=[]){
 
         global $_W;
-
-        echo Template::tpl($path);die;
         return Template::tpl($path);
 	}
 
