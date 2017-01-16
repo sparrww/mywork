@@ -2,7 +2,7 @@
  defined('TPL_INCLUDE') or die();
 
  return array (
-     'debug'=>true,
+     'debug'=>false,
      'ADMIN_CODE' => '8888',
      'cdn' => '',
      'host' => 'http://frame.go12.top/',
