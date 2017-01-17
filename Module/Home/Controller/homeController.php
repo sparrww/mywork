@@ -16,7 +16,9 @@ class homeController extends Controller
      */
     public function index()
     {
+        global $_W,$_GPC;
         //路由 实例
+        // http://'.$_W['host'].'/index.php?act=home&name=home&op=index
 
 //        pdo_fetch('sql');  //查询一条数据,返回一维数组
 //        pdo_fetchall('sql');  //查询多条数据,返回二维数组
