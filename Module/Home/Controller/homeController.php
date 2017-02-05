@@ -32,6 +32,7 @@ class homeController extends Controller
 
         $a = 1111;
 
+        echo $a;die;
         include $this->display('index.html');  //调取模版
     }
 
