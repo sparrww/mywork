@@ -30,7 +30,7 @@ class homeController extends Controller
 //        pdo_delete('table',['where条件数组']); //删除返回影响行数
 
 
-        $a = 1111;
+        $a = 11211;
 
         echo $a;die;
         include $this->display('index.html');  //调取模版
