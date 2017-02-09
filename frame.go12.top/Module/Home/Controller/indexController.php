@@ -8,12 +8,35 @@ use Lib\Controller as Controller;
 
 class indexController extends Controller
 {
-    const appId = 'wx6dc27ecef35b9ceb';
-    const secret = '69eb5a53cdfc62d0b9507a6718c320eb';
-
     public function __construct()
     {
         global $_W;
+    }
+
+
+    private function editer(){
+        global $_W;
+        $_W['host'] = 'http://demo.frontend.com/';
+
+        $html = <<<ETO
+<script id="container" name="content" type="text/plain">
+        这里写你的初始化内容
+    </script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="{$_W['host']}Public/Common/Editer/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="{$_W['host']}Public/Common/Editer/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container',{toolbars: [
+    ['fullscreen', 'source', 'undo', 'redo'],
+    ['bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', 'simpleupload', ,'insertimage']
+]});
+    
+</script>
+ETO;
+        echo $html;
+
     }
 
 
