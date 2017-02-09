@@ -114,7 +114,6 @@ class Template extends Lib{
                 $dir_list .= $v;
             }
 
-            dump($dir_list);
             if(!file_exists($dir_list))
             {
                 @mkdir($dir_list);
