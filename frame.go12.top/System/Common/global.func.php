@@ -716,8 +716,16 @@ function checkIp(){
 
 /**
  * 发送邮件
+ * $Username 你的邮箱名
+ * $Password 邮箱密码
+ * $receive 收件人地址
+ * $Subject 邮件主题
+ * $Body  邮件内容
+ * $FromName 发件人姓名
+ * $Address 收件地址
+ * $file 附件 数组
  */
-function sendmail($Username,$Password,$receive,$Subject='',$Body='',$FromName=''){
+function sendmail($Username,$Password,$receive,$Subject='',$Body='',$FromName='',$Address='',$file=[]){
     require_once SYSTEM_CLASS_PATH."/PHPMailer/PHPMailerAutoload.php";
 
     $mail = new \PHPMailer(); //实例化
@@ -736,15 +744,15 @@ function sendmail($Username,$Password,$receive,$Subject='',$Body='',$FromName=''
     $mail->SMTPAuth = true; //启用smtp认证
     $mail->Username =$Username; //你的邮箱名
     $mail->Password =$Password ; //邮箱密码
-    $mail->From = "15614388385@163.com"; //发件人地址（也就是你的邮箱地址）
-    $mail->FromName ="自动备份到邮箱"; //发件人姓名
-    $mail->AddAddress("838044737@qq.com","邮件");
+    $mail->From = $Username; //发件人地址（也就是你的邮箱地址）
+    $mail->FromName =$FromName; //发件人姓名
+    $mail->AddAddress($receive,$Address);
     $mail->WordWrap = 50; //设置每行字符长度
     $mail->IsHTML(true); // 是否HTML格式邮件
     $mail->CharSet="UTF8"; //设置邮件编码
-    $mail->Subject ="自动备份到邮箱"; //邮件主题
-    $mail->Body ="<b>---自动备份数据---</b><br/>";
-    $mail->AddAttachment($argv[1]); // attachment 附件
+    $mail->Subject =$Subject; //邮件主题
+    $mail->Body =$Body;
+    $mail->AddAttachment($file); // attachment 附件
     if(!$mail->Send()){
         return $mail->ErrorInfo;
     }else{
