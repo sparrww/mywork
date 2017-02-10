@@ -24,6 +24,19 @@ ETO;
 
 }
 
+/**
+ *  {php echo upload()}
+    <a href="javascript:void(0);" id="1" onclick="upImage(this);">上传图片</a>
+    <a href="javascript:void(0);" id="2" onclick="upFiles(this);">上传文件</a>
+    <script>
+    function imageArg(arr,id) {
+
+    }
+    function fileArg(arr,id) {
+
+    }
+    </script>
+ */
 function upload(){
     global $_W;
     $_W['host'] = 'http://demo.frontend.com/';
@@ -37,6 +50,7 @@ function upload(){
 <script type="text/javascript">
 var editor;
 var _editor;
+var uploadId;
 $(function() {
      editor = UE.getEditor('myEditor', {
          initialFrameWidth: 800,
@@ -53,21 +67,24 @@ $(function() {
         _editor.hide();
         //侦听图片上传
         _editor.addListener('beforeInsertImage', function (t, arg) {
-             imageArg(arg);
+             imageArg(arg,uploadId);
         })
         //侦听文件上传，取上传文件列表中第一个上传的文件的路径
         _editor.addListener('afterUpfile', function (t, arg){
-            fileArg(arg);
+         console.log(t)
+            fileArg(arg,uploadId);
         })
     });
 });    
 //弹出图片上传的对话框
-function upImage() {
+function upImage(obj) {
+    uploadId = obj.id
     var myImage = _editor.getDialog("insertimage");
     myImage.open();
 }
 //弹出文件上传的对话框
-function upFiles() {
+function upFiles(obj) {
+    uploadId = obj.id
     var myFiles = _editor.getDialog("attachment");
     myFiles.open();
 }
