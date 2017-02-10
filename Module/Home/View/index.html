@@ -7,6 +7,17 @@
 
 <body>
 <!-- 加载编辑器的容器 -->
-{php echo $this->editer()}
+{php echo $this->upload()}
+
+<a href="javascript:void(0);" onclick="upImage();">上传图片</a>
+<a href="javascript:void(0);" onclick="upFiles();">上传文件</a>
+<script>
+    function imageArg(arr) {
+        console.log(arr)
+    }
+    function fileArg(arr) {
+        console.log(arr)
+    }
+</script>
 </body>
 </html>
