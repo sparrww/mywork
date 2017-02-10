@@ -23,8 +23,6 @@ class indexController extends Controller
         global $_W;
         require SYSTEM_COMMON_PATH.'/ueditor.func.php';
 
-        dump(sendmail('15614388385@163.com','s123456','838044737@qq.com'));
-
         include $this->display('index.html');
     }
 
