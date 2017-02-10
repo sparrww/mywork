@@ -723,9 +723,13 @@ function sendmail($Username,$Password,$receive,$Subject='',$Body='',$FromName=''
     $mail = new \PHPMailer(); //实例化
     $mail->IsSMTP(); // 启用SMTP
 
-    $str = explode($Username,'@')[1];
+    $str = explode('@',$Username);
 
-    dump($str);
+    if(strpos($str[1],'163') !== false){
+        $mail->Host="smtp.163.com";
+    }else if(strpos($str[1],'qq') !== false){
+        $mail->Host="smtp.qq.com";
+    }
 
 
     $mail->Host="smtp.163.com"; //smtp服务器的名称（这里以QQ邮箱为例）
