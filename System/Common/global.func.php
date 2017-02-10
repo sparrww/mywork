@@ -734,13 +734,13 @@ function sendmail($Username,$Password,$receive,$Subject='',$Body='',$FromName=''
     $str = explode('@',$Username);
 
     if(strpos($str[1],'163') !== false){
-        $mail->Host="smtp.163.com";
+        $Host="smtp.163.com";
     }else if(strpos($str[1],'qq') !== false){
-        $mail->Host="smtp.qq.com";
+        $Host="smtp.qq.com";
     }
 
 
-    $mail->Host="smtp.163.com"; //smtp服务器的名称（这里以QQ邮箱为例）
+    $mail->Host=$Host; //smtp服务器的名称（这里以QQ邮箱为例）
     $mail->SMTPAuth = true; //启用smtp认证
     $mail->Username =$Username; //你的邮箱名
     $mail->Password =$Password ; //邮箱密码
