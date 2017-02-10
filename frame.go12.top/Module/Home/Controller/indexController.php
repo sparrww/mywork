@@ -39,6 +39,64 @@ ETO;
 
     }
 
+    private function upload(){
+        global $_W;
+        $_W['host'] = 'http://demo.frontend.com/';
+
+        $html = <<<ETO
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="{$_W['host']}Public/Common/Editer/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="{$_W['host']}Public/Common/Editer/ueditor.all.js"></script>
+<script type="text/javascript">
+var editor;
+var _editor;
+$(function() {
+     editor = UE.getEditor('myEditor', {
+         initialFrameWidth: 800,
+         initialFrameHeight: 300,
+     });
+
+
+    //重新实例化一个编辑器，防止在上面的editor编辑器中显示上传的图片或者文件
+    _editor = UE.getEditor('upload_ue');
+    _editor.ready(function () {
+        //设置编辑器不可用
+    
+        //隐藏编辑器，因为不会用到这个编辑器实例，所以要隐藏
+        _editor.hide();
+        //侦听图片上传
+        _editor.addListener('beforeInsertImage', function (t, arg) {
+             imageArg(arg);
+        })
+        //侦听文件上传，取上传文件列表中第一个上传的文件的路径
+        _editor.addListener('afterUpfile', function (t, arg){
+            fileArg(arg);
+        })
+    });
+});    
+//弹出图片上传的对话框
+function upImage() {
+    var myImage = _editor.getDialog("insertimage");
+    myImage.open();
+}
+//弹出文件上传的对话框
+function upFiles() {
+    var myFiles = _editor.getDialog("attachment");
+    myFiles.open();
+}
+
+
+</script>
+<div style="display: none;">
+    <script type="text/plain" id="myEditor"></script>
+    <script type="text/plain" id="upload_ue"></script> 
+</div>
+ETO;
+        echo $html;
+    }
+
 
     /**
      * 首页

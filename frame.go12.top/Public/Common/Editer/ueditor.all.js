@@ -24784,7 +24784,9 @@ UE.plugin.register('insertfile', function (){
             'insertfile': {
                 execCommand: function (command, filelist){
                     filelist = utils.isArray(filelist) ? filelist : [filelist];
-
+                    if(me.fireEvent('afterUpfile', filelist) === true){
+                        return;
+                    }
                     var i, item, icon, title,
                         html = '',
                         URL = me.getOpt('UEDITOR_HOME_URL'),

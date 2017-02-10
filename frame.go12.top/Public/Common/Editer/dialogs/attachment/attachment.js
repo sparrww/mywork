@@ -27,7 +27,6 @@
 
         setTabFocus('upload');
     }
-
     /* 初始化tabbody */
     function setTabFocus(id) {
         if(!id) return;
@@ -54,7 +53,6 @@
 
     /* 初始化onok事件 */
     function initButtons() {
-
         dialog.onok = function () {
             var list = [], id, tabs = $G('tabhead').children;
             for (var i = 0; i < tabs.length; i++) {
@@ -74,10 +72,10 @@
                     }
                     break;
                 case 'online':
+                    console.log(123)
                     list = onlineFile.getInsertList();
                     break;
             }
-
             editor.execCommand('insertfile', list);
         };
     }
