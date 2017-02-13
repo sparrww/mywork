@@ -35,25 +35,25 @@
             <ul id="menus">
                 <!--普通商户-->
                 <li class="cur">
-                    <a href="{php echo $this->c_url('prize')}" target="main">
+                    <a href="{php echo create_url('prize')}" target="main">
                         <i class="icon ico-my"></i>奖品管理
                     </a>
                 </li>
 
                 <li class="">
-                    <a href="{php echo $this->c_url('award')}" target="main">
+                    <a href="{php echo create_url('award')}" target="main">
                         <i class="icon ico-my"></i>账单管理
                     </a>
                 </li>
 
                 <li class="">
-                    <a href="{php echo $this->c_url('question')}" target="main">
+                    <a href="{php echo create_url('question')}" target="main">
                         <i class="icon ico-my"></i>题库管理
                     </a>
                 </li>
 
                 <li class="">
-                    <a href="{php echo $this->c_url('pwd')}" target="main">
+                    <a href="{php echo create_url('pwd')}" target="main">
                         <i class="icon ico-my"></i>修改密码
                     </a>
                 </li>
@@ -135,7 +135,7 @@
         layer.confirm('您确认要退出系统？', {
             btn: ['确认退出','误点取消'] //按钮
         }, function(){
-            window.location.href = "{php echo $this->c_url('loginOut')}";
+            window.location.href = "{php echo create_url('loginOut')}";
         }, function(){
             return
         });

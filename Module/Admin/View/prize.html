@@ -92,7 +92,7 @@
 //        }
         $.ajax({
             type: 'post',
-            url: "{php echo $this->c_url('awardEdit')}",
+            url: "{php echo create_url('awardEdit')}",
             data:$('#myform').serialize(),
             dataType: 'json',
             async: false,
