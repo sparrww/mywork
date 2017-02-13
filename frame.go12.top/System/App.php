@@ -15,6 +15,8 @@ if(version_compare(PHP_VERSION,'5.5.0','<'))  die('require PHP > 5.5.0 !');
 	// 项目版本
 	define('VERSION', '2.0');
 
+    session_start();
+
 
 	// 系统定义
 	const CONTROLLER 			=   'Controller';	//控制器名称
