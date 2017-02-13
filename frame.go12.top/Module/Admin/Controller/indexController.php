@@ -25,11 +25,11 @@ class indexController extends Controller{
         global $_GPC,$_W;
         //登陆判断
         //dump($_SESSION);die;
-        if(empty($_SESSION[$_GPC['name'].'_login'])) {
+        if(empty($_SESSION[$_GPC['act'].'_login'])) {
             $this->login();
         }
 
-        $this->info = json_decode($_SESSION[$_GPC['name'].'_login'],true);
+        $this->info = json_decode($_SESSION[$_GPC['act'].'_login'],true);
     }
 
     public function Manage() {
@@ -375,7 +375,7 @@ class indexController extends Controller{
      */
     public function loginOut(){
         global $_GPC, $_W;
-        $_SESSION[$_GPC['name'].'_login'] = '';
+        $_SESSION[$_GPC['act'].'_login'] = '';
         echo '<meta http-equiv="refresh" content="0;url=' . create_url('login') . '">';
         die;
     }
@@ -386,7 +386,7 @@ class indexController extends Controller{
     public function login()
     {
         global $_GPC, $_W;
-        if (empty($_SESSION[$_GPC['name'].'_login'])) {
+        if (empty($_SESSION[$_GPC['act'].'_login'])) {
 
             if ($_W['isajax']) {
                 $name = $_GPC['username'];
@@ -400,7 +400,7 @@ class indexController extends Controller{
 
                 if ($result) {
                     setcookie(session_name(), session_id(), time() + 3600 * 24, "/");
-                    $_SESSION[$_GPC['name'].'_login'] = json_encode($result);
+                    $_SESSION[$_GPC['act'].'_login'] = json_encode($result);
                     message(['url' => create_url('manage')],'success');
                 } else {
                     message('用户名与密码不匹配！');
