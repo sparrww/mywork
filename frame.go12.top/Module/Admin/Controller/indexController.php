@@ -32,15 +32,15 @@ class indexController extends Controller{
         $this->info = json_decode($_SESSION[$_GPC['name'].'_login'],true);
     }
 
-    public function doManage() {
+    public function Manage() {
         global $_GPC,$_W;
         include $this->display('header');
     }
 
-    public function doIndex() {
+    public function Index() {
     }
 
-    public function doPrize() {
+    public function Prize() {
         global $_GPC,$_W;
 
         $account = pdo_fetch('select * from '.tablename($this->tableaccount).' where account="'.self::ACCOUNT.'"');
