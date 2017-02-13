@@ -29,7 +29,7 @@
 <div class="my_content">
     <div class="my_seller">
         <div class="my_seller_main clearfix" style="border:0">
-            <!--<a href="{php echo $this->c_url('User',['export'=>1])}" class="my_add" style="margin-left:30px;"><span class="plus_icon"></span><span class="word">导出数据</span></a>-->
+            <!--<a href="{php echo create_url('User',['export'=>1])}" class="my_add" style="margin-left:30px;"><span class="plus_icon"></span><span class="word">导出数据</span></a>-->
             <div class="my_table">
                 <form action="" method="get">
                     <input type="hidden" name="act" value="module">
@@ -52,7 +52,7 @@
                     <!--</select>-->
                         &nbsp;&nbsp;&nbsp;
                         <button class="btn" type="submit" style="margin-bottom: 5px">搜索</button>
-                        <button class="btn" type="button" style="margin-bottom: 5px;margin-left: 10px" onclick="location.href='{php echo $this->c_url('addquestion')}';">
+                        <button class="btn" type="button" style="margin-bottom: 5px;margin-left: 10px" onclick="location.href='{php echo create_url('addquestion')}';">
                             新增问题
                         </button>
                         <!--<button class="btn" type="submit" name="export" value="1">导出</button>-->
@@ -60,7 +60,7 @@
                         <span style="color: red">友情提示：产品广告会随机题库中一道题。</span>
                     </div>
                     </form>
-                <form action="{php echo $this->c_url('importquestion')}" method="post" enctype="multipart/form-data">
+                <form action="{php echo create_url('importquestion')}" method="post" enctype="multipart/form-data">
                     <div class="my_table my_table_noborder" style="padding:10px;">
                         <input type="file" name="cvsfile" id="cvsfile" class="my_btn" placeholder="请上传xls文件" style="width: 200px;float: left;">
                         &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="my_btn" onclick="if($('#cvsfile').val() == ''){alert('请上传一个xls格式的文件');return false;}">导入题库</button>
@@ -113,7 +113,7 @@
                             </td>
                             <td>
                                 <!--<a class="btn" href="">查看</a>-->
-                                <a class="btn" href="{php echo $this->c_url('addquestion',['id'=>$row['id']])}">修改</a>
+                                <a class="btn" href="{php echo create_url('addquestion',['id'=>$row['id']])}">修改</a>
                                 <a class="btn" href="javascript:;" onclick="del({$row['id']})">删除</a>
                             </td>
                         </tr>
@@ -154,7 +154,7 @@
         }, function(){
             $.ajax({
                 type: 'post',
-                url: "{php echo $this->c_url('delquestion')}",
+                url: "{php echo create_url('delquestion')}",
                 data:{
                     "id":id,
                 },
@@ -189,7 +189,7 @@
 //        }
 //        $.ajax({
 //            type: 'post',
-//            url: "{php echo $this->c_url('ttc')}",
+//            url: "{php echo create_url('ttc')}",
 //            data: {
 //                "type": 'update',
 //                "id":id,

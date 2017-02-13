@@ -60,7 +60,7 @@
 
         $.ajax({
             type: 'post',
-            url: "{php echo $this->c_url('pwd')}",
+            url: "{php echo create_url('pwd')}",
             data: {
                 "password": $('#password').val()
             },
