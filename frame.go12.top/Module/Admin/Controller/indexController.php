@@ -26,7 +26,7 @@ class indexController extends Controller{
         //登陆判断
         //dump($_SESSION);die;
         if(empty($_SESSION[$_GPC['name'].'_login'])) {
-            $this->dologin();
+            $this->login();
         }
 
         $this->info = json_decode($_SESSION[$_GPC['name'].'_login'],true);
@@ -358,7 +358,7 @@ class indexController extends Controller{
     /**
      * 修改密码
      */
-    public function doPwd() {
+    public function Pwd() {
         global $_GPC,$_W;
         if ($_W['isajax']) {
             if($_GPC['password']){
@@ -373,7 +373,7 @@ class indexController extends Controller{
     /**
      * 退出
      */
-    public function dologinOut(){
+    public function loginOut(){
         global $_GPC, $_W;
         $_SESSION[$_GPC['name'].'_login'] = '';
         echo '<meta http-equiv="refresh" content="0;url=' . create_url('login') . '">';
@@ -383,7 +383,7 @@ class indexController extends Controller{
     /**
      * 登陆
      */
-    public function dologin()
+    public function login()
     {
         global $_GPC, $_W;
         if (empty($_SESSION[$_GPC['name'].'_login'])) {
