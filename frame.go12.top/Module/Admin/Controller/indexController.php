@@ -227,7 +227,7 @@ class indexController extends Controller{
         $list = pdo_fetchall('SELECT * FROM '.tablename($this->tableaward).$where.' order by id desc '.$limit);
 
 
-        include $this->template('award');
+        include $this->display('award');
 
     }
 
@@ -252,7 +252,7 @@ class indexController extends Controller{
         $list = pdo_fetchall('SELECT * FROM '.tablename($this->tablequestion).$where.' order by id desc '.$limit);
 
 
-        include $this->template('question');
+        include $this->display('question');
 
     }
 
@@ -351,7 +351,7 @@ class indexController extends Controller{
             $list = pdo_fetch('select * from '.tablename($this->tablequestion).' where id=:id',[':id'=>$_GPC['id']]);
         }
 
-        include $this->template('addquestion');
+        include $this->display('addquestion');
 
     }
 
@@ -364,9 +364,9 @@ class indexController extends Controller{
             if($_GPC['password']){
                 pdo_update($this->tablemember,['password'=>md5($_GPC['password']),'utime'=>time()],['id'=>1]);
             }
-            $this->json_dump('');
+            message('');
         }
-        include $this->template('pwd');
+        include $this->display('pwd.html');
 
     }
 
