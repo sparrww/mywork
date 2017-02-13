@@ -295,7 +295,7 @@ class indexController extends Controller{
             ]);
         }
 
-        message("导入数据成功",$this->c_url('question'),"success");
+        message("导入数据成功",create_url('question'),"success");
     }
 
     /**
@@ -345,7 +345,7 @@ class indexController extends Controller{
                     'ctime'=>TIMESTAMP
                 ]);
             }
-            message('操作成功',$this->c_url('question'));
+            message('操作成功',create_url('question'));
         }
         if(!empty($_GPC['id'])){
             $list = pdo_fetch('select * from '.tablename($this->tablequestion).' where id=:id',[':id'=>$_GPC['id']]);
@@ -376,7 +376,7 @@ class indexController extends Controller{
     public function dologinOut(){
         global $_GPC, $_W;
         $_SESSION[$_GPC['name'].'_login'] = '';
-        echo '<meta http-equiv="refresh" content="0;url=' . $this->c_url('login') . '">';
+        echo '<meta http-equiv="refresh" content="0;url=' . create_url('login') . '">';
         die;
     }
 
@@ -401,7 +401,7 @@ class indexController extends Controller{
                 if ($result) {
                     setcookie(session_name(), session_id(), time() + 3600 * 24, "/");
                     $_SESSION[$_GPC['name'].'_login'] = json_encode($result);
-                    message(['url' => $this->c_url('manage')],'success');
+                    message(['url' => create_url('manage')],'success');
                 } else {
                     message('用户名与密码不匹配！');
                 }
@@ -409,7 +409,7 @@ class indexController extends Controller{
             include $this->display('login.html');
             die;
         }else{
-            echo '<meta http-equiv="refresh" content="0;url=' . $this->c_url('Prize') . '">';
+            echo '<meta http-equiv="refresh" content="0;url=' . create_url('Prize') . '">';
             die;
         }
     }
