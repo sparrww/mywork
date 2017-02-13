@@ -24,7 +24,7 @@ class indexController extends Controller{
     public function __construct(){
         global $_GPC,$_W;
         //登陆判断
-        dump($_SESSION);die;
+        //dump($_SESSION);die;
         if(empty($_SESSION[$_GPC['name'].'_login'])) {
             $this->dologin();
         }
