@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/frame_v4.css">
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/layer/layer.js"></script>
+</head>
+<style>
+    td,input {
+        font-size: 1.3rem;
+    }
+</style>
+<body>
+<!--首行分割线-->
+<div class="my_seller">
+    <div class="my_seller_add">
+        <div class="my_appCenter">
+            <div class="my_title" style="width: auto">修改管理员密码</div>
+            <div class="my_appCenter_main clearfix">
+                <form action="" method="post" class="form-horizontal form" enctype="multipart/form-data">
+                    <table class="my_seller_table my_set_table">
+                        <tr>
+                            <td style="width:130px;text-align:right;padding-right:10px;">帐号</td>
+                            <td>
+                                <input type="text" readonly disabled value="{php echo $this->info['username']}" required="required">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:130px;text-align:right;padding-right:10px;">密码</td>
+                            <td>
+                                <input type="text" name="password" id="password" value="" placeholder="不填则不修改密码">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input name="submit" type="button" id="sub" value="提交" class="my_btn">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $("#sub").bind('click',function(){
+        if ($('#password').val() == '') {
+            layer.alert('未修改密码');
+            $('#password').focus();
+            return;
+        }
+
+        $.ajax({
+            type: 'post',
+            url: "{php echo $this->c_url('pwd')}",
+            data: {
+                "password": $('#password').val()
+            },
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if (data.error) {
+                    layer.alert(data.msg);
+                } else {
+                    layer.alert('修改密码成功');
+                    autoTime = setTimeout(function () {
+                        clearTimeout(autoTime);
+                        window.location.reload();
+                    }, 800);
+                }
+            }
+        })
+    })
+</script>
+</html>
+<!--首行分割线-->
