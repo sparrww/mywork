@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/frame_v4.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/daterangepicker.css"/>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/common.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/emotions.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/template.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/layer/layer.js"></script>
+</head>
+<body style="height:100%; overflow:hidden;">
+<div class="frame_container">
+    <div class="frame_left">
+        <img class="logo" src="/source/modules/{$_GPC['name']}/template/images/logo.png">
+        <div class="avatar">
+            <p>你好！{php echo $this->info['username']}</p>
+            <a href="javascript:;" onclick="logout()"  class="logout">[退出]</a>
+        </div>
+        <div class="left_menu">
+            <ul id="menus">
+                <!--普通商户-->
+                <li class="cur">
+                    <a href="{php echo $this->c_url('prize')}" target="main">
+                        <i class="icon ico-my"></i>奖品管理
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="{php echo $this->c_url('award')}" target="main">
+                        <i class="icon ico-my"></i>账单管理
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="{php echo $this->c_url('question')}" target="main">
+                        <i class="icon ico-my"></i>题库管理
+                    </a>
+                </li>
+
+                <li class="">
+                    <a href="{php echo $this->c_url('pwd')}" target="main">
+                        <i class="icon ico-my"></i>修改密码
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--右边-->
+    <iframe style=" position: absolute;
+    width:85%;
+    height: 100%;
+    left: 240px;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    z-index: 7;
+    overflow: scroll;" frameborder="0" id="main" name="main" src="{php echo $this->c_url('prize')}" style=""></iframe>
+</div>
+
+<script type="text/javascript">
+
+    function leftMenuBindEvent() {
+        var menuLi = $(".left_menu li");
+        menuLi.bind("click", function () {
+            $(this).addClass("cur").siblings("li").removeClass("cur");
+        });
+    }
+    leftMenuBindEvent();
+    //切换当前menu
+    // top.changeMenu("jmyxzx");
+    function changeMenu(menu) {
+        $(".left_menu li").each(function () {
+            var _menu = $(this).attr("data-menu");
+            if (_menu && _menu == menu) {
+                $(this).addClass("cur");
+            } else {
+                $(this).removeClass("cur");
+            }
+        });
+    }
+
+    function iframeTopMax() {
+        $('.iframe_container').css('top', '100px');
+    }
+    function iframeTopMin() {
+        $('.iframe_container').css('top', '54px');
+    }
+    iframeTopMin();
+    //调用方法 top.upateTitle("dsfasdfsd");
+    function upateTitle(title) {
+        $(".title").html(title);
+    }
+
+    //分组操作 事件绑定
+    function bindEventGroup() {
+        $("#del_group_btn").bind("click", function () {
+
+            var html = $.template("notice_panel");
+            var obj = $(html);
+            $("body").append(obj);
+            obj.find(".close_btn").bind("click", function () {
+                obj.remove();
+            });
+            obj.find("a").bind("click", function () {
+                obj.remove();
+            });
+        });
+    }
+
+    bindEventGroup();
+    function leftMenuBindEvent() {
+        var menuLi = $(".left_menu li");
+        menuLi.bind("click", function () {
+            $(this).addClass("cur").siblings("li").removeClass("cur");
+        });
+    }
+    leftMenuBindEvent();
+
+    function logout() {
+        layer.confirm('您确认要退出系统？', {
+            btn: ['确认退出','误点取消'] //按钮
+        }, function(){
+            window.location.href = "{php echo $this->c_url('loginOut')}";
+        }, function(){
+            return
+        });
+    }
+    //从右侧定位到左侧菜单
+    function dwmenus(mid) {
+        $('#menus li').removeClass('cur');
+        $('#' + mid).addClass('cur');
+    }
+
+</script>
+</body>
+</html>

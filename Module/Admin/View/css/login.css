@@ -1,0 +1,184 @@
+@charset "utf-8";
+*{
+    padding:0;
+    margin:0;
+    font-family:"微软雅黑",Arial,"宋体";
+    font-size: 12px;
+    color: #000;
+}
+html,body{width:100%;height:100%;}
+body{font-size:12px;z-index:1;color:#333;position:relative;}
+a{color:#333;text-decoration:none;font-size:14px;}
+a:hover, a:focus{
+    text-decoration:none;
+}
+ul,li{list-style:none;margin:0px;padding: 0px;}
+img{border:0;}
+.none{display: none}
+.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}
+.star{
+    color: red;
+    display: inline-block;
+    margin-right: 5px;
+}
+.center{
+    text-align: center;
+}
+.t_right{
+    text-align: right;
+}
+.login_c{
+    width: 100%;
+    min-height: 100%;
+    background: #e6e6e6 url(../images/login_bg.png) 0 bottom no-repeat;
+    position: relative;
+}
+/*.login_c .login_bg{
+    width: 100%;
+    height: 354px;
+    background: url(../images/login_bg.png) 0 0 no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+}*/
+.login_main{width: 100%;float: left;position: relative;}
+.register_bg{
+    background: url(../images/register_bg.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 532px;
+    height: 626px;
+    /*position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -313px;
+    margin-left: -266px;*/
+    margin:50px auto;
+    z-index: 1;
+}
+.c_text{
+    border: 1px solid #959595;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+    margin: 5px 10px;
+    text-indent: 4px;
+    font-size: 16px;
+    outline: none;
+}
+.c_label{
+    text-align: right;
+    font-size: 16px;
+}
+.c_table{
+    margin: 0 auto;
+}
+.c_tip{
+    color: #a0a0a0;
+    font-size: 12px;
+}
+.c_submit{
+    background: #3eb034;
+    text-align: center;
+    line-height: 40px;
+    width: 300px;
+    height: 40px;
+    color: #fff;
+    margin: 5px 10px;
+    display: block;
+    border-radius: 4px;
+}
+.c_submit:hover{
+    color: #fff;
+}
+.c_label2{
+    color: #3eb034;
+    font-size: 12px;
+}
+.c_label2:hover{
+    color: #3eb034;
+}
+.c_title{
+    margin-top: 40px;
+}
+.icode{
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #dcdcdc;
+    display: inline-block;
+    border-radius: 4px;
+}
+.c_text.code{
+    width: 180px;
+}
+
+.custom_select_2{
+    position: relative;
+    border: 1px solid #959595;
+    width: 135px;
+    height: 40px;
+    float: left;
+    background: #fff;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+.custom_select_2 .lable{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 40px;
+    line-height: 37px;
+    text-indent: 5px;
+    font-size: 16px;
+}
+.custom_select_2 .icon{
+    position: absolute;
+    right: 6px;
+    top: 0px;
+    background: url(../images/select_icon.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    width: 16px;
+    height: 36px;
+}
+.custom_select_2 select{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 16px;
+}
+.margin_left{
+    margin-left: 30px;
+}
+.wechat{
+    background: url(../images/wechat.png) 0 0 no-repeat;
+    background-size: 100%;
+    width: 226px;
+    height: 34px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.free_btn{
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.c_checkbox{    
+    height: 30px;
+    line-height: 30px;
+    margin: 5px 10px;
+}
+.c_logo{
+    margin: 60px 0 40px;
+}
+

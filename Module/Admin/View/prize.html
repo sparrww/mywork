@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/frame_v4.css">
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/laydate/laydate.js"></script>
+</head>
+<style>
+    td,input {
+        font-size: 1.3rem;
+        margin: 10px;
+    }
+    select{
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+<div class="my_content">
+    <div class="my_seller">
+        <div class="my_seller_main clearfix" style="border:0">
+            <div class="my_table">
+                <form action="" method="post" id="myform">
+                    <table class="table">
+                        <tr>
+                            <td style="color: red">
+                                友情提示： 目前奖品总数量为 {$num}个，剩余数量为 {$draw}个，账户总金额 {$account['total_amount']}元，账户余额剩余 {$account['surplus_amount']}元（请注意账户剩余金额，金额不足会导致红包发放失败）。
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="color: red">友情提示2：所有奖品剩余数量或者奖品概率为0时，不会再有用户中奖。
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>奖品名称<i></i></th>
+                            <th>奖品总数量<i></i></th>
+                            <th>奖品剩余数量<i></i></th>
+                            <th>中奖概率<i></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $list $row}
+                        <tr>
+                            <td>
+                                <div>
+                                    <input type="hidden"  name="prizename[{$row['id']}]" value="{$row['prizename']}" />
+                                    <div>{$row['prizename']}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input  name="num[{$row['id']}]" value="{$row['num']}" />
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <div>{php echo $row['num']-$row['draw']}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input id="a_{$row['id']}" name="prob[{$row['id']}]" value="{$row['prob']}" placeholder="请输入0-100之间的整数"/>
+                                </div>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                    <input type="button"  value="修改" class="my_btn" onclick="edit()">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function edit() {
+//        var reg=/^(([^0][\d]?)|0|100)$/;
+//        if (!reg.test($("#"+id).val()) || $("#"+id).val()<0){
+//            layer.tips('请输入0-100之间整数',$("#"+id),{time: 1000})
+//            return
+//        }
+        $.ajax({
+            type: 'post',
+            url: "{php echo $this->c_url('awardEdit')}",
+            data:$('#myform').serialize(),
+            dataType: 'json',
+            async: false,
+            success: function (data) {
+                if(data.type=='success'){
+                    layer.alert(data.message);
+                    autoTime = setTimeout(function () {
+                        clearTimeout(autoTime);
+                        window.location.reload();return
+                    }, 800);
+                }else{
+                    layer.alert(data.message);
+                }
+            }
+        })
+    }
+
+</script>
+</body>
+</html>
+<!--首行分割线-->

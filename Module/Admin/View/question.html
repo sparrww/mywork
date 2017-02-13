@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/frame_v4.css">
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/laydate/laydate.js"></script>
+</head>
+<style>
+    td,input {
+        font-size: 1.3rem;
+        margin: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    select{
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+<div class="my_content">
+    <div class="my_seller">
+        <div class="my_seller_main clearfix" style="border:0">
+            <!--<a href="{php echo $this->c_url('User',['export'=>1])}" class="my_add" style="margin-left:30px;"><span class="plus_icon"></span><span class="word">导出数据</span></a>-->
+            <div class="my_table">
+                <form action="" method="get">
+                    <input type="hidden" name="act" value="module">
+                    <input type="hidden" name="name" value="cayh_dzyl">
+                    <input type="hidden" name="do" value="question">
+                    <div style="padding: 10px; ">
+                        关键字: <input type="text"  name="keyword" value="{$_GET['keyword']}" placeholder="问题名称" style="width: 20rem">
+                        &nbsp;&nbsp;&nbsp;
+                        <!--下单时间: <input type="text" readonly name="create_time_start" id="create_time_start" value="{$_GET['create_time_start']}"> - -->
+                        <!--<input type="text" readonly name="create_time_end" id="create_time_end" value="{$_GET['create_time_end']}">-->
+                        <!--支付时间: <input type="text" readonly name="pay_time_start" id="pay_time_start" value="{$_GET['pay_time_start']}"> - -->
+                        <!--<input type="text" readonly name="pay_time_end" id="pay_time_end" value="{$_GET['pay_time_end']}">&nbsp;&nbsp;&nbsp;-->
+                        <!--支付状态: <select name="status" id="status">-->
+                        <!--<option value="99">不选择</option>-->
+                        <!--<option value="0" {if isset($_GET['status']) && $_GET['status'] == 0}selected{/if}>未支付</option>-->
+                        <!--<option value="1" {if $_GET['status'] == 1}selected{/if}>已支付</option>-->
+                        <!--<option value="-1" {if $_GET['status'] == -1}selected{/if}>已过期</option>-->
+                        <!--<option value="-2" {if $_GET['status'] == -2}selected{/if}>已取消</option>-->
+                        <!--<option value="-3" {if $_GET['status'] == -3}selected{/if}>已退款</option>-->
+                    <!--</select>-->
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn" type="submit" style="margin-bottom: 5px">搜索</button>
+                        <button class="btn" type="button" style="margin-bottom: 5px;margin-left: 10px" onclick="location.href='{php echo $this->c_url('addquestion')}';">
+                            新增问题
+                        </button>
+                        <!--<button class="btn" type="submit" name="export" value="1">导出</button>-->
+
+                        <span style="color: red">友情提示：产品广告会随机题库中一道题。</span>
+                    </div>
+                    </form>
+                <form action="{php echo $this->c_url('importquestion')}" method="post" enctype="multipart/form-data">
+                    <div class="my_table my_table_noborder" style="padding:10px;">
+                        <input type="file" name="cvsfile" id="cvsfile" class="my_btn" placeholder="请上传xls文件" style="width: 200px;float: left;">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="my_btn" onclick="if($('#cvsfile').val() == ''){alert('请上传一个xls格式的文件');return false;}">导入题库</button>
+                    </div>
+                </form>
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>问题名称<i></i></th>
+                            <th>A选项<i></i></th>
+                            <th>B选项<i></i></th>
+                            <th>C选项</th>
+                            <th>D选项</th>
+                            <th>正确选项</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $list $row}
+                        <tr id="question{$row['id']}">
+                            <td title="{$row['title']}">
+                                <div style="width: 20rem">
+                                   {$row['title']}
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 7rem">
+                                   {$row['a']}
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 7rem">
+                                    {$row['b']}
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 7rem">
+                                    {$row['c']}
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 7rem">
+                                    {$row['d']}
+                                </div>
+                            </td>
+                            <td>
+                                <div style="width: 5rem">
+                                    {$row['result']}
+                                </div>
+                            </td>
+                            <td>
+                                <!--<a class="btn" href="">查看</a>-->
+                                <a class="btn" href="{php echo $this->c_url('addquestion',['id'=>$row['id']])}">修改</a>
+                                <a class="btn" href="javascript:;" onclick="del({$row['id']})">删除</a>
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                <div class="my_page">{$pager}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $("#age option").each(function () {
+            if ($(this).text() == "{$_GPC['age']}") {
+                $(this).attr("selected", "selected");
+                return;
+            }
+        })
+        $("#prizename option").each(function () {
+            if ($(this).text() == "{$_GPC['prizename']}") {
+                $(this).attr("selected", "selected");
+                return;
+            }
+        })
+        $("#status option").each(function () {
+            if ($(this).val() == "{$_GPC['status']}") {
+                $(this).attr("selected", "selected");
+                return;
+            }
+        })
+    })
+
+
+    function del(id) {
+        layer.confirm('确定删除该广告题？', {
+            btn: ['确认','取消'] //按钮
+        }, function(){
+            $.ajax({
+                type: 'post',
+                url: "{php echo $this->c_url('delquestion')}",
+                data:{
+                    "id":id,
+                },
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    if(result.message=='success'){
+                        layer.msg('删除成功', {icon: 1});
+                        $("#question"+id).remove();
+                    }else{
+                        layer.msg('删除失败', {icon: 2})
+                    }
+                }
+            })
+        });
+    }
+
+//    function upresult(rid,title,a,b,c,id){
+//        layer.open({
+//            type: 1,
+//            title: '题目'+rid,
+//            skin: 'layui-layer-rim', //加上边框
+//            area: ['420px', '300px'], //宽高
+//            content: '<div style="margin: 10px 0px 0px 10px;font-size: 1.4rem;">问题：'+title+'</div><div>---------------------------------------------------</div><div style="margin: 0px 0px 0px 10px;font-size: 1.4rem;">请选择正确选项</div><div style="margin: 0px 0px 0px 10px;font-size: 1.4rem;"> <input type="radio" value="1" name="sel">A:'+a+'<br> <input type="radio" value="2" name="sel">B:'+b+'<br> <input type="radio" value="3" name="sel">C:'+c+'</div><div style="margin: 20px 0px 0px 10px;"><input type="button" onclick="ajaxup('+id+')" class="my_btn"  value="提交"></div>'
+//        });
+//    }
+//
+//    function ajaxup(id){
+//        if (typeof($("input[name='sel']:checked").val()) == "undefined") {
+//            layer.alert('请选择正确选项！');
+//            return;
+//        }
+//        $.ajax({
+//            type: 'post',
+//            url: "{php echo $this->c_url('ttc')}",
+//            data: {
+//                "type": 'update',
+//                "id":id,
+//                "sel":$("input[name='sel']:checked").val()
+//            },
+//            dataType: 'json',
+//            async: true,
+//            success: function (data) {
+//                if (data.error) {
+//                    layer.alert(data.msg);
+//                } else {
+//                    layer.alert('更新数据成功');
+////                    autoTime = setTimeout(function () {
+////                        clearTimeout(autoTime);
+////                        window.location.reload();
+////                    }, 800);
+//                }
+//            }
+//        })
+//
+//    }
+
+</script>
+</body>
+</html>
+<!--首行分割线-->

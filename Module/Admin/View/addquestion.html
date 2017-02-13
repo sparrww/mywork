@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/source/modules/{$_GPC['name']}/template/css/frame_v4.css">
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/source/modules/{$_GPC['name']}/template/js/laydate/laydate.js"></script>
+    <script src="./resource/script/kindeditor/kindeditor.js"></script>
+</head>
+<body>
+<style>
+    * {
+        -webkit-box-sizing: inherit;
+    }
+</style>
+<div class="frame_right">
+    <div class="main">
+        <form class="form-horizontal form" method="post" enctype="multipart/form-data"
+              onsubmit="return formcheck(this)">
+            <input type="hidden">
+            <h4>添加问题</h4>
+            <table class="tb">
+                <tr>
+                    <td>
+                        <div class="alert alert-block alert-new wrap-item" style="width: 100%">
+                            <table id="form" class="tb reply-news-edit">
+
+                                <tr>
+                                    <td class="right my_label">问题内容<span style="color:red">*</span></td>
+                                    <td class="my_val">
+                                        <textarea   class="input-xlarge my_txt" name="title" id="title" style="height: 50px;width: 500px;resize: none" placeholder="此处填写内容" required="required">{$list['title']}</textarea>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="right my_label">A<span style="color:red">*</span></td>
+                                    <td>
+                                        <input type="text" style="width:280px;height: 25px;" id="A" class="input-xlarge my_txt" name="A" value="{$list['a']}" required="required" placeholder="选项A">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right my_label">B<span style="color:red">*</span></td>
+                                    <td>
+                                        <input type="text" style="width:280px;height: 25px;" id="B" class="input-xlarge my_txt" name="B" value="{$list['b']}" required="required" placeholder="选项B">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right my_label">C<span style="color:red">*</span></td>
+                                    <td>
+                                        <input type="text" style="width:280px;height: 25px;" id="C" class="input-xlarge my_txt" name="C" value="{$list['c']}" required="required" placeholder="选项C">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right my_label">D<span style="color:red">*</span></td>
+                                    <td>
+                                        <input type="text" style="width:280px;height: 25px;" id="D" class="input-xlarge my_txt" name="D" value="{$list['d']}" required="required" placeholder="选项D">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="right my_label">正确选项<span style="color:red">*</span></td>
+                                    <td>
+                                        <input type="text" style="width:100px;height: 25px;" id="result" class="input-xlarge my_txt" name="result" value="{$list['result']}" required="required" placeholder="正确选项">
+                                    </td>
+                                </tr>
+
+
+                                <!--<tr>-->
+                                    <!--<td class="right my_label">秒杀开始时间<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<input type="text" style="height:25px;width: 280px" name="start"-->
+                                               <!--id="start" value="{$goods['start']}"-->
+                                               <!--class="input-xlarge my_txt" required="required" readonly/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--<tr>-->
+                                    <!--<td class="right my_label">秒杀结束时间<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<input type="text" style="height:25px;width: 280px" name="end"-->
+                                               <!--id="end" value="{$goods['end']}"-->
+                                               <!--class="input-xlarge my_txt" required="required" readonly/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--<script>-->
+                                    <!--var start = {-->
+                                        <!--elem: '#start',-->
+                                        <!--format: 'YYYY-MM-DD hh:mm:ss',-->
+                                        <!--max: '2099-06-16', //最大日期-->
+                                        <!--istime: true,-->
+                                        <!--choose: function(datas){-->
+                                            <!--end.min = datas;-->
+                                            <!--end.start = datas-->
+                                        <!--}-->
+                                    <!--};-->
+                                    <!--var end = {-->
+                                        <!--elem: '#end',-->
+                                        <!--istime: true,-->
+                                        <!--format: 'YYYY-MM-DD hh:mm:ss',-->
+                                        <!--choose: function(datas){-->
+                                            <!--start.max = datas; //结束日选好后，重置开始日的最大日期-->
+                                        <!--}-->
+                                    <!--};-->
+                                    <!--laydate.skin('molv')-->
+                                    <!--laydate(start);-->
+                                    <!--laydate(end);-->
+                                <!--</script>-->
+
+                                <!--<tr>-->
+                                    <!--<td class="right my_label">商品图片<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<img id="imgurl" class="insertimage" width="100px" height="100px"-->
+                                             <!--src="{$reply['imgurl']}" onerror="this.src='/themes/web/wxh3.0/camiaosha/images/holder.jpg';"/>-->
+                                        <!--<p></p>-->
+                                        <!--<input type="hidden" name="imgurl" value="{$reply['imgurl']}" required="required" readonly/>-->
+                                        <!--<span class="help-block">建议100*100或等比例图片，最大300KB！只支持jpg,png,jpeg图片格式</span>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+
+                                <!--<tr >-->
+                                    <!--<td class="right my_label">商品描述<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<textarea type="text" name="content" style="height: 250px;width: 640px;" id="content"></textarea>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--<script>-->
+                                    <!--var editor__2;-->
+                                    <!--KindEditor.ready(function (K) {-->
+                                        <!--editor__2 = K.create('#content', {-->
+                                            <!--allowImageUpload: false,-->
+                                            <!--uploadJson: '/index.php?act=attachment&do=upload&__userid=camiaosha',-->
+                                            <!--items: [-->
+                                                <!--'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',-->
+                                                <!--'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',-->
+                                                <!--'insertunorderedlist', '|', 'emoticons', 'image', 'link']-->
+                                        <!--});-->
+                                    <!--});-->
+                                <!--</script>-->
+                                <!--{if $name=="区域商品"}-->
+                                <!--<tr >-->
+                                    <!--<td class="right my_label">秒杀区域<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<select name="branch_id" id="branch_id"  class="input-xlarge my_txt">-->
+                                            <!--{loop $branch $v}-->
+                                            <!--<option value="{$v[id]}" {if $_GET[branch_id] == $v[id]}selected{/if}>{$v[name]}</option>-->
+                                            <!--{/loop}-->
+                                        <!--</select>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--<input type="hidden" name="cat_id" value="0">-->
+                                <!--{else}-->
+                                <!--<input type="hidden" name="branch_id" value="0">-->
+                                <!--<tr >-->
+                                    <!--<td class="right my_label">所属分类<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<select name="cat_id" id="cat_id"  class="input-xlarge my_txt">-->
+                                            <!--{loop $notbranch $v}-->
+                                            <!--<option value="{$v[id]}" {if $_GET[cat_id] == $v[id]}selected{/if}>{$v[name]}</option>-->
+                                            <!--{/loop}-->
+                                        <!--</select>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                                <!--{/if}-->
+
+                                <!--<tr>-->
+                                    <!--<td class="right my_label">推荐为爆款商品<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<label><input type="radio" name="ishot" value="1"> 是 </label>&nbsp;&nbsp;&nbsp;&nbsp;-->
+                                        <!--<label><input type="radio" name="ishot" value="0" checked> 否 </label>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--<tr style="display:none;">-->
+                                    <!--<td class="right my_label">商品排序<span style="color:red">*</span></td>-->
+                                    <!--<td class="my_val">-->
+                                        <!--<input type="number" min="0" style="height:25px;width: 280px"-->
+                                               <!--name="sort" id="sort" value="50"-->
+                                               <!--class="input-xlarge my_txt" required="required"/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" class="my_btn" style="width: 150px" name="submit" value="提交">提交
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function formcheck(form) {
+
+            return true;
+        }
+
+        function delThisPic(obj) {
+            if (!confirm("要删除此图片吗？")) {
+                return false;
+            }
+            $(obj).parent().remove()
+        }
+
+    </script>
+    <script type="text/javascript">
+        KindEditor.ready(function (K) {
+            var editor__1 = K.editor({
+                allowFileManager: false,
+                uploadJson: "./index.php?act=attachment&do=upload&__userid=camiaosha",
+                fileManagerJson: "./index.php?act=attachment&do=manager&__userid=camiaosha"
+            });
+            $('.insertimage').click(function (e) {
+                editor__1.loadPlugin('image', function () {
+                    editor__1.plugin.imageDialog({
+                        imageUrl: $(e.target).parent().prev().val(),
+                        clickFn: function (url, title, width, height, border, align) {
+                            $("#imgurl").attr('src', url);
+                            $("[name='imgurl']").val(url);
+                            editor__1.hideDialog();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</div>
+</body>
+</html>
+<!--首行分割线-->
