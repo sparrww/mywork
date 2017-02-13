@@ -409,7 +409,7 @@ class baseController extends Controller{
                     message('用户名与密码不匹配！');
                 }
             }
-            include $this->template('login');
+            include $this->template('login.html');
             die;
         }else{
             echo '<meta http-equiv="refresh" content="0;url=' . $this->c_url('Prize') . '">';
