@@ -174,6 +174,8 @@ class indexController extends Controller{
 
         if($_GPC['export']=='1'){
 
+            dump(12);die;
+
             $list = pdo_fetchall('SELECT * FROM '.tablename($this->tableaward).$where.' order by id desc');
 
             $str = "\xEF\xBB\xBF手机号\t,交易流水号\t,渠道\t,抽奖时间\t,中奖状态\t,发放状态\t,奖品名称\t,发放金额(元)\t,IP地址\t,手机型号\t\n";
