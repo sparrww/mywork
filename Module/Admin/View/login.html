@@ -26,7 +26,7 @@
 </div>
 <div style="margin-top:150px;"></div>
 <div class="footerwrap">
-    <div>©2016</div>
+    <div>©2016-2017</div>
 </div>
 </body>
 <script>
@@ -55,7 +55,7 @@
 
         $.ajax({
             type: 'post',
-            url: "{php echo $this->c_url('login')}",
+            url: "{php echo create_url('login')}",
             data: {
                 "name": "{$_GPC['name']}",
                 "username": $('.username').val(),
