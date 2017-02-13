@@ -10,17 +10,15 @@ namespace  Admin\Controller;
 
 use Lib\Controller as Controller;
 
-class baseController extends Controller{
+class indexController extends Controller{
 
-    public $tablemember     = 'cayh_dzyl_member';
-    public $tableuser       = 'cayh_dzyl_fans';
-    public $tableprize      = 'cayh_dzyl_prize';
-    public $tablequestion   = 'cayh_dzyl_question';
-    public $tableaward      = 'cayh_dzyl_award';
-    public $tableaccount    = 'mmpay_account';
+    public $tablemember     = 'member';
+    public $tableuser       = 'fans';
+    public $tableprize      = 'prize';
+    public $tablequestion   = 'question';
+    public $tableaward      = 'award';
 
     public $info = [];
-    const  ACCOUNT = 'cayhdzyl';  //发放红包账户
 
 
     public function __construct(){
@@ -39,7 +37,6 @@ class baseController extends Controller{
     }
 
     public function doIndex() {
-
     }
 
     public function doPrize() {
