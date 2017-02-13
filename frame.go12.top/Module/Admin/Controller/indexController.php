@@ -43,7 +43,6 @@ class indexController extends Controller{
     public function Prize() {
         global $_GPC,$_W;
 
-        $account = pdo_fetch('select * from '.tablename($this->tableaccount).' where account="'.self::ACCOUNT.'"');
 
         $list = pdo_fetchall('select * from '.tablename($this->tableprize));
         $num = array_sum(array_column($list,'num'));
