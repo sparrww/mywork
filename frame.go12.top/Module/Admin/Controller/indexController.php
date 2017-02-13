@@ -227,7 +227,7 @@ class indexController extends Controller{
         $list = pdo_fetchall('SELECT * FROM '.tablename($this->tableaward).$where.' order by id desc '.$limit);
 
 
-        include $this->display('award');
+        include $this->display('award.html');
 
     }
 
