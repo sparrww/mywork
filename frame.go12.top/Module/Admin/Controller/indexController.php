@@ -50,7 +50,7 @@ class indexController extends Controller{
         $draw = $num-array_sum(array_column($list,'draw'));
 
 
-        include $this->template('prize');
+        include $this->template('prize.html');
     }
 
     /**
