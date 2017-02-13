@@ -34,7 +34,7 @@ class indexController extends Controller{
 
     public function doManage() {
         global $_GPC,$_W;
-        include $this->template('header');
+        include $this->display('header');
     }
 
     public function doIndex() {
