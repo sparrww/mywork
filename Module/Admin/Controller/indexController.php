@@ -148,7 +148,7 @@ class indexController extends Controller{
     /**
      * 用户管理
      */
-    public function doAward() {
+    public function Award() {
         global $_GPC,$_W;
 
 
