@@ -8,7 +8,7 @@
          "username" => "root",
          "password" => "s87161762",
          "port" => "3306",
-         "database" => "db_go12",
+         "database" => "frame",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ],
@@ -17,7 +17,7 @@
          "username" => "root",
          "password" => "s87161762",
          "port" => "3306",
-         "database" => "db_go12",
+         "database" => "frame",
          'pconnect' => 0,
          "charset" => "utf8mb4",
      ]
