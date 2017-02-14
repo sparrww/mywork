@@ -1,6 +1,5 @@
 <?php
 //加载GatewayClient
-echo __DIR__.'/workerman/vendor/workerman/gateway-worker/src/Gateway.php';die;
 require_once __DIR__.'/workerman/vendor/workerman/gateway-worker/src/Gateway.php';
 // GatewayClient 3.0.0版本开始要使用命名空间
 use GatewayClient\Gateway;
@@ -8,8 +7,8 @@ use GatewayClient\Gateway;
 Gateway::$registerAddress = '127.0.0.1:1236';
 
 // 假设用户已经登录，用户uid和群组id在session中
-$uid      = $_SESSION['uid'];
-$group_id = $_SESSION['group'];
+$uid      = 1;
+$group_id = 100;
 // client_id与uid绑定
 Gateway::bindUid($client_id, $uid);
 // 加入某个群组（可调用多次加入多个群组）
