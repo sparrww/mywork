@@ -40,7 +40,7 @@ class Events
     // GatewayWorker不做任何业务逻辑，onMessage留空即可
     public static function onMessage($client_id, $message)
     {
-        Gateway::sendToCurrentClient(json_encode(123));
+
     }
 
 //   /**
