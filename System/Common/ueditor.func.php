@@ -39,7 +39,6 @@ ETO;
  */
 function upload(){
     global $_W;
-    $_W['host'] = 'http://demo.frontend.com/';
 
     $html = <<<ETO
 <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
