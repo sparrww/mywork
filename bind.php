@@ -13,3 +13,4 @@ $group_id = $_SESSION['group'];
 Gateway::bindUid($client_id, $uid);
 // 加入某个群组（可调用多次加入多个群组）
 Gateway::joinGroup($client_id, $group_id);
+file_put_contents(__DIR__.'/mylog.txt', $client_id."\r\n======================================\r\n", FILE_APPEND);
