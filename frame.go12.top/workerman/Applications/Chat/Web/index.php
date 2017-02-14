@@ -17,7 +17,6 @@
             // json数据转换成js对象
             var data = eval("("+e.data+")");
             var type = data.type || '';
-            console.log(e)
             switch(type){
                 // Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
                 case 'init':
@@ -26,7 +25,7 @@
                     break;
                 // 当mvc框架调用GatewayClient发消息时直接alert出来
                 default :
-                    alert(e.data);
+                    console.log(e.data);
             }
         };
     </script>
