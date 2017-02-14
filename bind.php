@@ -10,7 +10,6 @@ Gateway::$registerAddress = '127.0.0.1:1236';
 $uid      = $_SESSION['uid'];
 $group_id = $_SESSION['group'];
 $client_id = $_POST['client_id'];
-echo $client_id;
 file_put_contents(__DIR__.'/mylog.txt', $client_id."\r\n======================================\r\n", FILE_APPEND);
 // client_id与uid绑定
 Gateway::bindUid($client_id, $uid);
