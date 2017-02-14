@@ -1,0 +1,18 @@
+[Message]:
+	Admin/Controller/baseController File does not exist!
+[File]:
+	/System/Lib/Lib.php (104)
+[Trace]:
+	#0 [17-02-13 11:14:32] /index.php(5) require(F:\sww\work\frame.go12.top\System\App.php)
+
+[Message]:
+	SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+[File]:
+	/System/Driver/DbPdo.php (29)
+[Trace]:
+	#0 [17-02-13 11:25:26] /System/Lib/Model.php(19) Driver\DbPdo->__construct(Array( [host] => 127.0.0.1 [username] => root [password] => s87161762 [port] => 3306 [database] => frame [pconnect] => 0 [charset] => utf8mb4))
+	#1 [17-02-13 11:25:26] /System/Common/pdo.func.php(26) Lib\Model->__construct(Array( [host] => 127.0.0.1 [username] => root [password] => s87161762 [port] => 3306 [database] => frame [pconnect] => 0 [charset] => utf8mb4))
+	#2 [17-02-13 11:25:26] /System/Common/pdo.func.php(78) pdo(slave)
+	#3 [17-02-13 11:25:26] /Module/Admin/Controller/indexController.php(398) pdo_fetch(select * from `member` where username=:username and password=:password, Array( [:username] => admin [:password] => 96e79218965eb72c92a549dd5a330112))
+	#4 [17-02-13 11:25:26] /index.php(5) require(F:\sww\work\frame.go12.top\System\App.php)
+
