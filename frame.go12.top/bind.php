@@ -1,6 +1,6 @@
 <?php
 //加载GatewayClient
-require_once __DIR__.'/workerman/vendor/workerman/gateway-worker/src/Gateway.php';
+require_once __DIR__.'/workerman/vendor/GatewayClient/Gateway.php';
 // GatewayClient 3.0.0版本开始要使用命名空间
 use GatewayClient\Gateway;
 // 设置GatewayWorker服务的Register服务ip和端口，请根据实际情况改成实际值
