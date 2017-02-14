@@ -9,7 +9,7 @@ Gateway::$registerAddress = '127.0.0.1:1236';
 // 假设用户已经登录，用户uid和群组id在session中
 $uid      = $_SESSION['uid'];
 $group_id = $_SESSION['group'];
-$client_id = $_GET['client_id'];
+$client_id = $_POST['client_id'];
 echo $client_id;
 file_put_contents(__DIR__.'/mylog.txt', $client_id."\r\n======================================\r\n", FILE_APPEND);
 // client_id与uid绑定
