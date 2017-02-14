@@ -34,7 +34,7 @@
                     break;
                 // 当mvc框架调用GatewayClient发消息时直接alert出来
                 default :
-                    alert(e.data);
+                    console.log(e.data);
             }
         };
     }
