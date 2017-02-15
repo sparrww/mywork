@@ -20,7 +20,7 @@ class indexController extends Controller
      */
     public function index()
     {
-        global $_W;
+        global $_W,$_GPC;
         require SYSTEM_COMMON_PATH.'/ueditor.func.php';
 
         include $this->display('index.html');
