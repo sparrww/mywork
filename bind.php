@@ -11,7 +11,7 @@ $group_id = $_SESSION['group'];
 $client_id = $_POST['client_id'];
 
 // 假设用户已经登录，用户uid和群组id在session中
-if(!empty($uid) && !empty($group_id) && !empty($client_id)) return;
+if(!empty($uid) || !empty($group_id) || !empty($client_id)) return;
 
 if(!Gateway::isOnline($client_id)) return;
 
