@@ -34,9 +34,9 @@
 	}
 	//销毁
 	DB::unDB($res, $db);
+require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
 
-    echo __DIR__.'../../workerman/vendor/GatewayClient/Gateway.php';
-
+Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 ?>
 
 <!DOCTYPE html>
