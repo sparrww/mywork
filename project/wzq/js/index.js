@@ -124,70 +124,70 @@ $(function(){
 			}
 		}
 		
-		window.sit=setInterval(function(){
-			$.ajax({
-				type:'post',
-				url:'online.php',
-				data:'a=update&fromuid='+$('#buid').html(),
-				success:function(text){
-					var info = text.split('|');
-					var qipanStr=parseInt(info[0]);
-					var orderStr=parseInt(info[1]);
-					var flagStr=info[2];
-					var winStr=info[3];
-					var backStr=info[4];
-					var row=Math.floor(orderStr/10);
-					var col=orderStr%10;
-					flag=flagStr;
-					win=winStr=='1'?true:false;
-					if(backStr=='1'){//悔棋操作
-						if (qipan[row][col]!=0){//就是还有棋，把这个格子的棋去掉
-							qipan[row][col]=qipanStr;//0
-							order.pop();//移除
-							$('td').eq(orderStr).removeClass('black').removeClass('white');
-						}
-					}else if(backStr=='0'){
-						if (qipan[row][col]!=qipanStr){//表示棋盘第row行第col列上没有棋子
-							
-							qipan[row][col]=qipanStr;
-							order.push(orderStr);
-							if(qipanStr==1){
-								$('td').eq(orderStr).addClass('black');
-								/*
-								if(win){
-									clearInterval(sit);
-									alert('黑子赢');
-								}
-								*/
-							}else if(qipanStr==-1){
-								$('td').eq(orderStr).addClass('white');
-								/*
-								if(win){
-									clearInterval(sit);
-									alert('白子赢');
-								}
-								*/
-							}	
-						}
-					}
-
-					//如果获胜，则清除定时
-					if(win){
-						clearInterval(sit);
-						if(qipanStr==1){
-							$('#alertinfo').html('黑棋获胜');
-							//alert('黑棋获胜');
-						}else{
-							$('#alertinfo').html('白棋获胜');
-							//alert('白棋获胜');
-						}
-					}
-					
-				},
-				async:false,
-			});
-			
-		},1000);
+		// window.sit=setInterval(function(){
+		// 	$.ajax({
+		// 		type:'post',
+		// 		url:'online.php',
+		// 		data:'a=update&fromuid='+$('#buid').html(),
+		// 		success:function(text){
+		// 			var info = text.split('|');
+		// 			var qipanStr=parseInt(info[0]);
+		// 			var orderStr=parseInt(info[1]);
+		// 			var flagStr=info[2];
+		// 			var winStr=info[3];
+		// 			var backStr=info[4];
+		// 			var row=Math.floor(orderStr/10);
+		// 			var col=orderStr%10;
+		// 			flag=flagStr;
+		// 			win=winStr=='1'?true:false;
+		// 			if(backStr=='1'){//悔棋操作
+		// 				if (qipan[row][col]!=0){//就是还有棋，把这个格子的棋去掉
+		// 					qipan[row][col]=qipanStr;//0
+		// 					order.pop();//移除
+		// 					$('td').eq(orderStr).removeClass('black').removeClass('white');
+		// 				}
+		// 			}else if(backStr=='0'){
+		// 				if (qipan[row][col]!=qipanStr){//表示棋盘第row行第col列上没有棋子
+		//
+		// 					qipan[row][col]=qipanStr;
+		// 					order.push(orderStr);
+		// 					if(qipanStr==1){
+		// 						$('td').eq(orderStr).addClass('black');
+		// 						/*
+		// 						if(win){
+		// 							clearInterval(sit);
+		// 							alert('黑子赢');
+		// 						}
+		// 						*/
+		// 					}else if(qipanStr==-1){
+		// 						$('td').eq(orderStr).addClass('white');
+		// 						/*
+		// 						if(win){
+		// 							clearInterval(sit);
+		// 							alert('白子赢');
+		// 						}
+		// 						*/
+		// 					}
+		// 				}
+		// 			}
+        //
+		// 			//如果获胜，则清除定时
+		// 			if(win){
+		// 				clearInterval(sit);
+		// 				if(qipanStr==1){
+		// 					$('#alertinfo').html('黑棋获胜');
+		// 					//alert('黑棋获胜');
+		// 				}else{
+		// 					$('#alertinfo').html('白棋获胜');
+		// 					//alert('白棋获胜');
+		// 				}
+		// 			}
+		//
+		// 		},
+		// 		async:false,
+		// 	});
+		//
+		// },1000);
 		
 	});
 
