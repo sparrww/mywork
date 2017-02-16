@@ -13,7 +13,7 @@ $client_id = $_POST['client_id'];
 
 // 假设用户已经登录，用户uid和群组id在session中
 if(!empty($uid) || !empty($client_id)) return;
-
+var_dump(123);
 var_dump(Gateway::isOnline($client_id));
 
 if(!Gateway::isOnline($client_id)) return;
