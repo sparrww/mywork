@@ -37,7 +37,7 @@ ini_set('display_errors', '1');
 	//销毁
 	DB::unDB($res, $db);
 require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
-Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
+Gateway::sendToUid($_POST["fromuid"], 111);
 ?>
 
 <!DOCTYPE html>
