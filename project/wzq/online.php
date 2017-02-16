@@ -15,6 +15,14 @@
 						back='{$_POST["back"]}'
 					WHERE fromuid='{$_POST["fromuid"]}'");
 			DB::unDB($res, $db);
+
+            $res=$db->query("SELECT qipan,myorder,flag,win,back FROM play WHERE fromuid='{$_POST["fromuid"]}' LIMIT 1");
+            $row=$res->fetch_object();
+
+            require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
+            use GatewayClient\Gateway;
+            Gateway::$registerAddress = '127.0.0.1:1236';
+            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 		//echo $db->affected_rows;//执行成功会返回0，这是mysql的原因
 		}else if($_POST['a']=='update'){
 			
@@ -22,11 +30,6 @@
 			$res=$db->query("SELECT qipan,myorder,flag,win,back FROM play WHERE fromuid='{$_POST["fromuid"]}' LIMIT 1");
 			$row=$res->fetch_object();
 			echo $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back;
-
-//            require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
-//            use GatewayClient\Gateway;
-//            Gateway::$registerAddress = '127.0.0.1:1236';
-//            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 
 			DB::unDB($res, $db);
 		}else if($_POST['a']=='delete'){//更新棋局
