@@ -7,14 +7,14 @@
 		
 		if($_POST['a']=='put'){
 
-			$db->query("UPDATE play SET
+			$res = $db->query("UPDATE play SET
 						qipan='{$_POST["qipan"]}',
 						myorder='{$_POST["order"]}',
 						win='{$_POST["win"]}',
 						flag='{$_POST["flag"]}',
 						back='{$_POST["back"]}'
 					WHERE fromuid='{$_POST["fromuid"]}'");
-			DB::unDB('', $db);
+			DB::unDB($res, $db);
 		//echo $db->affected_rows;//执行成功会返回0，这是mysql的原因
 		}else if($_POST['a']=='update'){
 			
