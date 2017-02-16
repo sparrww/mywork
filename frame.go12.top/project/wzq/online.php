@@ -25,7 +25,7 @@
             Gateway::sendToUid($_POST["fromuid"], json_encode(['type'=>'online','data'=>$row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back]));
             Gateway::sendToUid($row->touid, json_encode(['type'=>'online','data'=>$row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back]));
             DB::unDB($res, $db);
-            return Gateway::getClientIdByUid($_POST["fromuid"]);
+           var_dump(Gateway::getClientIdByUid($_POST["fromuid"]));
 		//echo $db->affected_rows;//执行成功会返回0，这是mysql的原因
 		}else if($_POST['a']=='update'){
 			
