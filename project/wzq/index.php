@@ -73,11 +73,11 @@
 			<p><button id="start">开始下子</button></p>
 			<p><button id="back">悔棋</button></p>
 			<p><button id="clear">清局</button></p>
-			
-			
-			<p><button id="restore">还原</button>
-			第<input type="number" name="restore" value="1">局
-			</p>
+
+
+<!--			<p><button id="restore">还原</button>-->
+<!--			第<input type="number" name="restore" value="1">局-->
+<!--			</p>-->
 		</div>
 				
 		<div id="user">
