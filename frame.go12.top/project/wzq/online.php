@@ -20,7 +20,7 @@
 						win='{$_POST["win"]}',
 						flag='{$_POST["flag"]}',
 						back='{$_POST["back"]}'
-					WHERE fromuid='{$_POST["fromuid"]}'");
+					WHERE fromuid='{$_POST["fromuid"]}'",[]);
 			DB::unDB($res, $db);
 
             $res=$db->query("SELECT qipan,myorder,flag,win,back FROM play WHERE fromuid='{$_POST["fromuid"]}' LIMIT 1");
