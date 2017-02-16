@@ -70,7 +70,7 @@ $(function(){
 			async:false,
 		});
 
-		function online() {
+		function online(text) {
 			var info = text.split('|');
 			var qipanStr=parseInt(info[0]);
 			var orderStr=parseInt(info[1]);
