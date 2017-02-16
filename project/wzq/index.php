@@ -63,7 +63,7 @@
 					break;
 				case 'online':
 					console.log(e.data);
-					online(data.online)
+					online(data.data)
 					break;
 				// 当mvc框架调用GatewayClient发消息时直接alert出来
 			}
