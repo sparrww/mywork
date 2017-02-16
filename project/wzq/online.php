@@ -23,10 +23,10 @@
 			$row=$res->fetch_object();
 			echo $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back;
 
-            require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
-            use GatewayClient\Gateway;
-            Gateway::$registerAddress = '127.0.0.1:1236';
-            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
+//            require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
+//            use GatewayClient\Gateway;
+//            Gateway::$registerAddress = '127.0.0.1:1236';
+//            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 
 			DB::unDB($res, $db);
 		}else if($_POST['a']=='delete'){//更新棋局
