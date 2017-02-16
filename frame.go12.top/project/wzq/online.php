@@ -20,8 +20,8 @@
             $row=$res->fetch_object();
 
             require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
-            use GatewayClient\Gateway;
-            Gateway::$registerAddress = '127.0.0.1:1236';
+            //use GatewayClient\Gateway;
+            //Gateway::$registerAddress = '127.0.0.1:1236';
 //            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 		//echo $db->affected_rows;//执行成功会返回0，这是mysql的原因
 		}else if($_POST['a']=='update'){
