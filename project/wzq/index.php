@@ -61,6 +61,9 @@
 					// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
 					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id}, function(data){}, 'json');
 					break;
+				case 'online':
+					online(e.data)
+					break;
 				// 当mvc框架调用GatewayClient发消息时直接alert出来
 			}
 		};
