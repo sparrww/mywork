@@ -62,8 +62,8 @@
 					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id}, function(data){}, 'json');
 					break;
 				case 'online':
-					console.log(e.data);
-					online(e.data)
+					console.log(e.data.data);
+					online(e.data.data)
 					break;
 				// 当mvc框架调用GatewayClient发消息时直接alert出来
 			}
