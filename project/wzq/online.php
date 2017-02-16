@@ -24,8 +24,7 @@
             $res=$db->query("SELECT qipan,myorder,flag,win,back FROM play WHERE fromuid='{$_POST["fromuid"]}' LIMIT 1");
             $row=$res->fetch_object();
 
-
-//            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
+            Gateway::sendToUid($_POST["fromuid"], $row->qipan.'|'.$row->myorder.'|'.$row->flag.'|'.$row->win.'|'.$row->back);
 		//echo $db->affected_rows;//执行成功会返回0，这是mysql的原因
 		}else if($_POST['a']=='update'){
 			
