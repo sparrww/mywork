@@ -36,10 +36,6 @@ ini_set('display_errors', '1');
 	}
 	//销毁
 	DB::unDB($res, $db);
-require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
-use GatewayClient\Gateway;
-Gateway::$registerAddress = '127.0.0.1:1236';
-Gateway::sendToUid($_POST["fromuid"], 111);
 ?>
 
 <!DOCTYPE html>
