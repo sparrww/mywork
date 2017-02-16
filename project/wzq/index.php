@@ -34,6 +34,9 @@
 	}
 	//销毁
 	DB::unDB($res, $db);
+
+    echo __DIR__.'../../workerman/vendor/GatewayClient/Gateway.php';
+
 ?>
 
 <!DOCTYPE html>
