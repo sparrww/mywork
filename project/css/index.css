@@ -1,0 +1,166 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background:url(../img/bg.gif);
+}
+ul{
+	list-style:none;
+}
+.black{
+	background:url(../img/black.jpg) no-repeat;
+}
+.white{
+	background:url(../img/white.jpg) no-repeat;
+}
+
+header{
+	text-align:center;
+	min-height:30px;
+	padding:10px;
+}
+#state{
+	width:245px;
+	height:498px;
+	border:1px solid #ccc;
+	float:left;
+	margin:0 0 0 10px;
+}
+#state h2{
+	background:#eee;
+	height:25px;
+	line-height:25px;
+	text-indent:8px;
+	font-size:14px;
+}
+#state p{
+	font-size:12px;
+	padding:5px;
+	line-height:16px;
+}
+#container{
+	width:790px;
+	height:490px;
+	margin:0 0 0 259px;
+	background:url(../img/bg.png);
+	padding:10px 20px 0 20px;
+}
+#top{
+	padding:0 0 10px 0;
+}
+#top p span{
+	text-decoration:underline;
+}
+#top p.p1{
+	font-weight:bold;
+	border-bottom:1px solid #F2B281;
+	padding:0 0 3px 0;
+	width:50%;
+}
+
+#top p.p2{
+	padding:4px 0 0 0;
+}
+#top p.p2 span{
+	color:#333;
+}
+em#alertinfo{
+	padding:0 0 0 130px;
+	font-weight:bold;
+	color:red;
+	font-size:18px;
+}
+table{
+	width:411px;
+	height:411px;
+	border-collapse:collapse;
+	float:left;
+}
+td{
+	border:1px solid #333;
+	width:40px;
+	height:40px;
+}
+#rightbar{
+	width:90px;
+	height:480px;
+	float:left;
+}
+#rightbar p{
+	text-align:center;
+	margin:20px 0 0 0;
+}
+button{
+	width:80px;
+	height:45px;
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+	background:url(../img/btn.png) repeat-x;
+	
+}
+input{
+	width:45px;
+	height:22px;
+}
+#user{
+	width:240px;
+	height:410px;
+	background:#fff;
+	float:right;
+	overflow-y:scroll;
+}
+#user h2{
+	background:#eee;
+	height:25px;
+	line-height:25px;
+	text-indent:8px;
+	font-size:14px;
+}
+#user h2 img{
+	display:inline-block;
+	float:right;
+	padding:5px 10px 0 0;
+	cursor:pointer;
+}
+#user ul{
+	padding:10px 0 0 10px;
+}
+#user ul li{
+	width:200px;
+	height:20px;
+	color:#666;
+	border-bottom:1px solid #eee;
+	cursor:pointer;;
+}
+#user ul li.red{
+	color:red;
+}
+#user ul li span.invite{
+	float:right;
+	font-size:12px;
+	text-decoration:underline;
+	color:#666;
+}
+footer{
+	width:90%;
+	text-align:center;
+	margin:50px auto 0 auto;
+	background:#F5F5F5;
+	padding:10px;
+	border-top:1px solid #ccc;
+	font-family:'Arial';
+	font-size:14px;
+}
+footer a{
+	color:#0078C3;
+	text-decoration:none;
+}
+footer a:hover{
+	text-decoration:underline;
+}
+
+
+
+
