@@ -8,8 +8,9 @@
 	if(isset($_POST)){
 		require('DB.class.php');//引入数据库类
 		$db=DB::getDB();
-	
-		
+
+        error_reporting(E_ALL);
+        ini_set('display_errors', '1');
 		if($_POST['a']=='put'){
 			$res = $db->query("UPDATE play SET
 						qipan='{$_POST["qipan"]}',
