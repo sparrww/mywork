@@ -71,7 +71,6 @@ $(function(){
 		});
 		
 		window.sit=setInterval(function(){
-			alert(123)
 			$.ajax({
 				type:'post',
 				url:'online.php',
