@@ -52,6 +52,7 @@
 		// 服务端主动推送消息时会触发这里的onmessage
 		ws.onmessage = function(e){
 			// json数据转换成js对象
+			console.log(e.data);
 			var data = eval("("+e.data+")");
 			var type = data.type || '';
 			switch(type){
@@ -62,7 +63,7 @@
 					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id}, function(data){}, 'json');
 					break;
 				case 'online':
-					console.log(e.data.data);
+					console.log(e.data);
 					online(e.data.data)
 					break;
 				// 当mvc框架调用GatewayClient发消息时直接alert出来
