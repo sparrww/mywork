@@ -1,5 +1,6 @@
 <?php
 //加载GatewayClient
+session_start();
 require_once __DIR__.'/workerman/vendor/GatewayClient/Gateway.php';
 // GatewayClient 3.0.0版本开始要使用命名空间
 use GatewayClient\Gateway;
