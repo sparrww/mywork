@@ -6,8 +6,8 @@
 		$action=$_POST['a'];
 		if($action=='put1'){
 			//file_put_contents('data/listener.txt','1');
-            $res=$db->query("UPDATE play SET listener='1' WHERE fromuid='{$_POST["fromuid"]}'");
-			DB::unDB($res, $db);
+            $db->query("UPDATE play SET listener='1' WHERE fromuid='{$_POST["fromuid"]}'");
+			DB::unDB('', $db);
 			//echo 'put1';
 		}else if($action=='get'){
 			//echo file_get_contents('data/listener.txt');
@@ -18,8 +18,8 @@
 		}else if($action=='put0'){
 			//file_put_contents('data/listener.txt','0');
 			//echo 'put0';
-            $res=$db->query("UPDATE play SET listener='0' WHERE fromuid='{$_POST["fromuid"]}'");
-			DB::unDB($res, $db);
+            $db->query("UPDATE play SET listener='0' WHERE fromuid='{$_POST["fromuid"]}'");
+			DB::unDB('', $db);
 		}
 		
 	}
