@@ -2,7 +2,7 @@
 
     require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
     use GatewayClient\Gateway;
-    Gateway::$registerAddress = '127.0.0.1:1236';
+    Gateway::$registerAddress = '127.0.0.1:7272';
 
 	//处理qipan/order/win/flag数据的ajax请求
 	if(isset($_POST)){
