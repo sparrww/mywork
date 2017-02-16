@@ -11,7 +11,7 @@ $uid      = $_SESSION['uid'];
 $group_id = $_SESSION['group'];
 $client_id = $_POST['client_id'];
 
-var_dump($client_id);
+var_dump($uid);
 
 // 假设用户已经登录，用户uid和群组id在session中
 if(!empty($uid) || !empty($client_id)) return;
