@@ -12,7 +12,6 @@
 		$userid = $_SESSION['uid'];
 	}
 
-	echo $_SESSION['uid'];
 	//数据库资源句柄
 	$db=DB::getDB();
 	$db->query("INSERT INTO user (userid) VALUES ('$userid')");
