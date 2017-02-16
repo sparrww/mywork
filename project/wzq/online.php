@@ -11,9 +11,6 @@
 	
 		
 		if($_POST['a']=='put'){
-            error_reporting(E_ALL);
-            ini_set('display_errors', '1');
-
 			$res = $db->query("UPDATE play SET
 						qipan='{$_POST["qipan"]}',
 						myorder='{$_POST["order"]}',
