@@ -1,7 +1,5 @@
 <?php
 	//首页
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 	session_start();
 	header("Content-Type:text/html;charset=utf-8");
 	require('getRandOnlyId.php');//引入获取唯一ID的函数
