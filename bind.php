@@ -17,6 +17,8 @@ if(!Gateway::isOnline($client_id)) return;
 
 // client_id与uid绑定
 Gateway::bindUid($client_id, $uid);
+
+var_dump(Gateway::getClientIdByUid($uid));
 // 加入某个群组（可调用多次加入多个群组）
 if($group_id){
     Gateway::joinGroup($client_id, $group_id);
