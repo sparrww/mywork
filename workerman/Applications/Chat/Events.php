@@ -51,7 +51,7 @@ class Events
    public static function onClose($client_id)
    {
        // debug
-       file_get_contents('http://frame.go12.top/project/wzq/close.php?clent_id='.$client_id);
+       file_get_contents('http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
        Gateway::sendToAll(json_encode(['type'=>'close','clent_id'=>$client_id]));
    }
 
