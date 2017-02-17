@@ -5,11 +5,10 @@
 	require('getRandOnlyId.php');//引入获取唯一ID的函数
 	require('DB.class.php');//引入数据库类
 
-	if(!empty($_SESSION['uid'])){
-		$userid = $_SESSION['uid'];
-//		$userid = strval(getRandOnlyId());//用户id;
-//		$_SESSION['uid'] = $userid;
-	}
+//	if(!empty($_SESSION['uid'])){
+//		$userid = $_SESSION['uid'];
+//
+//	}
 
 	//数据库资源句柄
 //	$db=DB::getDB();
