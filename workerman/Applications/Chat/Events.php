@@ -43,6 +43,17 @@ class Events
 
     }
 
+
+       /**
+    * 当客户端断开连接时
+    * @param integer $client_id 客户端id
+    */
+   public static function onClose($client_id)
+   {
+       // debug
+
+   }
+
 //   /**
 //    * 有消息时
 //    * @param int $client_id
