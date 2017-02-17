@@ -67,7 +67,7 @@ ini_set('display_errors', '1');
 						 	if(data.username){
 								name = data.username;
 						 		$("#userid").html(name)
-								$("#user img").trigger();
+								$("#user img").trigger('click');
 							}else{
 								name = prompt('输入你的名字：', '');
 								if(!name || name=='null'){
@@ -75,7 +75,7 @@ ini_set('display_errors', '1');
 								}
 								$("#userid").html(name)
 								$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq",'username':name}, function(data){
-									$("#user img").trigger();
+									$("#user img").trigger('click');
 								}, 'json')
 							}
 						 }
