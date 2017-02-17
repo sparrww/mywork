@@ -2,7 +2,7 @@
 	//首页
 	session_start();
 	header("Content-Type:text/html;charset=utf-8");
-	require('getRandOnlyId.php');//引入获取唯一ID的函数
+//	require('getRandOnlyId.php');//引入获取唯一ID的函数
 	require('DB.class.php');//引入数据库类
 
 //	if(!empty($_SESSION['uid'])){
@@ -45,6 +45,7 @@
 <body>
 
 	<script type="text/javascript">
+		var clienid = '';
 		ws = new WebSocket("ws://"+document.domain+":7272");
 		// 服务端主动推送消息时会触发这里的onmessage
 		ws.onmessage = function(e){
@@ -55,8 +56,17 @@
 				// Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
 				case 'init':
 					console.log(e.data);
+					clienid = data.client_id;
 					// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
-					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq"}, function(data){}, 'json');
+					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq"}, function(data){
+						 if(data.type=='success'){
+						 	if(data.username){
+						 		$("#userid").html(data.username)
+							}else{
+
+							}
+						 }
+					}, 'json');
 					break;
 				case 'online':
 					console.log(e.data);
@@ -82,7 +92,7 @@
 	</div>
 	<div id="container">
 		<div id="top">
-			<p class="p1">你的ID:<span id="userid"><?php echo $userid; ?></span></p>
+			<p class="p1">你的ID:<span id="userid"></span></p>
 			<p class="p2">当前对战:  <span id="buid">无</span> <strong>黑子</strong>  <span id="wuid">无</span> <strong>白子</strong><em id="alertinfo"></em></p>
 		</div>
 		<table>
