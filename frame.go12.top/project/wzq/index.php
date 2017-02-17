@@ -14,7 +14,7 @@ ini_set('display_errors', '1');
 //	}
 
 	//数据库资源句柄
-//	$db=DB::getDB();
+	$db=DB::getDB();
 //	$db->query("INSERT INTO user (userid) VALUES ('$userid')");
 //	if($db->affected_rows!=1){
 //		exit('用户数据写入失败，请重刷页面');
