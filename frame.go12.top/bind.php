@@ -23,15 +23,17 @@ if($_POST['project']=='wzq'){
 
     if(!empty($_POST['username'])){
         $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
+        DB::unDB($res, $db);
+        return json_encode(['type'=>'success','username'=>$_POST['username']]);
     }else{
         $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
         $row=$res->fetch_object();
         if(!$row->username){
             $db->query("INSERT INTO user (userid) VALUES ('$client_id')");
         }
+        DB::unDB($res, $db);
+        return json_encode(['type'=>'success','username'=>'']);
     }
-    DB::unDB($res, $db);
-    return;
 }
 
 var_dump(Gateway::getClientIdByUid($uid));
