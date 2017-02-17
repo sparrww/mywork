@@ -73,7 +73,7 @@ ini_set('display_errors', '1');
 									name = '游客';
 								}
 								$("#userid").html(name)
-								$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq",'username':name}, function(data){}
+								$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq",'username':name}, function(data){}, 'json')
 							}
 						 }
 					}, 'json');
