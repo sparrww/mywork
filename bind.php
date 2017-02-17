@@ -1,8 +1,8 @@
 <?php
 //加载GatewayClient
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 require_once __DIR__.'/workerman/vendor/GatewayClient/Gateway.php';
 // GatewayClient 3.0.0版本开始要使用命名空间
 use GatewayClient\Gateway;
