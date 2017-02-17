@@ -1,8 +1,8 @@
 <?php
 //加载GatewayClient
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+//error_reporting(E_ALL);
+//ini_set('display_errors', '1');
 require_once __DIR__.'/workerman/vendor/GatewayClient/Gateway.php';
 // GatewayClient 3.0.0版本开始要使用命名空间
 use GatewayClient\Gateway;
@@ -28,7 +28,7 @@ switch ($_POST['project']){
         if(!empty($_POST['username'])){
             $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
             DB::unDB($res, $db);
-            return json_encode(['type'=>'success','username'=>$_POST['username']]);
+            echo json_encode(['type'=>'success','username'=>$_POST['username']]);
         }else{
             $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
             $row=$res->fetch_object();
@@ -36,7 +36,7 @@ switch ($_POST['project']){
                 $db->query("INSERT INTO user (userid) VALUES ('$client_id')");
             }
             DB::unDB($res, $db);
-            return json_encode(['type'=>'success','username'=>'']);
+            echo json_encode(['type'=>'success','username'=>'']);
         }
         break;
 }
