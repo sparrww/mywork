@@ -7,8 +7,6 @@ use GatewayClient\Gateway;
 // 设置GatewayWorker服务的Register服务ip和端口，请根据实际情况改成实际值
 Gateway::$registerAddress = '127.0.0.1:1236';
 
-$uid      = $_SESSION['uid'];
-$group_id = $_SESSION['group'];
 $client_id = $_POST['client_id'];
 
 // 假设用户已经登录，用户uid和群组id在session中
@@ -17,11 +15,22 @@ if(empty($client_id)) return;
 if(!Gateway::isOnline($client_id)) return;
 
 // client_id与uid绑定
-Gateway::bindUid($client_id, $uid);
+Gateway::bindUid($client_id, $client_id);
 
 if($_POST['project']=='wzq'){
+    require(__DIR__.'/project/wzq/DB.class.php');//引入数据库类
+    $db=DB::getDB();
 
-
+    if(!empty($_POST['username'])){
+        $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
+    }else{
+        $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
+        $row=$res->fetch_object();
+        if(!$row->username){
+            $db->query("INSERT INTO user (userid) VALUES ('$client_id')");
+        }
+    }
+    DB::unDB($res, $db);
     return;
 }
 
