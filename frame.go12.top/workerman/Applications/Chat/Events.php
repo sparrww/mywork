@@ -52,7 +52,7 @@ class Events
    public static function onClose($client_id)
    {
        // debug
-       file_put_contents(__DIR__.'/../../../../a.txt','http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
+       file_put_contents(__DIR__.'/../../../a.txt','http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
        $ch = curl_init();
        $timeout = 5;
        curl_setopt ($ch, CURLOPT_URL, 'http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
