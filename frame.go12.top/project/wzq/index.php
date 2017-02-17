@@ -57,7 +57,7 @@
 				case 'init':
 					console.log(e.data);
 					// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
-					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id}, function(data){}, 'json');
+					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq"}, function(data){}, 'json');
 					break;
 				case 'online':
 					console.log(e.data);
