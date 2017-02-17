@@ -9,6 +9,7 @@ Gateway::$registerAddress = '127.0.0.1:1236';
 
 $client_id = $_POST['client_id'];
 
+
 // 假设用户已经登录，用户uid和群组id在session中
 if(empty($client_id)) return;
 

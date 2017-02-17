@@ -132,7 +132,7 @@ ini_set('display_errors', '1');
 			<h2>在线用户<img src="img/reload.png"/></h2>
 			<ul>
 				<?php foreach($allUser as $value){ ?>
-				<li <?php if($value==$userid){echo "class='red'";} ?>><span class="onlineuid"><?php echo $value; ?></span></span><span class="invite" onclick="invite(this)">邀请</span></li>
+				<li><span class="onlineuid"><?php echo $value; ?></span></span><span class="invite" onclick="invite(this)">邀请</span></li>
 				<?php } ?>
 			</ul>
 		</div>
