@@ -67,13 +67,16 @@ ini_set('display_errors', '1');
 						 	if(data.username){
 								name = data.username;
 						 		$("#userid").html(name)
+								$("user").trigger("img");
 							}else{
 								name = prompt('输入你的名字：', '');
 								if(!name || name=='null'){
 									name = '游客';
 								}
 								$("#userid").html(name)
-								$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq",'username':name}, function(data){}, 'json')
+								$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq",'username':name}, function(data){
+									$("user").trigger("img");
+								}, 'json')
 							}
 						 }
 					}, 'json');
