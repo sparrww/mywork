@@ -455,7 +455,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'check.php',
-			data:'uid='+$('#userid').html(),
+			data:'uid='+clentid,
 			success:function(text){
 				var info=text.split('|');
 				if(info[0]=='1'){
