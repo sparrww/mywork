@@ -85,6 +85,8 @@ ini_set('display_errors', '1');
 					console.log(e.data);
 					online(data.data)
 					break;
+				case 'new':
+					$("#user img").trigger('click');
 				// 当mvc框架调用GatewayClient发消息时直接alert出来
 			}
 		};
