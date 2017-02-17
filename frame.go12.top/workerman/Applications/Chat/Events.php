@@ -51,7 +51,7 @@ class Events
    public static function onClose($client_id)
    {
        // debug
-       Gateway::sendToAll('', json_encode(['type'=>'close']));
+       Gateway::sendToAll(json_encode(['type'=>'close']));
    }
 
 //   /**

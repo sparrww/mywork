@@ -28,7 +28,7 @@ switch ($_POST['project']){
         if(!empty($_POST['username'])){
             $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
             DB::unDB($res, $db);
-            Gateway::sendToAll('', json_encode(['type'=>'new']));
+            Gateway::sendToAll(json_encode(['type'=>'new']));
             echo json_encode(['type'=>'success','username'=>$_POST['username']]);
         }else{
             $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
