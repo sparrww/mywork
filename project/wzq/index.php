@@ -62,7 +62,7 @@ ini_set('display_errors', '1');
 					console.log(e.data);
 					clienid = data.client_id;
 					// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
-					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq"}, function(data){
+					$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq"}, function(data){
 						 if(data.type=='success'){
 						 	if(data.username){
 								name = data.username;
@@ -73,7 +73,7 @@ ini_set('display_errors', '1');
 									name = '游客';
 								}
 								$("#userid").html(name)
-								$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq",'username':name}, function(data){}, 'json')
+								$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq",'username':name}, function(data){}, 'json')
 							}
 						 }
 					}, 'json');
