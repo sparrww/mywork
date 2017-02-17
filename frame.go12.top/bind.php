@@ -18,24 +18,27 @@ if(!Gateway::isOnline($client_id)) return;
 // client_id与uid绑定
 Gateway::bindUid($client_id, $client_id);
 
-if($_POST['project']=='wzq'){
-    require(__DIR__.'/project/wzq/DB.class.php');//引入数据库类
-    $db=DB::getDB();
+switch ($_POST['project']){
+    case 'wzq':
+        require(__DIR__.'/project/wzq/DB.class.php');//引入数据库类
+        $db=DB::getDB();
 
-    if(!empty($_POST['username'])){
-        $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
-        DB::unDB($res, $db);
-        return json_encode(['type'=>'success','username'=>$_POST['username']]);
-    }else{
-        $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
-        $row=$res->fetch_object();
-        if(!$row->username){
-            $db->query("INSERT INTO user (userid) VALUES ('$client_id')");
+        if(!empty($_POST['username'])){
+            $db->query("update user set username='{$_POST['username']}' where  userid='{$client_id}'");
+            DB::unDB($res, $db);
+            return json_encode(['type'=>'success','username'=>$_POST['username']]);
+        }else{
+            $res=$db->query("SELECT username FROM user WHERE userid='{$client_id}' LIMIT 1");
+            $row=$res->fetch_object();
+            if(!$row->username){
+                $db->query("INSERT INTO user (userid) VALUES ('$client_id')");
+            }
+            DB::unDB($res, $db);
+            return json_encode(['type'=>'success','username'=>'']);
         }
-        DB::unDB($res, $db);
-        return json_encode(['type'=>'success','username'=>'']);
-    }
+        break;
 }
+
 
 var_dump(Gateway::getClientIdByUid($uid));
 // 加入某个群组（可调用多次加入多个群组）
