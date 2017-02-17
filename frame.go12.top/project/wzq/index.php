@@ -131,9 +131,7 @@ ini_set('display_errors', '1');
 		<div id="user">
 			<h2>在线用户<img src="img/reload.png"/></h2>
 			<ul>
-				<?php foreach($allUser as $value){ ?>
-				<li><span class="onlineuid"><?php echo $value; ?></span></span><span class="invite" onclick="invite(this)">邀请</span></li>
-				<?php } ?>
+
 			</ul>
 		</div>
 	</div>
