@@ -1,6 +1,5 @@
 <?php
 //查看邀请文件
-var_dump($_GET);
 if(isset($_GET['client_id'])){
     require('DB.class.php');//引入数据库类
     $db=DB::getDB();
