@@ -12,15 +12,15 @@
 	}
 
 	//数据库资源句柄
-	$db=DB::getDB();
-	$db->query("INSERT INTO user (userid) VALUES ('$userid')");
-	if($db->affected_rows!=1){
-		exit('用户数据写入失败，请重刷页面');
-	}
+//	$db=DB::getDB();
+//	$db->query("INSERT INTO user (userid) VALUES ('$userid')");
+//	if($db->affected_rows!=1){
+//		exit('用户数据写入失败，请重刷页面');
+//	}
 	
 	//获取当前所有在线用户
 	$allUser=array();
-	$res=$db->query("SELECT userid FROM user");
+	$res=$db->query("SELECT username FROM user");
 	if($res){
 		while (!!$row=$res->fetch_array()){
 		
