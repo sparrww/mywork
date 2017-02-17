@@ -26,7 +26,7 @@ ini_set('display_errors', '1');
 	if($res){
 		while (!!$row=$res->fetch_array()){
 		
-			$allUser[]=$row['userid'];
+			$allUser[]=$row['username'];
 		}
 		
 	}else{
