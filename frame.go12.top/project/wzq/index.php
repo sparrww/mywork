@@ -46,6 +46,7 @@
 
 	<script type="text/javascript">
 		var clienid = '';
+		var name = '';
 		ws = new WebSocket("ws://"+document.domain+":7272");
 		// 服务端主动推送消息时会触发这里的onmessage
 		ws.onmessage = function(e){
@@ -61,9 +62,15 @@
 					$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq"}, function(data){
 						 if(data.type=='success'){
 						 	if(data.username){
-						 		$("#userid").html(data.username)
+								name = data.username;
+						 		$("#userid").html(name)
 							}else{
-
+								name = prompt('输入你的名字：', '');
+								if(!name || name=='null'){
+									name = '游客';
+								}
+								$("#userid").html(name)
+								$.post("http://"+document.domain+'/bind.php', {client_id: data.client_id,"project":"wzq",'username':name}, function(data){}
 							}
 						 }
 					}, 'json');
