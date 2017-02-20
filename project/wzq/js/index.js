@@ -497,7 +497,6 @@ $(function(){
 		
 	//刷新显示在线用户	
 	$('#user img').click(function(){
-		console.log(123)
 		$.ajax({
 			type:'post',
 			url:'user.php',
