@@ -507,9 +507,9 @@ $(function(){
 				var li='';
 				for(var i=0; i<users.length; i++){
 					if(users[i]==$('#userid-bak').html()){
-						li+='<li class="red"><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+id[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
+						li+='<li class="red"><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+usersid[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
 					}else{
-						li+='<li><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+id[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
+						li+='<li><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+usersid[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
 					}
 				}
 				$('#user ul').html(li);
