@@ -12,9 +12,8 @@
 				echo '1';//等待对方接受邀请
 			}else if($dataArr->confirm==2){
                 $res2=$db->query("SELECT username FROM user WHERE userid='$dataArr->touid' LIMIT 1");
-                $dataArr2=$res->fetch_object();
+                $dataArr2=$res2->fetch_object();
 
-                var_dump($res2);die;
 				echo '2|'.$dataArr->touid.'|'.$dataArr2->username;//对方已接受邀请
 			}
 		}elseif($dataArr->touid==$uid){
