@@ -463,7 +463,9 @@ $(function(){
 				}else if(info[0]=='2'){				
 					alert('对方已接受邀请,点击“开始下子”开始游戏吧');
 					$('#buid').html($('#userid').html());
+					$('#buid-bak').html($('#userid-bak').html());
 					$('#wuid').html(info[1]);
+					$('#wuid-bak').html(info[2]);
 				}else if(info[0]=='3'){
 					//当用户点击查看邀请后
 					var data=confirm('确认接受邀请吗？')? '2' :'1';
