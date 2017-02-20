@@ -496,27 +496,7 @@ $(function(){
 	});
 		
 	//刷新显示在线用户	
-	$('#user img').click(function(){
-		$.ajax({
-			type:'post',
-			url:'user.php',
-			success:function(text){
-				var users=text.split('|');
-				var li='';
-				console.log(123)
-				for(var i=0; i<users.length; i++){
-					if(users[i]==$('#userid-bak').html()){
-						li+='<li class="red"><span class="onlineuid">'+users[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
-					}else{
-						li+='<li><span class="onlineuid">'+users[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
-					}
-				}
-				$('#user ul').html(li);
-			},
-			async:false,
-		
-		});
-	});
+
 	/*
 	//手动模拟更新棋局
 	$('#update').click(function(){
