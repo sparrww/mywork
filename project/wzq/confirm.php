@@ -13,7 +13,11 @@
 				$db->query("UPDATE play SET confirm=2 WHERE touid='{$_POST["uid"]}'");
 				$res=$db->query("SELECT fromuid FROM play WHERE touid='{$_POST["uid"]}' LIMIT 1");
 				$row=$res->fetch_object();
-				echo $row->fromuid;
+
+                $res2=$db->query("SELECT username FROM user WHERE userid='$row->fromuid' LIMIT 1");
+                $dataArr2=$res2->fetch_object();
+
+                echo $row->fromuid.'|'.$dataArr2->username;//对方已接受邀请
 			}
 		}elseif($_POST['a']=='get'){
 			
