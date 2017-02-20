@@ -482,8 +482,12 @@ $(function(){
 							if(text=='1'){
 								
 							}else{
-								$('#buid').html(text);
+								var info=text.split('|');
+								$('#buid').html(info[0]);
+								$('#buid-bak').html(info[1]);
+
 								$('#wuid').html($('#userid').html());
+								$('#wuid-bak').html($('#userid-bak').html());
 							}
 						},
 						async:false,
