@@ -501,13 +501,14 @@ $(function(){
 			type:'post',
 			url:'user.php',
 			success:function(text){
-				var users=text.split('|');
+				var users=text.user.split('|');
+				var usersid=text.id.split('|');
 				var li='';
 				for(var i=0; i<users.length; i++){
 					if(users[i]==$('#userid-bak').html()){
-						li+='<li class="red"><span class="onlineuid">'+users[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
+						li+='<li class="red"><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+id[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
 					}else{
-						li+='<li><span class="onlineuid">'+users[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
+						li+='<li><span>'+users[i]+'</span><span class="onlineuid" style="display: none">'+id[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
 					}
 				}
 				$('#user ul').html(li);
