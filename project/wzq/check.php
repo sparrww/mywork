@@ -14,7 +14,7 @@
                 $res2=$db->query("SELECT username FROM user WHERE userid='$dataArr->touid' LIMIT 1");
                 $dataArr2=$res->fetch_object();
 
-				echo '2|'.$dataArr->touid.'|'.$dataArr->username;//对方已接受邀请
+				echo '2|'.$dataArr->touid.'|'.$dataArr2->username;//对方已接受邀请
 			}
 		}elseif($dataArr->touid==$uid){
 			echo '3';//说明查看邀请的用户被邀请了
