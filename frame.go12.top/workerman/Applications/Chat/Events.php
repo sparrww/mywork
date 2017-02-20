@@ -51,13 +51,8 @@ class Events
    public static function onClose($client_id)
    {
        // debug
-       $ch = curl_init();
-       $timeout = 5;
-       curl_setopt ($ch, CURLOPT_URL, 'http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
-       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-       curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-       $file_contents = curl_exec($ch);
-       curl_close($ch);
+
+       file_get_contents('http://frame.go12.top/project/wzq/close.php?client_id='.$client_id);
        Gateway::sendToAll(json_encode(['type'=>'close','clent_id'=>$client_id]));
    }
 
