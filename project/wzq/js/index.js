@@ -501,6 +501,7 @@ $(function(){
 			type:'post',
 			url:'user.php',
 			success:function(text){
+				var text = JSON.parse(text)
 				var users=text.user.split('|');
 				var usersid=text.id.split('|');
 				var li='';
