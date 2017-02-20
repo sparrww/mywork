@@ -503,8 +503,8 @@ $(function(){
 			success:function(text){
 				var users=text.split('|');
 				var li='';
+				console.log(123)
 				for(var i=0; i<users.length; i++){
-					console.log(123)
 					if(users[i]==$('#userid-bak').html()){
 						li+='<li class="red"><span class="onlineuid">'+users[i]+'</span><span class="invite" onclick="invite(this)">邀请</span></li>';
 					}else{
