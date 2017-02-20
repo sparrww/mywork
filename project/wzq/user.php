@@ -15,7 +15,7 @@ if(isset($_POST)){
 			$allUser=substr($allUser, 1);
             $allId=substr($allId, 1);
 		}
-		echo $allUser.'--'.$allId;
+		echo json_encode(['user'=>$allUser,'id'=>$allId]);
 	}
 	DB::unDB($res, $db);
 }
