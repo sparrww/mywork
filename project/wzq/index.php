@@ -61,18 +61,19 @@ ini_set('display_errors', '1');
 				case 'init':
 					console.log(e.data);
 					clienid = data.client_id;
+					$("#userid").html(clienid)
 					// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
 					$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq"}, function(data){
 						 if(data.type=='success'){
 						 	if(data.username){
 								name = data.username;
-						 		$("#userid").html(name)
+						 		$("#userid-bak").html(name)
 							}else{
 								name = prompt('输入你的名字：', '');
 								if(!name || name=='null'){
 									name = '游客';
 								}
-								$("#userid").html(name)
+								$("#userid-bak").html(name)
 								$.post("http://"+document.domain+'/bind.php', {client_id: clienid,"project":"wzq",'username':name}, function(data){}, 'json')
 							}
 						 }
@@ -108,8 +109,11 @@ ini_set('display_errors', '1');
 	</div>
 	<div id="container">
 		<div id="top">
-			<p class="p1">你的ID:<span id="userid"></span></p>
-			<p class="p2">当前对战:  <span id="buid">无</span> <strong>黑子</strong>  <span id="wuid">无</span> <strong>白子</strong><em id="alertinfo"></em></p>
+			<div id="userid" style="display: none"></div>
+			<div id="buid" style="display: none"></div>
+			<div id="wuid" style="display: none"></div>
+			<p class="p1">你的ID:<span id="userid-bak"></span></p>
+			<p class="p2">当前对战:  <span id="buid-bak">无</span> <strong>黑子</strong>  <span id="wuid-bak">无</span> <strong>白子</strong><em id="alertinfo"></em></p>
 		</div>
 		<table>
 		<?php for($i=0;$i<10;$i++){?>
