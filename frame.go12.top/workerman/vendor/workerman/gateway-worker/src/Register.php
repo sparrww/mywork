@@ -146,7 +146,7 @@ class Register extends Worker
             case 'ping':
                 break;
             default:
-                self::log("Register unknown event:$event IP: ".$connection->getRemoteIp()." Buffer:$buffer. See http://wiki.workerman.net/Error4 for detail");
+                //self::log("Register unknown event:$event IP: ".$connection->getRemoteIp()." Buffer:$buffer. See http://wiki.workerman.net/Error4 for detail");
                 $connection->close();
         }
     }
