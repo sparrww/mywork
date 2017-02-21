@@ -45,7 +45,7 @@ $(function(){
 			
 			listenerfuc('put1');
 		}else{
-			alert('等待黑子');
+			alert('等待黑子...');
 			return;
 		}
 		
