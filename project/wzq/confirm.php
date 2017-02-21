@@ -22,6 +22,7 @@ Gateway::$registerAddress = '127.0.0.1:1236';
 
                 echo $row->fromuid.'|'.$dataArr2->username;//对方已接受邀请
                 Gateway::sendToUid($row->fromuid, json_encode(['type'=>'invite']));
+                Gateway::sendToUid($row->fromuid, json_encode(['type'=>'confirm']));
 			}
 		}elseif($_POST['a']=='get'){
 			
