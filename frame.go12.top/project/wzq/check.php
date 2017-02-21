@@ -1,4 +1,7 @@
 <?php
+require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
+use GatewayClient\Gateway;
+Gateway::$registerAddress = '127.0.0.1:1236';
 	//查看邀请文件
 	if(isset($_POST)){
 		require('DB.class.php');//引入数据库类
