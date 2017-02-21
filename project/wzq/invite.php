@@ -1,5 +1,5 @@
 <?php
-	//ajax处理邀请信息	
+	//ajax处理邀请信息
 	if(isset($_POST)){
 		require('DB.class.php');//引入数据库类
 
@@ -18,6 +18,10 @@
 		if($db->affected_rows != 1){
 			echo '2';//邀请失败
 		}else{
+            require __DIR__.'/../../workerman/vendor/GatewayClient/Gateway.php';
+            use GatewayClient\Gateway;
+            Gateway::$registerAddress = '127.0.0.1:1236';
+            Gateway::sendToUid($touid, json_encode(['type'=>'invite']));
 			echo '3';//邀请成功，等待确认
 
 		}
