@@ -134,7 +134,7 @@ ini_set('display_errors', '1');
 		<div id="rightbar">
 	
 			<p><button id="check">查看邀请</button></p>
-			<p><button id="start" style="display: none">开始下子</button></p>
+			<p><button id="start">开始下子</button></p>
 			<p><button id="back">悔棋</button></p>
 			<p><button id="clear">清局</button></p>
 
