@@ -44,6 +44,9 @@ $(function(){
 		if($('#userid').html()==$('#buid').html()){
 			
 			listenerfuc('put1');
+		}else{
+			alert('等待黑子');
+			return;
 		}
 		
 		//棋盘初始化
