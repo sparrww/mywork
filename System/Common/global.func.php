@@ -602,9 +602,7 @@ function iCurl($url,$curlPost='')
  * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
-function Post($url,$params=false){
-    $postUrl = $url;
-    $postData = $params;
+function Post($postUrl,$postData=false){
     $postData = http_build_query($postData);
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $postUrl);
