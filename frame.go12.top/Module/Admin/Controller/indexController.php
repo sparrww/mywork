@@ -304,9 +304,10 @@ class indexController extends Controller{
             'limit'=>0,
             'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
         ];
-        iCurl($yjj_url,)
+        $list = iCurl($yjj_url,$data);
 
 
+        dump($list);
         include $this->display('yjj.html');
 
     }
