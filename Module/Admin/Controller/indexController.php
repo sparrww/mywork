@@ -302,7 +302,7 @@ class indexController extends Controller{
         $_GPC['keyword'] = '山东鲁西兽药';
         $data = [
             'start'=>0,
-            'limit'=>50,
+            'limit'=>10,
             'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
         ];
 
