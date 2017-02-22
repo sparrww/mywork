@@ -586,6 +586,7 @@ function iCurl($url,$curlPost='')
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     curl_setopt ($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
     $contents = curl_exec($ch);
     curl_close($ch);
     return $contents ;
