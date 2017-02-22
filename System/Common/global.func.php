@@ -602,32 +602,26 @@ function iCurl($url,$curlPost='')
  * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
-function Post($url,$params=false,$ispost=1){
-    $httpInfo = array();
-    $ch = curl_init();
+function Post($url,$params=false){
+    $postUrl = '';
+    $postData = array(
+        'user_name'=>$userName,
+        'identity_no'=>$idCardNo
+    );
+    $postData = http_build_query($postData);
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $postUrl);
+    curl_setopt($curl, CURLOPT_USERAGENT,'Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.15');
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // stop verifying certificate
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $postData);
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+    $r = curl_exec($curl);
+    curl_close($curl);
 
-    curl_setopt( $ch, CURLOPT_HTTP_VERSION , CURL_HTTP_VERSION_1_1 );
-    curl_setopt( $ch, CURLOPT_CONNECTTIMEOUT , 5 );
-    curl_setopt( $ch, CURLOPT_TIMEOUT , 5);
-    curl_setopt( $ch, CURLOPT_RETURNTRANSFER , true );
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    if( $ispost )
-    {
-        curl_setopt( $ch , CURLOPT_POST , true );
-        curl_setopt( $ch , CURLOPT_POSTFIELDS , $params );
-        curl_setopt( $ch , CURLOPT_URL , $url );
-    }
-    else
-    {
-        if($params){
-            curl_setopt( $ch , CURLOPT_URL , $url.$params );
-        }else{
-            curl_setopt( $ch , CURLOPT_URL , $url);
-        }
-    }
-    $response = curl_exec( $ch );
-    curl_close( $ch );
-    return $response;
+    return $r;
 }
 
 
