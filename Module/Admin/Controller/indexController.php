@@ -307,7 +307,7 @@ class indexController extends Controller{
         ];
 
 
-        $list = json_decode(Post($yjj_url,$data),true);
+        $list = Post($yjj_url,$data);
 
 
         dump($list);
