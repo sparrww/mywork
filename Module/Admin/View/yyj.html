@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>微信海移动营销服务平台</title>
+    <meta name="keywords" content="微信海,微信,微信公众平台">
+    <link type="text/css" rel="stylesheet" href="/Module/{php echo ucfirst($_GPC['act'])}/View/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="/Module/{php echo ucfirst($_GPC['act'])}/View/css/font-awesome.css">
+    <link type="text/css" rel="stylesheet" href="/Module/{php echo ucfirst($_GPC['act'])}/View/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/Module/{php echo ucfirst($_GPC['act'])}/View/css/frame_v4.css">
+    <script type="text/javascript" src="/Module/{php echo ucfirst($_GPC['act'])}/View/js/jquery-1.8.2.min.js" ></script>
+    <script type="text/javascript" src="/Module/{php echo ucfirst($_GPC['act'])}/View/js/layer/layer.js"></script>
+    <script type="text/javascript" src="/Module/{php echo ucfirst($_GPC['act'])}/View/js/laydate/laydate.js"></script>
+</head>
+<style>
+    td,input {
+        font-size: 1.3rem;
+        margin: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    select{
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+<div class="my_content">
+    <div class="my_seller">
+        <div class="my_seller_main clearfix" style="border:0">
+            <!--<a href="{php echo create_url('User',['export'=>1])}" class="my_add" style="margin-left:30px;"><span class="plus_icon"></span><span class="word">导出数据</span></a>-->
+            <div class="my_table">
+                <form action="" method="get">
+                    <input type="hidden" name="act" value="Admin">
+                    <input type="hidden" name="name" value="index">
+                    <input type="hidden" name="op" value="award">
+                    <div style="padding: 10px; ">
+                        关键字: <input type="text" style="width:16rem;" name="keyword" value="{$_GET['keyword']}" placeholder="公司名称">
+                        &nbsp;&nbsp;&nbsp;
+                        <button class="btn" type="submit" style="margin-bottom: 5px">搜索</button>
+                        <!--&nbsp;&nbsp;&nbsp;-->
+                        <!--<button class="btn" type="submit" name="export" style="margin-bottom: 5px" value="1">导出</button>-->
+                        <!--&nbsp;&nbsp;&nbsp;-->
+                        <!--<span style="color: red">友情提示：导出会根据检索条件导出所有数据。</span>-->
+                    </div>
+                </form>
+                <table class="table table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>手机号</th>
+                        <th>交易流水号</th>
+                        <th>渠道</th>
+                        <th>抽奖时间</th>
+                        <th>中奖状态</th>
+                        <th>发放状态</th>
+                        <th>奖品名称</th>
+                        <th>发放金额</th>
+                        <th>IP地址</th>
+                        <th>手机型号</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {loop $list $row}
+                    <tr>
+                        <td>
+                            <div>
+                                {$row['mobile']}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {$row['tradno']}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {if $row['ch']=='app'}手机银行{elseif $row['ch']=='web'}网上银行{/if}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {php echo date('Y-m-d H:i:s',$row['ctime'])}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {if $row['iswin']==1}已中奖{else}未中奖{/if}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {if $row['status']==0}未领取{elseif $row['status']==1}发放成功{elseif $row['status']==2}发放失败{/if}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {$row['prizename']}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {$row['pay_account']}元
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {$row['ip']}
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                {$row['os']}
+                            </div>
+                        </td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+                <div class="my_page">{$pager}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        $("#iswin option").each(function () {
+            if ($(this).val() == "{$_GPC['iswin']}") {
+                $(this).attr("selected", "selected");
+                return;
+            }
+        })
+        $("#status option").each(function () {
+            if ($(this).val() == "{$_GPC['status']}") {
+                $(this).attr("selected", "selected");
+                return;
+            }
+        })
+        var start = {
+            elem: '#create_time_start',
+            format: 'YYYY-MM-DD hh:mm:ss',
+            max: '2099-06-16', //最大日期
+            istime: true,
+            choose: function(datas){
+                end.min = datas;
+                end.start = datas
+            }
+        };
+        var end = {
+            elem: '#create_time_end',
+            istime: true,
+            format: 'YYYY-MM-DD hh:mm:ss',
+            choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+
+        laydate.skin('molv')
+        laydate(start);
+        laydate(end);
+    })
+
+</script>
+</body>
+</html>
+<!--首行分割线-->
