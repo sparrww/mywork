@@ -137,41 +137,6 @@ class indexController extends Controller{
         }
     }
 
-    /**
-     * @param $preData
-     * @param string $sortType
-     * @return array
-     * 二维数组按照某字段排序
-     */
-
-    function sortArrayAsc($preData,$sortType='sort'){
-        $sortData = array();
-        foreach ($preData as $key_i => $value_i){
-            $price_i = $value_i[$sortType];
-            $min_key = '';
-            $sort_total = count($sortData);
-            foreach ($sortData as $key_j => $value_j){
-                if($price_i<$value_j[$sortType]){
-                    $min_key = $key_j+1;
-                    break;
-                }
-            }
-            if(empty($min_key)){
-                array_push($sortData, $value_i);
-            }else {
-                $sortData1 = array_slice($sortData, 0,$min_key-1);
-                array_push($sortData1, $value_i);
-                if(($min_key-1)<$sort_total){
-                    $sortData2 = array_slice($sortData, $min_key-1);
-                    foreach ($sortData2 as $value){
-                        array_push($sortData1, $value);
-                    }
-                }
-                $sortData = $sortData1;
-            }
-        }
-        return $sortData;
-    }
 
     /**
      * 用户管理
@@ -260,31 +225,6 @@ class indexController extends Controller{
     }
 
     /**
-     * 问题管理
-     */
-    public function doQuestion() {
-        global $_GPC,$_W;
-        $where = ' WHERE 1=1';
-        if(!empty($_GPC['keyword'])){
-            $_GPC['keyword'] = trim($_GPC['keyword']);
-            $where .= " and (title like '%{$_GPC['keyword']}%')";
-        }
-
-        $total= pdo_fetchcolumn('SELECT count(*) FROM '.tablename($this->tablequestion).$where);
-        $pindex = max(1, intval($_GPC['page']));
-        $psize = 12;
-        $pager = pagination($total, $pindex, $psize);
-        $start = ($pindex - 1) * $psize;
-        $limit = " LIMIT {$start},{$psize}";
-
-        $list = pdo_fetchall('SELECT * FROM '.tablename($this->tablequestion).$where.' order by id desc '.$limit);
-
-
-        include $this->display('question');
-
-    }
-
-    /**
      * 问题导入
      */
     public function doimportQuestion(){
@@ -324,63 +264,6 @@ class indexController extends Controller{
         }
 
         message("导入数据成功",create_url('question'),"success");
-    }
-
-    /**
-     * 问题删除
-     */
-    public function doDelQuestion() {
-        global $_GPC,$_W;
-        if ($_W['isajax']) {
-            if($_GPC['id']){
-                if(pdo_delete($this->tablequestion,['id'=>$_GPC['id']])){
-                    message('success','success');
-                }else{
-                    message('error');
-                }
-            }
-        }
-    }
-
-    /**
-     * 问题添加/修改
-     */
-    public function doAddQuestion() {
-        global $_GPC,$_W;
-
-        if($_W['ispost']){
-            if(empty($_GPC['title']) || empty($_GPC['A']) || empty($_GPC['B']) || empty($_GPC['C']) || empty($_GPC['D']) || empty($_GPC['result'])) message('信息不完整');
-
-            if(!empty($_GPC['id'])){
-
-                pdo_update($this->tablequestion,[
-                    'title'=> trim($_GPC['title']),
-                    'A'=> trim($_GPC['A']),
-                    'B'=> trim($_GPC['B']),
-                    'C'=> trim($_GPC['C']),
-                    'D'=> trim($_GPC['D']),
-                    'result'=> strtoupper($_GPC['result']),
-                    'ctime'=>TIMESTAMP
-                ],['id'=>$_GPC['id']]);
-            }else{
-                pdo_insert($this->tablequestion,[
-                    'title'=> trim($_GPC['title']),
-                    'A'=> trim($_GPC['A']),
-                    'B'=> trim($_GPC['B']),
-                    'C'=> trim($_GPC['C']),
-                    'D'=> trim($_GPC['D']),
-                    'result'=> strtoupper($_GPC['result']),
-                    'ctime'=>TIMESTAMP
-                ]);
-            }
-            message('操作成功',create_url('question'));
-        }
-        if(!empty($_GPC['id'])){
-            $list = pdo_fetch('select * from '.tablename($this->tablequestion).' where id=:id',[':id'=>$_GPC['id']]);
-        }
-
-        include $this->display('addquestion');
-
     }
 
     /**
