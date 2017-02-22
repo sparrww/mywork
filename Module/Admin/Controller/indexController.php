@@ -301,6 +301,7 @@ class indexController extends Controller{
     public function Yjj() {
         global $_GPC,$_W;
 
+        dump($_GPC);die;
         $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
         $_GPC['keyword'] = '山东鲁西兽药';
         $data = [
@@ -312,8 +313,8 @@ class indexController extends Controller{
 
         $list = iCurl($yjj_url,$data);
 
+        $list = json_decode(iconv("gb2312","utf-8//IGNORE",$list),true);
 
-        dump(json_decode(iconv("gb2312","utf-8//IGNORE",$list),true));
         include $this->display('yjj.html');
 
     }
