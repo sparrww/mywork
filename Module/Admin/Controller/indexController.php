@@ -313,7 +313,7 @@ class indexController extends Controller{
         $list = iCurl($yjj_url,$data);
 
 
-        print_r(json_decode(iconv("gb2312","utf-8//IGNORE",$list),true));
+        dump(json_decode(iconv("gb2312","utf-8//IGNORE",$list),true));
         include $this->display('yjj.html');
 
     }
