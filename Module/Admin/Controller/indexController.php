@@ -311,10 +311,11 @@ class indexController extends Controller{
 
             $list = iCurl($yjj_url,$data);
             $list = json_decode(iconv("gb2312","utf-8//IGNORE",$list),true);
+            $list = $list['rows'];
         }
 
 
-        dump($list);
+
         include $this->display('yjj.html');
 
     }
