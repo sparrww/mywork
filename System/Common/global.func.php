@@ -568,6 +568,7 @@ function iCurl($url,$curlPost='')
     $header = array(
         'CLIENT-IP:'.$cip,
         'X-FORWARDED-FOR:'.$xip,
+        'Content-Type: application/x-www-form-urlencoded'
     );
 
     $binfo =array('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; InfoPath.2; AskTbPTV/5.17.0.25589; Alexa Toolbar)','Mozilla/5.0 (Windows NT 5.1; rv:22.0) Gecko/20100101 Firefox/22.0','Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET4.0C; Alexa Toolbar)','Mozilla/4.0(compatible; MSIE 6.0; Windows NT 5.1; SV1)');
@@ -584,7 +585,6 @@ function iCurl($url,$curlPost='')
     curl_setopt ($ch, CURLOPT_USERAGENT, $u);
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     curl_setopt ($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
     $contents = curl_exec($ch);
     curl_close($ch);
