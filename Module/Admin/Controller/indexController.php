@@ -301,8 +301,8 @@ class indexController extends Controller{
         $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
         $_GPC['keyword'] = '山东鲁西兽药';
         $data = [
-            'start'=>0,
-            'limit'=>0,
+            'start'=>'0',
+            'limit'=>'0',
             'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
         ];
         $list = iCurl($yjj_url,$data);
