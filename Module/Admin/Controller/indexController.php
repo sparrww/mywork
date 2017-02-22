@@ -305,7 +305,20 @@ class indexController extends Controller{
             'limit'=>0,
             'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
         ];
-        $list = Post($yjj_url,$data);
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $yjj_url);
+        curl_setopt($curl, CURLOPT_USERAGENT,'Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.15');
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // stop verifying certificate
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+        $list = curl_exec($curl);
+        curl_close($curl);
+
+        //$list = Post($yjj_url,$data);
 
 
         dump($list);
