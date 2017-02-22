@@ -6,7 +6,7 @@
      "master" => [
          "host" =>  "127.0.0.1",
          "username" => "root",
-         "password" => "root",
+         "password" => "s87161762",
          "port" => "3306",
          "database" => "frame",
          'pconnect' => 0,
@@ -15,7 +15,7 @@
      "slave1" => [
          "host" =>  "127.0.0.1",
          "username" => "root",
-         "password" => "root",
+         "password" => "s87161762",
          "port" => "3306",
          "database" => "frame",
          'pconnect' => 0,
