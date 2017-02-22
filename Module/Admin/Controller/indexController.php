@@ -300,20 +300,20 @@ class indexController extends Controller{
      */
     public function Yjj() {
         global $_GPC,$_W;
+        $list = [];
+        if(!empty($_GPC['search'])){
+            $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
+            $_GPC['keyword'] = '山东鲁西兽药';
+            $data = [
+                'start'=>0,
+                'limit'=>0,
+                'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
+            ];
 
-        dump($_GPC);die;
-        $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
-        $_GPC['keyword'] = '山东鲁西兽药';
-        $data = [
-            'start'=>0,
-            'limit'=>0,
-            'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
-        ];
+            $list = iCurl($yjj_url,$data);
+            $list = json_decode(iconv("gb2312","utf-8//IGNORE",$list),true);
+        }
 
-
-        $list = iCurl($yjj_url,$data);
-
-        $list = json_decode(iconv("gb2312","utf-8//IGNORE",$list),true);
 
         include $this->display('yjj.html');
 
