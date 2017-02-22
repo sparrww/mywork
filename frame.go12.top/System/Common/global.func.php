@@ -598,7 +598,7 @@ function iCurl($url,$curlPost='')
  * @param  int $ipost [是否采用POST形式]
  * @return  string
  */
-function Post($url,$params=false,$ispost=0){
+function Post($url,$params=false,$ispost=1){
     $httpInfo = array();
     $ch = curl_init();
 
