@@ -307,7 +307,7 @@ class indexController extends Controller{
         ];
 
 
-        $list = iCurl($yjj_url,$data);
+        $list = iCurl($yjj_url,iconv("gb2312","utf-8//IGNORE",$data));
 
 
         print_r($list);
