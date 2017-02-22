@@ -1836,7 +1836,7 @@ class indexController extends Controller{
             "slh": "0704083589"
         }
     ]';
-        var_dump($data);
+        dump(json_decode($data,true));
         include $this->display('yjj.html');
 
     }
