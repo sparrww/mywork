@@ -297,9 +297,16 @@ class indexController extends Controller{
      */
     public function Yjj() {
         global $_GPC,$_W;
-        if ($_W['isajax']) {
 
-        }
+        $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
+        $data = [
+            'start'=>0,
+            'limit'=>0,
+            'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['key'].'","itemtype":"String","condType":"val"}]'
+        ];
+        iCurl($yjj_url,)
+
+
         include $this->display('yjj.html');
 
     }
