@@ -308,7 +308,6 @@ class indexController extends Controller{
         $list = iCurl($yjj_url,$data);
 
 
-
         dump($list);
         include $this->display('yjj.html');
 
