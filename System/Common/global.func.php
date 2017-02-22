@@ -603,11 +603,8 @@ function iCurl($url,$curlPost='')
  * @return  string
  */
 function Post($url,$params=false){
-    $postUrl = '';
-    $postData = array(
-        'user_name'=>$userName,
-        'identity_no'=>$idCardNo
-    );
+    $postUrl = $url;
+    $postData = $params;
     $postData = http_build_query($postData);
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, $postUrl);
