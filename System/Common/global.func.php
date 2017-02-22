@@ -580,7 +580,7 @@ function iCurl($url,$curlPost='')
 
     curl_setopt ($ch, CURLOPT_URL, $url);
     curl_setopt ($ch, CURLOPT_HTTPHEADER, $header);
-    curl_setopt ($ch, CURLOPT_COOKIESESSION, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt ($ch, CURLOPT_REFERER, $url);
     curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt ($ch, CURLOPT_USERAGENT, $u);
