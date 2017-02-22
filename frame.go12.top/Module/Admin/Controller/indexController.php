@@ -296,6 +296,7 @@ class indexController extends Controller{
      * 药监局
      */
     public function Yjj() {
+        echo 123;die;
         global $_GPC,$_W;
         if ($_W['isajax']) {
             if($_GPC['password']){
