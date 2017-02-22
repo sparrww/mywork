@@ -576,8 +576,6 @@ function iCurl($url,$curlPost='')
     $u = $binfo[mt_rand(0,2)];
 
 
-    dump($curlPost);
-
     $ch = curl_init();
 
     curl_setopt ($ch, CURLOPT_URL, $url);
@@ -588,7 +586,7 @@ function iCurl($url,$curlPost='')
     curl_setopt ($ch, CURLOPT_USERAGENT, $u);
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     curl_setopt ($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($curlPost));
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
     $contents = curl_exec($ch);
     curl_close($ch);
