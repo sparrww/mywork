@@ -561,7 +561,7 @@ function matchPic($content){
 function iCurl($url,$curlPost='')
 {
 
-    $timeout = 3;
+    $timeout = 0;
 
     $cip = '148.126.58.'.mt_rand(0,254);
     $xip = '148.126.47.'.mt_rand(0,254);
