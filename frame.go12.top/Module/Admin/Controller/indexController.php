@@ -314,6 +314,7 @@ class indexController extends Controller{
         }
 
 
+        dump($list);die;
         include $this->display('yjj.html');
 
     }
