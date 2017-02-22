@@ -54,7 +54,7 @@ class indexController extends Controller{
             include $this->display('login.html');
             die;
         }else{
-            echo '<meta http-equiv="refresh" content="0;url=' . create_url('Prize') . '">';
+            echo '<meta http-equiv="refresh" content="0;url=' . create_url('Yjj') . '">';
             die;
         }
     }
