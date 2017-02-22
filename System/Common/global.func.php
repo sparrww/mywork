@@ -584,6 +584,7 @@ function iCurl($url,$curlPost='')
     curl_setopt ($ch, CURLOPT_USERAGENT, $u);
     curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     curl_setopt ($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $curlPost);
     $contents = curl_exec($ch);
     curl_close($ch);
