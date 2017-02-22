@@ -25,6 +25,41 @@ class indexController extends Controller{
         $this->info = json_decode($_SESSION[$_GPC['act'].'_login'],true);
     }
 
+    /**
+     * 登陆
+     */
+    public function login()
+    {
+        global $_GPC, $_W;
+        if (empty($_SESSION[$_GPC['act'].'_login'])) {
+
+            if ($_W['isajax']) {
+                $name = $_GPC['username'];
+                $pwd = $_GPC['password'];
+
+                $result = pdo_fetch('select * from ' . tablename($this->tablemember) . ' where username=:username and password=:password', [
+                    ':username' => $name,
+                    ':password' => md5($pwd)
+                ]);
+
+
+                if ($result) {
+                    setcookie(session_name(), session_id(), time() + 3600 * 24, "/");
+                    $_SESSION[$_GPC['act'].'_login'] = json_encode($result);
+                    message(['url' => create_url('manage')],'success');
+                } else {
+                    message('用户名与密码不匹配！');
+                }
+            }
+            include $this->display('login.html');
+            die;
+        }else{
+            echo '<meta http-equiv="refresh" content="0;url=' . create_url('Prize') . '">';
+            die;
+        }
+    }
+
+
     public function Manage() {
         global $_GPC,$_W;
         include $this->display('header.html');
@@ -373,38 +408,6 @@ class indexController extends Controller{
         die;
     }
 
-    /**
-     * 登陆
-     */
-    public function login()
-    {
-        global $_GPC, $_W;
-        if (empty($_SESSION[$_GPC['act'].'_login'])) {
 
-            if ($_W['isajax']) {
-                $name = $_GPC['username'];
-                $pwd = $_GPC['password'];
-
-                $result = pdo_fetch('select * from ' . tablename($this->tablemember) . ' where username=:username and password=:password', [
-                    ':username' => $name,
-                    ':password' => md5($pwd)
-                ]);
-
-
-                if ($result) {
-                    setcookie(session_name(), session_id(), time() + 3600 * 24, "/");
-                    $_SESSION[$_GPC['act'].'_login'] = json_encode($result);
-                    message(['url' => create_url('manage')],'success');
-                } else {
-                    message('用户名与密码不匹配！');
-                }
-            }
-            include $this->display('login.html');
-            die;
-        }else{
-            echo '<meta http-equiv="refresh" content="0;url=' . create_url('Prize') . '">';
-            die;
-        }
-    }
 
 }
