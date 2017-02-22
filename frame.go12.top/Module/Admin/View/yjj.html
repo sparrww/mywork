@@ -62,7 +62,7 @@
                     <tr>
                         <td>
                             <div>
-                                {$row['mobile']}
+                                {$_GPC['keyword']}
                             </div>
                         </td>
                         <td>
@@ -72,12 +72,12 @@
                         </td>
                         <td>
                             <div>
-                                {if $row['ch']=='app'}手机银行{elseif $row['ch']=='web'}网上银行{/if}
+                                {$row['spm']}
                             </div>
                         </td>
                         <td>
                             <div>
-                                {php echo date('Y-m-d H:i:s',$row['ctime'])}
+                                {$row['tym']}
                             </div>
                         </td>
                         <td>
@@ -88,26 +88,6 @@
                         <td>
                             <div>
                                 {if $row['status']==0}未领取{elseif $row['status']==1}发放成功{elseif $row['status']==2}发放失败{/if}
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                {$row['prizename']}
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                {$row['pay_account']}元
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                {$row['ip']}
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                {$row['os']}
                             </div>
                         </td>
                     </tr>
