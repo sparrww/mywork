@@ -321,7 +321,7 @@ class indexController extends Controller{
         $r = curl_exec($curl);
         curl_close($curl);
 
-        print_r($r);
+        dump($r);
 
 //        $list = Post($yjj_url,$data);
 //
