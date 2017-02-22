@@ -303,7 +303,6 @@ class indexController extends Controller{
         $list = [];
         if(!empty($_GPC['search'])){
             $yjj_url = 'http://sysjk.ivdc.org.cn:8081/cx/querysycppzwh/querySycppzwhData.do';
-            $_GPC['keyword'] = '山东鲁西兽药';
             $data = [
                 'start'=>0,
                 'limit'=>0,
