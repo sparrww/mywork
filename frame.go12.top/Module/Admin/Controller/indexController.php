@@ -302,7 +302,7 @@ class indexController extends Controller{
         $data = [
             'start'=>0,
             'limit'=>0,
-            'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['key'].'","itemtype":"String","condType":"val"}]'
+            'condList'=>'[{"itemname":"qymc","itemfieldname":"qymc","itemval":"'.$_GPC['keyword'].'","itemtype":"String","condType":"val"}]'
         ];
         iCurl($yjj_url,)
 
