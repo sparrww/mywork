@@ -26,7 +26,6 @@ class indexController extends Controller{
         }
 
         $this->info = json_decode($_SESSION[$_GPC['act'].'_login'],true);
-        dump($this->info);
     }
 
     /**
