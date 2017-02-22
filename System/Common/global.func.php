@@ -575,7 +575,6 @@ function iCurl($url,$curlPost='')
     $u = $binfo[mt_rand(0,2)];
 
 
-    dump($curlPost);die;
     $ch = curl_init();
 
     curl_setopt ($ch, CURLOPT_URL, $url);
