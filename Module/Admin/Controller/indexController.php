@@ -325,7 +325,7 @@ class indexController extends Controller{
         print_r($r);
 
 
-        dump($list);
+        //dump($list);
         include $this->display('yjj.html');
 
     }
