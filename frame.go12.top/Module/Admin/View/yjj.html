@@ -32,9 +32,9 @@
             <!--<a href="{php echo create_url('User',['export'=>1])}" class="my_add" style="margin-left:30px;"><span class="plus_icon"></span><span class="word">导出数据</span></a>-->
             <div class="my_table">
                 <form action="" method="get">
-                    <input type="hidden" name="act" value="Admin">
-                    <input type="hidden" name="name" value="index">
-                    <input type="hidden" name="op" value="award">
+                    <input type="hidden" name="act" value="{$_GPC['act']}">
+                    <input type="hidden" name="name" value="{$_GPC['name']}">
+                    <input type="hidden" name="op" value="{$_GPC['index']}">
                     <div style="padding: 10px; ">
                         关键字: <input type="text" style="width:25rem;" name="keyword" value="{$_GET['keyword']}" placeholder="公司名称">
                         &nbsp;&nbsp;&nbsp;
