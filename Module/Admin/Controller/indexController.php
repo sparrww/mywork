@@ -19,6 +19,7 @@ class indexController extends Controller{
 
     public function __construct(){
         global $_GPC,$_W;
+        echo 123;die;
         //登陆判断
         //dump($_SESSION);die;
         if(empty($_SESSION[$_GPC['act'].'_login'])) {
